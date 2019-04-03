@@ -4,16 +4,18 @@ ASearch::ASearch()
 {
 
 }
-void ASearch::init(Data*data,REAL bminx,REAL bminy,REAL bminz,REAL bmaxx,REAL bmaxy,REAL bmaxz,REAL RMax)
+void ASearch::init(Data*data,Point bmin, Point bmax, REAL RMax)
 {
     this->data=data;
-    this->bminx=bminx;
-    this->bminy=bminy;
-    this->bminz=bminz;
-    this->bmaxx=bmaxx;
-    this->bmaxy=bmaxy;
-    this->bmaxz=bmaxz;
+    this->SUFORMUOTAS_GRIDAS=SUFORMUOTAS_GRIDAS;
+    this->bmin=bmin;
+    this->bmax=bmax;
     this->RMax=RMax;
     this->CELL_SIZE=CELL_SIZE*RMax;
+    //suskaiciuoju ribas
+    this->Nx=ceil((this->bmax.x-this->bmin.x)/this->CELL_SIZE);
+    this->Ny=ceil((this->bmax.y-this->bmin.y)/this->CELL_SIZE);
+    this->Nz=ceil((this->bmax.z-this->bmin.z)/this->CELL_SIZE);
+
     this->initialization();
 }

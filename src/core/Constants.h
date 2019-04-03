@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <map>
+#include <utility>
 
 /// surasome visas konstantas kurias naudosi
 

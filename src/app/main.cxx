@@ -29,8 +29,16 @@ int main()
 
     ///viska inicializuojame ka reikia
     ///
+    Point kint1, kint2;
+    kint1.x=0;
+    kint1.y=0;
+    kint1.z=0;
+
+    kint2.x=1;
+    kint2.y=1;
+    kint2.z=1;
     random->init(1,2,10);
-    search->init(data,0,0,0,1,1,1,2);
+    search->init(data,kint1,kint2,2);
     algorithm->init(data,random,search);
 
     /// atliekame tikraji pakinima

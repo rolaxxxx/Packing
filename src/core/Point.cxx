@@ -52,6 +52,11 @@ Point operator - (Point A,  Point B )
             A.R-=B.R;
              return A;
 }
+bool operator != (PointType A, PointType B){
+            if(A.x!=B.x&&A.y!=B.y&&A.z!=B.z)
+            return true;
+                    return false;
+}
 REAL dot_prod(Point vec_a, Point vec_b){  // dot produkto skaiciavimas
     REAL dot_prod_rez;
     dot_prod_rez=vec_a.x*vec_b.x + vec_a.y*vec_b.y + vec_a.z*vec_b.z;

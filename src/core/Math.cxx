@@ -36,8 +36,8 @@ PointsArrayType Math::getSpheresTouchingThreeOtherSpheres(PointType p1,PointType
     temporS1=S1-S2;
     temporS3=S1-S3;
 
-    vector_u=temporS1/(sqrt(pow(temporS1.x,2)+pow(temporS1.y,2)+pow(temporS1.z,2)));
-    vector_v=temporS3/(sqrt(pow(temporS3.x,2)+pow(temporS3.y,2)+pow(temporS3.z,2)));
+    vector_u=temporS1/vector_len(temporS1);
+    vector_v=temporS3/vector_len(temporS3);
 
     //cout << vector_w << endl;
     vector_w=S1*(-2);
@@ -45,14 +45,14 @@ PointsArrayType Math::getSpheresTouchingThreeOtherSpheres(PointType p1,PointType
 
     REAL calc_a, calc_b, calc_c;
     calc_a=(pow(ds2,2)-pow(ds1,2)+pow(S1.x,2)-pow(S2.x,2)+pow(S1.y,2)-pow(S2.y,2)+pow(S1.z,2)-pow(S2.z,2))/
-           (2*sqrt(pow(temporS1.x,2)+pow(temporS1.y,2)+pow(temporS1.z,2)));
+           (2*vector_len(temporS1));
     calc_b=(pow(ds3,2)-pow(ds1,2)+pow(S1.x,2)-pow(S3.x,2)+pow(S1.y,2)-pow(S3.y,2)+pow(S1.z,2)-pow(S3.z,2))/
-           (2*sqrt(pow(temporS3.x,2)+pow(temporS3.y,2)+pow(temporS3.z,2)));
+           (2*vector_len(temporS3));
     calc_c=pow(ds1,2)-pow(S1.x,2)-pow(S1.y,2)-pow(S1.z,2);
 
     Point vector_t;
     Point xProd=cross_prod(vector_u, vector_v);
-    vector_t=xProd/(sqrt(pow(xProd.x,2)+pow(xProd.y,2)+pow(xProd.z,2)));
+    vector_t=xProd/vector_len(xProd);
     //cout << vector_t<< endl;
 
     REAL rez_calc_a, rez_calc_b, rez_calc_c, rez_calc_d_positive, rez_calc_d_negative;
