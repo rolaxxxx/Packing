@@ -18,14 +18,18 @@ typedef std::vector<PointType> PointsArrayType;
 /// tai butu +,-,daugyba dalyba is skaliaro, cross product, dot product, vektoriaus ilgis
 ///
 
-    REAL dot_prod(Point &vec_a, Point &vec_b);
-    Point cross_prod(Point &vec_a, Point &vec_b);
+    
     Point operator * (Point A, INT B);
     Point operator + (Point A, Point B);
     Point operator * (REAL A, Point B);
     Point operator * (Point A, Point B);
     Point operator / (Point A,  REAL B );
     Point operator - (Point A,  Point B );
+    REAL dot_prod(Point vec_a, Point vec_b);
+    Point cross_prod(Point vec_a, Point vec_b);
+    REAL vector_len(Point vec);
+        
+    }
 
 
 #endif // POINT_H

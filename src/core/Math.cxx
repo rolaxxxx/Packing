@@ -8,6 +8,8 @@ Math::Math()
 PointsArrayType Math::getSpheresTouchingThreeOtherSpheres(PointType p1,PointType p2,PointType p3,REAL r)
 {
     PointsArrayType data;
+
+
     /// Tavo kodas
     return data;
 }
