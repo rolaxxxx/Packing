@@ -24,6 +24,9 @@ int main()
     ASearch * search =searchFactory.create(SearchTypes::Uniform);
     AAlgorithm*algorithm=algorithmFactory.create(AlgorithmType::SpherePackingAlgorithm);
 
+
+
+
     ///viska inicializuojame ka reikia
     ///
     random->init(1,2,10);

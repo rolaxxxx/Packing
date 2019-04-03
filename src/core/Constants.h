@@ -2,6 +2,7 @@
 #define CONSTANTS_H
 #include <iostream>
 #include <vector>
+#include <random>
 
 /// surasome visas konstantas kurias naudosi
 
@@ -9,8 +10,6 @@
 
 typedef double REAL;
 typedef int INT;
-
-
 
 
 
