@@ -17,10 +17,12 @@ public:
 
 
     INT getNumberOfPoints();
+    INT getNumberOfPoints_v();
+    PointType getPoint_v(INT i);
+    void insertNextPoint_v(PointType p);
 private:
     PointsArrayType data; /// tik daleles kuriuose ieskomi kaimynai
-    PointsArrayType data_v;///visos daleles su tomis kur kaimynai nera ieskomi (formuojama vizualizacija
-    std::map<INT, std::vector<INT>> SUFORMUOTAS_GRIDAS;
+
 
 };
 

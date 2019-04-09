@@ -9,6 +9,7 @@ public:
     void pack();
 protected:
     void initialization();
+
 };
 
 #endif // SPHEREPACKINGALGORITHM_H

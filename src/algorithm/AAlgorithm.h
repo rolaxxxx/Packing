@@ -9,14 +9,16 @@ class AAlgorithm
 {
 public:
     AAlgorithm();
-    void init(Data*data,ARandom *random,ASearch *search);
+    void init(Data*data,ARandom *random,ASearch *search, INT count);
     virtual void pack()=0;
 protected:
     virtual void initialization()=0;
     ARandom *random;
     ASearch *search;
+    INT count;
     Math math;
     Data*data;
+
 
 };
 

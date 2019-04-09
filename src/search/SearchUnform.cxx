@@ -1,116 +1,109 @@
 #include "SearchUnform.h"
 
+using namespace std;
 SearchUnform::SearchUnform()
 {
 
 }
-std::vector<INT> SearchUnform::getNeighboursID(INT id)
-{
-    std::vector<INT> ids;
-    Point temp, tempPID;
-    Point coords;
-    INT pid;
-    REAL L;
-    REAL temp_cur_rad, temp_pid_rad;
-    REAL TEMP_LEN;
-    INT TEMP_ID;
-    std::vector<INT> potencialus_kaimynai;
-    std::vector<INT> rasti_kaimynu_indexai;
-    //cout << nx << " " << ny << " " << nz << endl;
-    INT kiekis=0;
-    temp=data->getPoint(id);
-    //cout << particle.F[search_particle_index] << endl;
-    //cout <<MAP_BOUNDS_MIN << " " << CELLSIZE << endl;
-    coords.x=floor((temp.x-bmin.x)/CELL_SIZE);
-    coords.y=floor((temp.y-bmin.y)/CELL_SIZE);
-    coords.z=floor((temp.z-bmin.z)/CELL_SIZE);
-    temp_cur_rad=1;// kol vienodi spinduliai bus vienas o po to reikia keisti
-
-   // cout << CE
-    //cout << temp << endl;
-    for(INT x=coords.x-1;x<=coords.x+1;x++){ // pakeliau atstuma nes neradau kaimynu
-           for(INT y=coords.y-1;y<=coords.y+1;y++){
-               for(INT z=coords.z-1;z<=coords.z+1;z++){
-                  // if(x<map_boundai.Nx&&y<map_boundai.Ny&&z<map_boundai.Nz&&x>=0&&y>=0&&z>=0){
-                        TEMP_ID=x+y*Nx+z*Nx*Ny;
-                           //cout << TEMP_ID << endl;
-                                    potencialus_kaimynai=data->getPoints(TEMP_ID);
-                                           //cout << potencialus_kaimynai.size() << endl;
-                                    for(auto it=potencialus_kaimynai.begin();it!=potencialus_kaimynai.end();it++){
-                                            pid=*it;
-                                            //cout << pid << " " <<particle.F[pid] << endl;
-                                       if(pid!=id)
-                                               {
-                                               tempPID=data->getPoint(pid);
-                                               temp_pid_rad=tempPID.z;
-                                               tempPID.z=0;
-
-                                       TEMP_LEN=vector_len(temp-tempPID);
-
-                                       L=TEMP_LEN-(temp_cur_rad+temp_pid_rad);
-                                       //cout <<particle.F.size() << " "<<search_particle_index<< "nuo ieskomo kaimyno nutole " <<  L << " " << 2*temp_cur_rad << endl;
-                                       if(L<=2*temp_cur_rad){
-                                          // cout << rasti_kaimynu_indexai[kiekis] << endl;
-                                           ids.push_back(pid);
-                                           //cout << rasti_kaimynu_indexai.size() << endl;
-                                           kiekis++;
-                                           //cout << pid << endl;
-                                       }
-
-                                        }
-                         }
-                   }
-               }
-   }
-    return ids;
-}
-bool SearchUnform::intersectionTest(PointType p)
-{
-    PointType temp, tempPID;
-    Point coords;
-    INT pid;
-    REAL L;
-    REAL temp_cur_rad, temp_pid_rad;
-    REAL TEMP_LEN;
-    INT TEMP_ID;
-    std::vector<INT> potencialus_kaimynai;
-    std::vector<INT> rasti_kaimynu_indexai;
-    REAL LEN1, LEN2;
-
-    INT kiekis=0;
-
-    temp=p;
-    coords.x=floor((temp.x-bmin.x)/CELL_SIZE);
-    coords.y=floor((temp.y-bmin.y)/CELL_SIZE);
-    coords.z=floor((temp.z-bmin.z)/CELL_SIZE);
-    coords.R=0;
-    LEN1=vector_len(p);
-    bool ans=false;
-    for(INT i=0;i<data->getNumberOfPoints();i++) // susikirtimo tikrinimas
-    {
-        tempPID=data->getPoint(i);
-        tempPID.R=0;
-        LEN2=vector_len(tempPID);
-        if(fabs(LEN1-LEN2)<0.01&&tempPID!=p)
-        {ans=true;
-        }
-    }
-    /// TAVO kodas
-    return false;
-}
-PointsArrayType SearchUnform::getNeighboursPoints(INT id)
-{
-    PointsArrayType array;
-    /// TAVO kodas
-    return array;
-}
-
 void SearchUnform::initialization()
 {
-    /// TAVO kodas
+    addPoint(data->getPoint(0));
+    addPoint(data->getPoint(1));
+    addPoint(data->getPoint(2));
+}
+INT SearchUnform::calculateID(PointType p){
+    PointType temp_coords;
+    INT rez;
+   // cout << p.x << " " << p.y <<" "<< p.z << endl;
+            temp_coords.x=floor((p.x-bmin.x)/CELL_SIZE);
+            temp_coords.y=floor((p.y-bmin.y)/CELL_SIZE);
+            temp_coords.z=floor((p.z-bmin.z)/CELL_SIZE);
+            //cout << floor((p.z - bmin.z)  /  CELL_SIZE)<< endl;
+            rez=temp_coords.x+temp_coords.y*Nx+temp_coords.z*Nx*Ny;
+    return rez;
 }
 
 void SearchUnform::addPoint(PointType p)
 {
-   data->insertNextPoint(p);
+   SUFORMUOTAS_GRIDAS[calculateID(p)].push_back(data->getNumberOfPoints());
+}
+
+std::vector<INT> SearchUnform::getCellElements(INT id){
+    return SUFORMUOTAS_GRIDAS[id];
+}
+
+std::vector<INT> SearchUnform::getGridNeigbours(INT id)
+{
+    std::vector<INT> ids;
+    Point temp;
+    Point coords;
+    INT TEMP_ID;
+    std::vector<INT> potencialus_kaimynai;
+    temp=data->getPoint(id);
+    coords.x=floor((temp.x-bmin.x)/CELL_SIZE);
+    coords.y=floor((temp.y-bmin.y)/CELL_SIZE);
+    coords.z=floor((temp.z-bmin.z)/CELL_SIZE);
+    for(INT x=coords.x-1;x<=coords.x+1;x++){ // pakeliau atstuma nes neradau kaimynu
+          for(INT y=coords.y-1;y<=coords.y+1;y++){
+               for(INT z=coords.z-1;z<=coords.z+1;z++){
+                  // if(x<map_boundai.Nx&&y<map_boundai.Ny&&z<map_boundai.Nz&&x>=0&&y>=0&&z>=0){
+                        TEMP_ID=x+y*Nx+z*Nx*Ny;
+                           //cout << TEMP_ID << endl;
+                                    potencialus_kaimynai=getCellElements(TEMP_ID);
+                                    ids.insert(ids.end(), potencialus_kaimynai.begin(), potencialus_kaimynai.end());
+               }
+           }
+    }
+    return ids;
+}
+
+std::vector<INT> SearchUnform::getNeighboursID(INT id)
+{
+            std::vector<INT>grid_neighbours=getGridNeigbours(id);
+            PointType temp, tempPID;
+            PointType coords;
+            std::vector<INT>rasti_kaimynu_indexai;
+            INT pid;
+            REAL L;
+            REAL temp_cur_rad, temp_pid_rad;
+            REAL TEMP_LEN;
+            INT TEMP_ID;
+
+            for(INT i=0;i<grid_neighbours.size();i++){
+               pid=i;
+                   if(pid!=id)
+               {
+               tempPID=data->getPoint(pid);
+               temp_pid_rad=tempPID.R;
+               tempPID.R=0;
+               TEMP_LEN=fabs(vector_len(temp)-vector_len(tempPID));
+               L=TEMP_LEN-(temp_cur_rad+temp_pid_rad);
+
+               if(L<=2*temp_cur_rad){
+                   rasti_kaimynu_indexai.push_back(pid);
+               }
+            }
+        }
+            return rasti_kaimynu_indexai;
+}
+bool SearchUnform::intersect(INT p)
+{
+    std::vector<INT> ids=getGridNeigbours(p);
+    PointType vec1;
+    REAL veclen1, veclen2;
+    PointType vec2;
+
+    vec1=data->getPoint(p);
+    for(int i=0;i<ids.size();i++)
+    {
+        vec2=data->getPoint(ids[i]);
+
+        veclen1=vector_len(vec1);
+        veclen2=vector_len(vec2);
+
+        if(fabs(veclen1-veclen2)<0.0001)
+            return true;
+    }
+    return false;
+
 }

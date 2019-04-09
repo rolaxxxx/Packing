@@ -11,5 +11,6 @@ ASearch* SearchFactory::create(SearchTypes type)
         return new SearchUnform();
     }
     std::cerr<<"Klaida tokio modulio nera!!!\n";
+
     exit(1000);
 }

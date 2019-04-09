@@ -74,3 +74,4 @@ REAL vector_len(Point vec){
     REAL len;
     len=sqrt(pow(vec.x,2)+pow(vec.y,2)+pow(vec.z,2));
 }
+
