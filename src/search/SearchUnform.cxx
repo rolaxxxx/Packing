@@ -17,9 +17,7 @@ std::vector<INT> SearchUnform::getNeighboursID(INT id)
     std::vector<INT> potencialus_kaimynai;
     std::vector<INT> rasti_kaimynu_indexai;
     //cout << nx << " " << ny << " " << nz << endl;
-
     INT kiekis=0;
-
     temp=data->getPoint(id);
     //cout << particle.F[search_particle_index] << endl;
     //cout <<MAP_BOUNDS_MIN << " " << CELLSIZE << endl;
@@ -114,5 +112,5 @@ void SearchUnform::initialization()
 
 void SearchUnform::addPoint(PointType p)
 {
-    /// TAVO kodas
+   data->insertNextPoint(p);
 }

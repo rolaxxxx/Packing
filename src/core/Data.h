@@ -18,7 +18,8 @@ public:
 
     INT getNumberOfPoints();
 private:
-    PointsArrayType data;
+    PointsArrayType data; /// tik daleles kuriuose ieskomi kaimynai
+    PointsArrayType data_v;///visos daleles su tomis kur kaimynai nera ieskomi (formuojama vizualizacija
     std::map<INT, std::vector<INT>> SUFORMUOTAS_GRIDAS;
 
 };

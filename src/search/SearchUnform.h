@@ -12,6 +12,7 @@ public:
     void addPoint(PointType p);
 protected:
     void initialization();
+
 };
 
 #endif // SEARCHUNFORM_H

@@ -77,6 +77,7 @@ PointsArrayType Math::getSpheresTouchingThreeOtherSpheres(PointType p1,PointType
 }
 REAL Math::getDistanceBetweenTwoSpheres(PointType p1,PointType p2)
 {
-    /// Tavo kodas
-   return 0;
+   REAL length;
+   length=fabs(vector_len(p1)-vector_len(p2));
+   return length;
 }
