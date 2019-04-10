@@ -110,8 +110,14 @@ bool SearchUnform::intersect(PointType p, INT rand)
         veclen1=vector_len(vec1);
         veclen2=vector_len(vec2);
 
-        if(fabs(veclen1-veclen2)<0.0001)
+        //cout << veclen1 << " " << vec1.x <<  " " << vec1.y << " " << vec1.z << "    " << veclen2 << " " << vec2.x << " " << vec2.y << " " << vec2.z << endl;
+
+        if(fabs(veclen1-veclen2)<1e-22||fabs(veclen1-veclen2)==0){
+
             return true;
+        }
+
+        cout << fabs(veclen1-veclen2) << endl;
     }
     return false;
 

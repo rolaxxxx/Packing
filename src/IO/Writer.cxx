@@ -37,7 +37,6 @@ void Writer::write(Data*data,std::string filename)
 
         SphereSource->SetPhiResolution(30);
          SphereSource->SetRadius(1); //radius visada vienas kai atvaizduoju sferas //reikia pakeisti/////
-         SphereSource->SetPhiResolution(30);
      SphereSource->SetThetaResolution(30);
             SphereSource.Get()->GetCenter();
 

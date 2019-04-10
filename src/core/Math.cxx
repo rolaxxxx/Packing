@@ -66,6 +66,8 @@ PointsArrayType Math::getSpheresTouchingThreeOtherSpheres(PointType p1,PointType
     rez_calc_d_negative=(0.5)*(-dot_prod(vector_w, vector_t)-sqrt(pow(dot_prod(vector_w, vector_t),2)-4*rez_calc_c));
 
     rez_sphere_coords_positive=rez_calc_a*vector_u+rez_calc_b*vector_v+rez_calc_d_positive*vector_t;
+
+
     rez_sphere_coords_negative=rez_calc_a*vector_u+rez_calc_b*vector_v+rez_calc_d_negative*vector_t;
 
     rez_sphere_coords_positive.R=1;

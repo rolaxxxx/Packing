@@ -9,6 +9,13 @@ struct Point
     REAL y;
     REAL z;
     REAL R;
+    void PrintStructure()
+            {
+                     std::cout << "x: " << x <<  std::endl;
+                      std::cout << "y: " << y << std::endl;
+                       std::cout << "z: " << z  << std::endl;
+                        std::cout << "R: " << R << std::endl;
+            }
 };
 
 typedef Point PointType;
