@@ -1,6 +1,7 @@
 #ifndef WRITER_H
 #define WRITER_H
 #include "core/Data.h"
+#include "core/Constants.h"
 
 class Writer
 {

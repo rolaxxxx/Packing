@@ -5,8 +5,11 @@
 #include "IO/Reader.h"
 #include "IO/Writer.h"
 
-bool CheckSpheres(PointType p1,PointType p2,PointType p3,PointType p4)
+bool CheckSpheres(PointType p1,PointType p2,PointType p3,PointType P)
 {
+
+
+    if(vector_len(p1-p2))
     return true;
 }
 

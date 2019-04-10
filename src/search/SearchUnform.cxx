@@ -25,7 +25,9 @@ INT SearchUnform::calculateID(PointType p){
 
 void SearchUnform::addPoint(PointType p)
 {
+    //std::cout << p.x << " " << p.y << " " << p.z << " " << p.R << std::endl;
    SUFORMUOTAS_GRIDAS[calculateID(p)].push_back(data->getNumberOfPoints());
+   //cout << data->getNumberOfPoints() << endl;
 }
 
 std::vector<INT> SearchUnform::getCellElements(INT id){
@@ -68,32 +70,39 @@ std::vector<INT> SearchUnform::getNeighboursID(INT id)
             REAL temp_cur_rad, temp_pid_rad;
             REAL TEMP_LEN;
             INT TEMP_ID;
-
+    temp=data->getPoint(id);
+    temp_cur_rad=temp.R;
             for(INT i=0;i<grid_neighbours.size();i++){
                pid=i;
+               //cout << pid << endl;
                    if(pid!=id)
                {
+                       //cout << id << " " << pid << endl;
                tempPID=data->getPoint(pid);
                temp_pid_rad=tempPID.R;
                tempPID.R=0;
                TEMP_LEN=fabs(vector_len(temp)-vector_len(tempPID));
+               //cout << TEMP_LEN << endl;
                L=TEMP_LEN-(temp_cur_rad+temp_pid_rad);
+               //cout << TEMP_LEN << " " << temp_cur_rad + temp_pid_rad << endl;
 
-               if(L<=2*temp_cur_rad){
+               if(L<=temp.R+tempPID.R){ // ilgis mazesnis arba lygus uz dvieju spinduliu suma
+                   //cout << L << " " << temp.R << " " << tempPID.R << endl;
                    rasti_kaimynu_indexai.push_back(pid);
+                  // cout << pid << endl;
                }
             }
         }
             return rasti_kaimynu_indexai;
 }
-bool SearchUnform::intersect(INT p)
+bool SearchUnform::intersect(PointType p, INT rand)
 {
-    std::vector<INT> ids=getGridNeigbours(p);
+    std::vector<INT> ids=getGridNeigbours(rand);
     PointType vec1;
     REAL veclen1, veclen2;
     PointType vec2;
 
-    vec1=data->getPoint(p);
+    vec1=p;
     for(int i=0;i<ids.size();i++)
     {
         vec2=data->getPoint(ids[i]);

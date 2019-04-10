@@ -1,5 +1,5 @@
 #include "Math.h"
-
+using namespace std;
 Math::Math()
 {
 
@@ -24,7 +24,7 @@ PointsArrayType Math::getSpheresTouchingThreeOtherSpheres(PointType p1,PointType
     S1=p1;
     S2=p2;
     S3=p3;
-
+//cout << S1.x << " " << S1.y << " " << S1.z << endl;
     ds1=S1.R+rez_sphere_coords_positive.R;
     ds2=S2.R+rez_sphere_coords_positive.R;
     ds3=S3.R+rez_sphere_coords_positive.R;
