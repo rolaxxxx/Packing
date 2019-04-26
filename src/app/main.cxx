@@ -4,7 +4,7 @@
 #include "core/Data.h"
 #include "IO/Reader.h"
 #include "IO/Writer.h"
-
+using namespace std;
 int main()
 {
 
@@ -14,8 +14,8 @@ int main()
     //nuskaitome duomenis is failo jeigu to reikia
     reader.read(data,"input.vtk");
     // galime ir rankomis sudeti pradinius taskus, naudojant Data klases objekta
-
-
+	srand(time(NULL));
+	
     RandomFactory randomFactory;
     SearchFactory searchFactory;
     AlgorithmFactory algorithmFactory;
@@ -23,18 +23,19 @@ int main()
     ARandom * random=randomFactory.create(RandomTypes::Uniform);
     ASearch * search =searchFactory.create(SearchTypes::Uniform);
     AAlgorithm*algorithm=algorithmFactory.create(AlgorithmType::SpherePackingAlgorithm);
-    PointType P1, P2, P3;
+    PointType P1, P2, P3, P4;
 
     ///viska inicializuojame ka reikia
     ///
     Point kint1, kint2;
+    // bounds size
     kint1.x=0;
     kint1.y=0;
     kint1.z=0;
 
-    kint2.x=1;
-    kint2.y=1;
-    kint2.z=1;
+    kint2.x=50;
+    kint2.y=50;
+    kint2.z=50;
 
     P1.x=0.5;
     P1.y=0.3;
@@ -51,14 +52,35 @@ int main()
     P3.z=0.633012;
     P3.R=1;
 
-    data->insertNextPoint(P1);
-    data->insertNextPoint(P2);
-    data->insertNextPoint(P3);
+
+    P4.x=0;
+    P4.y=0;
+    P4.z=0;
+    P4.R=1;
+    random->init(1,1,10);
+
+    search->init(data, kint1, kint2, 2);
+
+	search->addPoint(P1);
+	search->addPoint(P2);
+	search->addPoint(P3);
+    //search->addPoint(P4);
 
 
-    random->init(1,2,10);
-    search->init(data,kint1,kint2,2);
-    algorithm->init(data,random,search, 10);
+    //cout << data->getPoint(0).x << " " << data->getPoint(0).y <<" " << data->getPoint(0).z <<  endl;
+  // vector<INT>tikrinimas_kaimynai=search->getNeighboursID(2);
+
+  //  for(INT i=0;i<tikrinimas_kaimynai.size();i++){
+   //     cout<< tikrinimas_kaimynai[i] << endl;
+   // }
+    //for(INT i=0;i<data->getNumberOfPoints();i++){
+
+        //cout << search->intersect(data->getPoint(i), i) << endl;
+   // }
+
+    
+	//cout << search->getMapSIZE() << endl; testuoju ar elementai per init funkcija is data masyvo isidejo i suformuota grida
+    algorithm->init(data,random,search,10);
 
     /// atliekame tikraji pakinima
     algorithm->pack();

@@ -71,7 +71,6 @@ Point cross_prod(Point vec_a, Point vec_b){ //  cross produkto skaiciavimas
 }
 
 REAL vector_len(Point vec){
-    REAL len;
-    len=sqrt(pow(vec.x,2)+pow(vec.y,2)+pow(vec.z,2));
+	return sqrt(pow(vec.x, 2) + pow(vec.y, 2) + pow(vec.z, 2));
 }
 

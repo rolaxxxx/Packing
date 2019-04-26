@@ -1,5 +1,5 @@
 #include "Writer.h"
-
+using namespace std;
 Writer::Writer()
 {
 
@@ -14,6 +14,7 @@ void Writer::write(Data*data,std::string filename)
          vtkSmartPointer<vtkPoints> points =
          vtkSmartPointer<vtkPoints>::New();
 
+
          PointType tempDalele;
         for(INT i=0;i<data->getNumberOfPoints();i++)
         {
@@ -21,7 +22,7 @@ void Writer::write(Data*data,std::string filename)
              //cout << tempDalele << endl;
              points->InsertNextPoint(tempDalele.x,tempDalele.y, tempDalele.z);
              radius->InsertNextTuple1(tempDalele.R);
-             //cout << tempDalele.x << " " << tempDalele.y << " " << tempDalele.z << " " << tempDalele.R << endl;
+            // cout<< tempDalele.x << " " << tempDalele.y << " " << tempDalele.z << " " << tempDalele.R << endl;
         }
 
 

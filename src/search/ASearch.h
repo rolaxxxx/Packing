@@ -12,6 +12,7 @@ public:
     virtual std::vector<INT> getGridNeigbours(INT id)=0;
     virtual bool intersect(PointType id,  INT rand)=0;
     virtual void addPoint(PointType p)=0;
+	virtual INT getMapSIZE()=0;
 protected:
     virtual void initialization()=0;
 

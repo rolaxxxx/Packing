@@ -20,19 +20,19 @@ void Test1()
     PointType P2;
     PointType P3;
     /// sudeti pradines koordinates ir radius, pagal kuri bus dedama kita sfera
-    P1.x=0.5;
-    P1.y=0.3;
-    P1.z=0.2;
+    P1.x=2;
+    P1.y=0;
+    P1.z=0;
     P1.R=1;
 
-    P2.x=1.75;
-    P2.y=1.599;
-    P2.z=-0.666;
+    P2.x=4;
+    P2.y=0;
+    P2.z=0;
     P2.R=1;
 
-    P3.x=0.375;
-    P3.y=2.24856;
-    P3.z=0.633012;
+    P3.x=6;
+    P3.y=0;
+    P3.z=0;
     P3.R=1;
 
     REAL R=1;// pasirenkame radius
@@ -44,9 +44,10 @@ void Test1()
         if(!checkas)
         {
             std::cout<<"Nepraejo cheko, issivedi detalesne info!\n";
+
         }else
         {
-            std::cout<<"OK\n";
+            std::cout<<P.x << " " << P.y << " " << P.z << " " << P.R << endl;;
         }
     }
     std::cout<<"End of test Test1\n";

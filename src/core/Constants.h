@@ -5,7 +5,12 @@
 #include <random>
 #include <map>
 #include <stdlib.h>
+#include <cmath>
 #include <utility>
+#include <iomanip>
+#include <ctime>
+#include <chrono>
+
 #include <vtkVersion.h>
 #include <vtkSmartPointer.h>
 #include <vtkDoubleArray.h>
@@ -23,6 +28,7 @@
 #include <vtkPointData.h>
 #include <vtkDataArray.h>
 #include <vtkCubeSource.h>
+
 
 /// surasome visas konstantas kurias naudosi
 
