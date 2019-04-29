@@ -5,7 +5,7 @@ Writer::Writer()
 
 }
 
-void Writer::write(Data*data,std::string filename)
+void Writer::write(Data*data, ASearch *search, std::string filename)
 {
 
          vtkSmartPointer<vtkDoubleArray> radius =
@@ -13,6 +13,8 @@ void Writer::write(Data*data,std::string filename)
 
          vtkSmartPointer<vtkPoints> points =
          vtkSmartPointer<vtkPoints>::New();
+
+
     radius->SetName("RADIUS");
 
          PointType tempDalele;
@@ -60,7 +62,23 @@ void Writer::write(Data*data,std::string filename)
        mapper->SetScalarRange(radius->GetRange());
        mapper->ColorByArrayComponent("RADIUS",0);
        mapper->SetScalarModeToUsePointFieldData();
+       vtkSmartPointer<vtkCubeSource> cubeSource =
+             vtkSmartPointer<vtkCubeSource>::New();
+           cubeSource.Get()->SetBounds(-5,20,-5,20,-5, 20);
+           //cubeSource.GetProperty()->SetOpacity(.4);
+           // Visualize
 
+           mapper->SetInputConnection(glyph3D->GetOutputPort());
+
+
+           vtkSmartPointer<vtkPolyDataMapper> Cubemapper =
+             vtkSmartPointer<vtkPolyDataMapper>::New();
+           Cubemapper->SetInputConnection(cubeSource->GetOutputPort());
+
+           vtkSmartPointer<vtkActor> Cubeactor =
+             vtkSmartPointer<vtkActor>::New();
+           Cubeactor->GetProperty()->SetOpacity(.2);
+       Cubeactor->SetMapper(Cubemapper);
        vtkSmartPointer<vtkActor>Glyphactor =
              vtkSmartPointer<vtkActor>::New();
              Glyphactor->SetMapper(mapper);
@@ -74,7 +92,7 @@ void Writer::write(Data*data,std::string filename)
              vtkSmartPointer<vtkRenderWindowInteractor>::New();
            renderWindowInteractor->SetRenderWindow(renderWindow);
 
-         //  renderer->AddActor(Cubeactor);
+          renderer->AddActor(Cubeactor);
            renderer->AddActor(Glyphactor);
            renderer->SetBackground(255, 255, 255); // Background color green
 

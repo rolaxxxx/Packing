@@ -17,3 +17,13 @@ void ASearch::init(Data*data,Point bmin, Point bmax, REAL RMax)
 
     this->initialization();
 }
+
+Point ASearch::getBmax() const
+{
+    return bmax;
+}
+
+Point ASearch::getBmin() const
+{
+    return bmin;
+}

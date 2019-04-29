@@ -29,13 +29,13 @@ int main()
     ///
     Point kint1, kint2;
     // bounds size
-    kint1.x=0;
-    kint1.y=0;
-    kint1.z=0;
+    kint1.x=-5;
+    kint1.y=-5;
+    kint1.z=-5;
 
-    kint2.x=50;
-    kint2.y=50;
-    kint2.z=50;
+    kint2.x=20;
+    kint2.y=20;
+    kint2.z=20;
 
     P1.x=0.5;
     P1.y=0.3;
@@ -53,7 +53,7 @@ int main()
     P3.R=1;
 
 
-    random->init(1,1,10);
+    random->init(0.5,1,10);
 
     search->init(data, kint1, kint2,1);
 
@@ -68,6 +68,6 @@ int main()
 
     /// atliekame tikraji pakinima
     algorithm->pack();
-    writer.write(data,"output.vtk");// irasome rezultata
+    writer.write(data, search, "output.vtk");// irasome rezultata
     return 0;
 }

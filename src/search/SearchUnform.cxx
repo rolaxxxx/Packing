@@ -38,21 +38,27 @@ std::vector<INT> SearchUnform::GetPotentialNeighbours(Point temp)
     INT xx=(int)floor((temp.x-bmin.x)/CELL_SIZE);
     INT yy=(int)floor((temp.y-bmin.y)/CELL_SIZE);
     INT zz=(int)floor((temp.z-bmin.z)/CELL_SIZE);
-    for(INT x=xx-1;x<=xx+1;x++){ // pakeliau atstuma nes neradau kaimynu
+   // cout << bmin.x<< " " << bmin.y << " " << bmin.z << " " << CELL_SIZE << endl;
+    for(INT x=xx-1;x<=xx+1;x++){
         for(INT y=yy-1;y<=yy+1;y++){
             for(INT z=zz-1;z<=zz+1;z++){
+   // cout << x << " " << y << " " << z << endl;
                 INT  TEMP_ID=x+y*Nx+z*Nx*Ny;
                 potencialus_kaimynai=getCellElements(TEMP_ID);
                 for (INT i = 0; i < potencialus_kaimynai.size(); i++) {
+
                     if(temp.ID!=potencialus_kaimynai[i])
-                        ids.push_back(potencialus_kaimynai[i]);
-                }
+                       ids.push_back(potencialus_kaimynai[i]);
+
+
             }
         }
     }
+}
 
     //cout << " ____ " << endl;
     return ids;
+
 }
 
 std::vector<INT> SearchUnform::getGridNeigbours(INT id)
