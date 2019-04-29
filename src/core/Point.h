@@ -9,6 +9,7 @@ struct Point
     REAL y;
     REAL z;
     REAL R;
+    int ID;
     void PrintStructure()
             {
                      std::cout << "x: " << x <<  std::endl;

@@ -53,30 +53,14 @@ int main()
     P3.R=1;
 
 
-    P4.x=0;
-    P4.y=0;
-    P4.z=0;
-    P4.R=1;
-    random->init(1,1,10);
+    random->init(0.5,1,10);
 
     search->init(data, kint1, kint2, 2);
 
 	search->addPoint(P1);
 	search->addPoint(P2);
 	search->addPoint(P3);
-    //search->addPoint(P4);
 
-
-    //cout << data->getPoint(0).x << " " << data->getPoint(0).y <<" " << data->getPoint(0).z <<  endl;
-  // vector<INT>tikrinimas_kaimynai=search->getNeighboursID(2);
-
-  //  for(INT i=0;i<tikrinimas_kaimynai.size();i++){
-   //     cout<< tikrinimas_kaimynai[i] << endl;
-   // }
-    //for(INT i=0;i<data->getNumberOfPoints();i++){
-
-        //cout << search->intersect(data->getPoint(i), i) << endl;
-   // }
 
     
 	//cout << search->getMapSIZE() << endl; testuoju ar elementai per init funkcija is data masyvo isidejo i suformuota grida

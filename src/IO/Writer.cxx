@@ -13,7 +13,7 @@ void Writer::write(Data*data,std::string filename)
 
          vtkSmartPointer<vtkPoints> points =
          vtkSmartPointer<vtkPoints>::New();
-
+    radius->SetName("RADIUS");
 
          PointType tempDalele;
         for(INT i=0;i<data->getNumberOfPoints();i++)
@@ -57,6 +57,9 @@ void Writer::write(Data*data,std::string filename)
         vtkSmartPointer<vtkPolyDataMapper> mapper =
              vtkSmartPointer<vtkPolyDataMapper>::New();
        mapper->SetInputConnection(glyph3D->GetOutputPort());
+       mapper->SetScalarRange(radius->GetRange());
+       mapper->ColorByArrayComponent("RADIUS",0);
+       mapper->SetScalarModeToUsePointFieldData();
 
        vtkSmartPointer<vtkActor>Glyphactor =
              vtkSmartPointer<vtkActor>::New();

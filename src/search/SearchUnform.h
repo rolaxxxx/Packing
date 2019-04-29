@@ -7,9 +7,8 @@ class SearchUnform:public ASearch
 public:
     SearchUnform();
     std::vector<INT> getNeighboursID(INT id);
-    bool intersect(PointType p, INT rand);
+    bool intersect(PointType p);
     std::vector<INT> getGridNeigbours(INT id);
-    INT getMapSIZE();
     void addPoint(PointType p);
 
     std::vector<INT> getCellElements(INT id);
@@ -20,6 +19,7 @@ protected:
     void initialization();
 private:
     std::map<INT, std::vector<INT>>SUFORMUOTAS_GRIDAS;
+    std::vector<INT> GetPotentialNeighbours(Point p);
 
 };
 

@@ -4,58 +4,58 @@
 
 
 Point operator * (Point A, INT B)
-        {
-           A.x*=B;
-           A.y*=B;
-           A.z*=B;
-           A.R*=B;
-            return A;
-        }
+{
+    A.x*=B;
+    A.y*=B;
+    A.z*=B;
+    A.R*=B;
+    return A;
+}
 Point operator + (Point A, Point B)
-        {
-           A.x+=B.x;
-           A.y+=B.y;
-           A.z+=B.z;
-           A.R+=B.R;
-            return A;
-        }
+{
+    A.x+=B.x;
+    A.y+=B.y;
+    A.z+=B.z;
+    A.R+=B.R;
+    return A;
+}
 Point operator * (REAL A, Point B)
-        {
-           B.x*=A;
-           B.y*=A;
-           B.z*=A;
-           B.R*=A;
-            return B;
-        }
+{
+    B.x*=A;
+    B.y*=A;
+    B.z*=A;
+    B.R*=A;
+    return B;
+}
 Point operator * (Point A, Point B)
-        {
-           A.x*=B.x;
-           A.y*=B.y;
-           A.z*=B.z;
-           A.R*=B.R;
-            return A;
-        }
+{
+    A.x*=B.x;
+    A.y*=B.y;
+    A.z*=B.z;
+    A.R*=B.R;
+    return A;
+}
 
 Point operator / (Point A,  REAL B )
 {
-            A.x/=B;
-            A.y/=B;
-            A.z/=B;
-            A.R/=B;
-             return A;
+    A.x/=B;
+    A.y/=B;
+    A.z/=B;
+    A.R/=B;
+    return A;
 }
 Point operator - (Point A,  Point B )
 {
-            A.x-=B.x;
-            A.y-=B.y;
-            A.z-=B.z;
-            A.R-=B.R;
-             return A;
+    A.x-=B.x;
+    A.y-=B.y;
+    A.z-=B.z;
+    A.R-=B.R;
+    return A;
 }
 bool operator != (PointType A, PointType B){
-            if(A.x!=B.x&&A.y!=B.y&&A.z!=B.z)
-            return true;
-                    return false;
+    if(A.x!=B.x&&A.y!=B.y&&A.z!=B.z)
+        return true;
+    return false;
 }
 REAL dot_prod(Point vec_a, Point vec_b){  // dot produkto skaiciavimas
     REAL dot_prod_rez;
@@ -71,6 +71,6 @@ Point cross_prod(Point vec_a, Point vec_b){ //  cross produkto skaiciavimas
 }
 
 REAL vector_len(Point vec){
-	return sqrt(pow(vec.x, 2) + pow(vec.y, 2) + pow(vec.z, 2));
+    return std::sqrt(vec.x*vec.x + vec.y*vec.y+vec.z*vec.z);
 }
 

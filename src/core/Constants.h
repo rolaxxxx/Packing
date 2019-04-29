@@ -32,7 +32,7 @@
 
 /// surasome visas konstantas kurias naudosi
 
-#define EPSILON 1.0E-8
+#define EPSILON 1.0E-4
 
 typedef double REAL;
 typedef int INT;
