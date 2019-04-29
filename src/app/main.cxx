@@ -53,9 +53,9 @@ int main()
     P3.R=1;
 
 
-    random->init(0.5,1,10);
+    random->init(1,1,10);
 
-    search->init(data, kint1, kint2, 2);
+    search->init(data, kint1, kint2,1);
 
 	search->addPoint(P1);
 	search->addPoint(P2);

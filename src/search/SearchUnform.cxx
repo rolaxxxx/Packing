@@ -51,7 +51,7 @@ std::vector<INT> SearchUnform::GetPotentialNeighbours(Point temp)
         }
     }
 
-    cout << " ____ " << endl;
+    //cout << " ____ " << endl;
     return ids;
 }
 
@@ -73,7 +73,7 @@ std::vector<INT> SearchUnform::getNeighboursID(INT id)
     std::vector<INT> ids;
     for(int i=0;i<potencialus_kaimynai.size();i++)
     {
-        std::cout<<"target id "<<p.ID<<"  potencialus kaimynas "<<potencialus_kaimynai[i]<<"\n";
+        //std::cout<<"target id "<<p.ID<<"  potencialus kaimynas "<<potencialus_kaimynai[i]<<"\n";
         Point target=data->getPoint(potencialus_kaimynai[i]);
         double L=vector_len(p-target);
         double L2=L-p.R-target.R;
@@ -81,27 +81,25 @@ std::vector<INT> SearchUnform::getNeighboursID(INT id)
         {
 
             ids.push_back(potencialus_kaimynai[i]);
-            target.PrintStructure();
-        }else {
-            std::cout<<"ilgis "<<L<<" radius suma "<<p.R+target.R<<" skirtumas "<<L-(p.R+target.R)<<"\n";
+           // target.PrintStructure();
         }
 
     }
-    std::cout<<"real neigb "<<ids.size()<<"\n";
+ //   std::cout<<"real neigb "<<ids.size()<<"\n";
     return ids;
 }
 bool SearchUnform::intersect(PointType p)
 {
 
     std::vector<INT> potencialus_kaimynai=GetPotentialNeighbours(p);
-    bool persidengia=false;
+
     for(int i=0;i<potencialus_kaimynai.size();i++)
     {
         Point target=data->getPoint(potencialus_kaimynai[i]);
         double L2=vector_len(p-target)-p.R-target.R;
-        if(L2<-EPSILON) persidengia=true;
+        if(L2<-EPSILON) return true;
     }
-    return persidengia;
+    return false;
 
 
 }
