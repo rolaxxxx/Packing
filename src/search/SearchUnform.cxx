@@ -85,7 +85,7 @@ std::vector<INT> SearchUnform::getNeighboursID(INT id)
         Point target=data->getPoint(potencialus_kaimynai[i]);
         double L=vector_len(p-target);
         double L2=L-p.R-target.R;
-        if(L2<EPSILON)
+        if(L2<2*RMax)//L2<EPSILON
         {
 
             ids.push_back(potencialus_kaimynai[i]);

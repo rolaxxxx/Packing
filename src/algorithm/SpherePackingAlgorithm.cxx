@@ -12,7 +12,7 @@ void SpherePackingAlgorithm::pack()
     std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
     // for(int i=0;i<25000;i++){ senas for ciklas
     int i=0;
-    double daleliu_turis;
+    double daleliu_turis=0;
     double  kubo_turis=pow((fabs(search->getBmax().x))+(fabs(search->getBmin().x)),3);
     while(F.size()){
         //cout << data->getNumberOfPoints() << endl;
@@ -68,11 +68,11 @@ void SpherePackingAlgorithm::pack()
            }
 
 std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
-    cout <<"poringumas "<< data->getNumberOfPoints()/kubo_turis << endl;
+    cout <<"poringumas "<< daleliu_turis/kubo_turis << endl;
     }
 
     cout << kubo_turis << " " << data->getNumberOfPoints() <<  endl;
-    cout << data->getNumberOfPoints()/kubo_turis << endl;
+    cout << daleliu_turis/kubo_turis << endl;
 
     std::cout<<"packing done\n";
 }
