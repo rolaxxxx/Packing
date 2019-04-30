@@ -38,9 +38,9 @@ void Writer::write(Data*data, ASearch *search, std::string filename)
             vtkSmartPointer<vtkSphereSource> SphereSource =
           vtkSmartPointer<vtkSphereSource>::New();
 
-        SphereSource->SetPhiResolution(30);
+        SphereSource->SetPhiResolution(4);
          SphereSource->SetRadius(1); //radius visada vienas kai atvaizduoju sferas //reikia pakeisti/////
-     SphereSource->SetThetaResolution(30);
+     SphereSource->SetThetaResolution(4);
             SphereSource.Get()->GetCenter();
 
             vtkSmartPointer<vtkGlyph3D> glyph3D =
@@ -64,7 +64,7 @@ void Writer::write(Data*data, ASearch *search, std::string filename)
        mapper->SetScalarModeToUsePointFieldData();
        vtkSmartPointer<vtkCubeSource> cubeSource =
              vtkSmartPointer<vtkCubeSource>::New();
-           cubeSource.Get()->SetBounds(-5,20,-5,20,-5, 20);
+           cubeSource.Get()->SetBounds(-15,15,-15,15,-15, 15);
            //cubeSource.GetProperty()->SetOpacity(.4);
            // Visualize
 

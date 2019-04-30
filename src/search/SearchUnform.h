@@ -11,6 +11,7 @@ public:
     std::vector<INT> getGridNeigbours(INT id);
     void addPoint(PointType p);
 
+
     std::vector<INT> getCellElements(INT id);
     INT calculateID(PointType p);
     INT getGridSize();

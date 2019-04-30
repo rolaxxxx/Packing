@@ -10,9 +10,13 @@ void Data::insertNextPoint(PointType p)
 }
 PointType Data::getPoint(INT i)
 {
+    /*std::set<PointType>::iterator it;
+    it=data.begin();
+    std::advance(it,i);
+    return *it;
+    */
     return data[i];
 }
-
 INT Data::getNumberOfPoints()
 {
     return data.size();

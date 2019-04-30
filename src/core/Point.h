@@ -22,6 +22,9 @@ struct Point
 typedef Point PointType;
 typedef std::vector<PointType> PointsArrayType;
 
+typedef std::set<PointType> PointsSetType;
+
+
 //// TODO operatorius perkrauti kad butu patogu matematinius vieksmus atlikti, cia tik aprasai, kodas i cxx faila.
 /// tai butu +,-,daugyba dalyba is skaliaro, cross product, dot product, vektoriaus ilgis
 ///

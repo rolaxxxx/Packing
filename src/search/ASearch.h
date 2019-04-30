@@ -10,6 +10,7 @@ public:
     void init(Data*data,Point bmin, Point bmax,REAL RMax);
     virtual std::vector<INT> getNeighboursID(INT id)=0;
     virtual std::vector<INT> getGridNeigbours(INT id)=0;
+
     virtual bool intersect(PointType id)=0;
     virtual void addPoint(PointType p)=0;
     Point getBmax() const;

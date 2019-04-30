@@ -9,6 +9,7 @@ void SearchUnform::initialization()
 {
 
 }
+
 INT SearchUnform::calculateID(PointType p){
     PointType temp_coords;
     INT xx=(int)floor((p.x-bmin.x)/CELL_SIZE);
@@ -23,6 +24,7 @@ void SearchUnform::addPoint(PointType p)
     SUFORMUOTAS_GRIDAS[calculateID(p)].push_back(id);
     p.ID=id;
     data->insertNextPoint(p);
+    //p.PrintStructure();
 }
 
 
@@ -75,7 +77,7 @@ std::vector<INT> SearchUnform::getNeighboursID(INT id)
     Point p=data->getPoint(id);
     std::vector<INT> potencialus_kaimynai=GetPotentialNeighbours(p);
 
-    std::cout<<"Potencialus kaimynu skaicius "<<potencialus_kaimynai.size()<<"\n";
+    //std::cout<<"Potencialus kaimynu skaicius "<<potencialus_kaimynai.size()<<"\n";
     std::vector<INT> ids;
     for(int i=0;i<potencialus_kaimynai.size();i++)
     {
@@ -98,6 +100,7 @@ bool SearchUnform::intersect(PointType p)
 {
 
     std::vector<INT> potencialus_kaimynai=GetPotentialNeighbours(p);
+    //cout << potencialus_kaimynai.size() << endl;
 
     for(int i=0;i<potencialus_kaimynai.size();i++)
     {

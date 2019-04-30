@@ -9,7 +9,7 @@ public:
     void pack();
 protected:
     void initialization();
-
+    std::vector<INT>F;
 };
 
 #endif // SPHEREPACKINGALGORITHM_H

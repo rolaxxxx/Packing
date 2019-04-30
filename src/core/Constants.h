@@ -5,11 +5,25 @@
 #include <random>
 #include <map>
 #include <stdlib.h>
+#include <list>
 #include <cmath>
 #include <utility>
 #include <iomanip>
 #include <ctime>
 #include <chrono>
+#include <algorithm>
+
+
+
+#include <boost/compute/system.hpp>
+#include <boost/compute/command_queue.hpp>
+#include <boost/compute/algorithm/copy.hpp>
+#include <boost/compute/algorithm/fill.hpp>
+#include <boost/compute/algorithm/find.hpp>
+#include <boost/compute/algorithm/remove.hpp>
+#include <boost/compute/allocator/pinned_allocator.hpp>
+#include <boost/compute/container/vector.hpp>
+
 
 #include <vtkVersion.h>
 #include <vtkSmartPointer.h>
@@ -33,6 +47,7 @@
 /// surasome visas konstantas kurias naudosi
 
 #define EPSILON 1.0E-4
+#define PI 3.1415926535
 
 typedef double REAL;
 typedef int INT;

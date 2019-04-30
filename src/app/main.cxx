@@ -8,9 +8,11 @@ using namespace std;
 int main()
 {
 
+
     Reader reader;
     Writer writer;
     Data * data=new Data();
+
     //nuskaitome duomenis is failo jeigu to reikia
     reader.read(data,"input.vtk");
     // galime ir rankomis sudeti pradinius taskus, naudojant Data klases objekta
@@ -29,13 +31,13 @@ int main()
     ///
     Point kint1, kint2;
     // bounds size
-    kint1.x=-5;
-    kint1.y=-5;
-    kint1.z=-5;
+    kint1.x=-15;
+    kint1.y=-15;
+    kint1.z=-15;
 
-    kint2.x=20;
-    kint2.y=20;
-    kint2.z=20;
+    kint2.x=15;
+    kint2.y=15;
+    kint2.z=15;
 
     P1.x=0.5;
     P1.y=0.3;
@@ -51,18 +53,18 @@ int main()
     P3.y=2.24856;
     P3.z=0.633012;
     P3.R=1;
+double RMAX=0.5;
+
+   random->init(RMAX,RMAX,10);
+
+    search->init(data, kint1, kint2,RMAX);
+
+    search->addPoint(P1);
+    search->addPoint(P2);
+    search->addPoint(P3);
 
 
-    random->init(0.5,1,10);
 
-    search->init(data, kint1, kint2,1);
-
-	search->addPoint(P1);
-	search->addPoint(P2);
-	search->addPoint(P3);
-
-
-    
 	//cout << search->getMapSIZE() << endl; testuoju ar elementai per init funkcija is data masyvo isidejo i suformuota grida
     algorithm->init(data,random,search,10);
 
@@ -70,4 +72,5 @@ int main()
     algorithm->pack();
     writer.write(data, search, "output.vtk");// irasome rezultata
     return 0;
+
 }
