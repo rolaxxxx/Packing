@@ -84,8 +84,8 @@ std::vector<INT> SearchUnform::getNeighboursID(INT id)
         //std::cout<<"target id "<<p.ID<<"  potencialus kaimynas "<<potencialus_kaimynai[i]<<"\n";
         Point target=data->getPoint(potencialus_kaimynai[i]);
         double L=vector_len(p-target);
-        double L2=L-p.R-target.R;
-        if(L2<2*RMax)//L2<EPSILON
+        //double L2=L-p.R-target.R;
+        if(L<= p.R+target.R)//  EPSILON 2*RMax
         {
 
             ids.push_back(potencialus_kaimynai[i]);
@@ -99,8 +99,10 @@ std::vector<INT> SearchUnform::getNeighboursID(INT id)
 bool SearchUnform::intersect(PointType p)
 {
 
+
+
     std::vector<INT> potencialus_kaimynai=GetPotentialNeighbours(p);
-    //cout << potencialus_kaimynai.size() << endl;
+   // cout << potencialus_kaimynai.size() << endl;
 
     for(int i=0;i<potencialus_kaimynai.size();i++)
     {

@@ -43,11 +43,14 @@
 #include <vtkDataArray.h>
 #include <vtkCubeSource.h>
 
+#include <chrono>
 
+using namespace std::chrono;
 /// surasome visas konstantas kurias naudosi
 
-#define EPSILON 1.0E-4
+#define EPSILON 1.0E-12
 #define PI 3.1415926535
+
 
 typedef double REAL;
 typedef int INT;

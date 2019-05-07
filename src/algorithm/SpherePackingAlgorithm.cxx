@@ -12,21 +12,40 @@ void SpherePackingAlgorithm::pack()
     std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
     // for(int i=0;i<25000;i++){ senas for ciklas
     int i=0;
+
+    int F_index=0;
+    double time=0;
+
     double daleliu_turis=0;
     double  kubo_turis=pow((fabs(search->getBmax().x))+(fabs(search->getBmin().x)),3);
-    while(F.size()){
-        //cout << data->getNumberOfPoints() << endl;
-        std::uniform_int_distribution<> dis(0, F.size()-1);
-        INT rand_particle_index_f_index=dis(gen);
-        INT rand_particle_index = F[rand_particle_index_f_index];
+    bool tikrinimas=true;
+    do{
 
-        double new_R=random->getNextValue();
+        //std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
+         //   cout <<"poringumas "<< daleliu_turis/kubo_turis << endl;
+        //cout << data->getNumberOfPoints() << endl;
+        //tikrinimas=false;
+        int dydis=F.size();
+
+
+        std::uniform_int_distribution<> dis(0, F.size()-1);
+                INT rand_particle_index_f_index=dis(gen);
+                INT rand_particle_index = F[rand_particle_index_f_index];
         vector<INT>neighbours=search->getNeighboursID(rand_particle_index);
+
+        // code to benchmark
+        cout << neighbours.size() << endl;
+        // if(rand_particle_index==-1) continue;
+        //tikrinimas=true;
+        //cout << F[k] << endl;
+        double new_R=random->getNextValue();
 
         temp = rand_particle_index;
         int check=i;
-        for (INT j = 0; j < neighbours.size()-1 ; j++){
-            for (INT l = j+1; l < neighbours.size() ; l++) {
+
+
+        for (INT j = 0; j < neighbours.size()-1; j++){
+            for (INT l = j+1; l < neighbours.size(); l++) {
 
                 //std::cout<<"generuojame sfera is "<<neighbours[j]<<" "<<neighbours[l]<<" "<<rand_particle_index<<"\n";
                 PointsArrayType newSphere=
@@ -39,6 +58,8 @@ void SpherePackingAlgorithm::pack()
                 for(int z=0;z<newSphere.size();z++)
                 {
                     //std::cout<<"nagrinejame "<<z<<"\n";
+
+                    //auto begin = std::chrono::high_resolution_clock::now();
                     if(!search->intersect(newSphere[z]))
                     {
                         //  std::cout<<"dedame\n";
@@ -58,21 +79,38 @@ void SpherePackingAlgorithm::pack()
                             i++;
                         }
                     }
+                   // auto end = std::chrono::high_resolution_clock::now();
+                  // duration<double> time_span = duration_cast<duration<double>>(end - begin);
+                  // time=time_span.count();
+
+                   // F_index++;
+
                 }
 
             }
+
         }
         if(check==i)
            {
-            F.erase(std::remove(F.begin(), F.end(), rand_particle_index), F.end());
+            //F[rand_particle_index]=-1;
+            //F.erase(std::remove(F.begin(), F.end(), rand_particle_index), F.end());
+            remove(F.begin(),F.end(), rand_particle_index);
+            F.pop_back();
            }
 
-std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
-    cout <<"poringumas "<< daleliu_turis/kubo_turis << endl;
-    }
 
-    cout << kubo_turis << " " << data->getNumberOfPoints() <<  endl;
-    cout << daleliu_turis/kubo_turis << endl;
+        std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
+        std::cout <<"poringumas "<< daleliu_turis/kubo_turis << endl;
+        }
+
+
+
+
+
+    while(F.size());
+   // cout << "average intersect time " << time/F_index;
+    //cout << kubo_turis << " " << data->getNumberOfPoints() <<  endl;
+    //cout << daleliu_turis/kubo_turis << endl;
 
     std::cout<<"packing done\n";
 }

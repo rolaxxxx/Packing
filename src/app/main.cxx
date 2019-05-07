@@ -39,21 +39,22 @@ int main()
     kint2.y=15;
     kint2.z=15;
 
-    P1.x=0.5;
-    P1.y=0.3;
-    P1.z=0.2;
-    P1.R=1;
+    double RMAX=0.4;
+    P1.x=0;
+    P1.y=0;
+    P1.z=0;
+    P1.R=RMAX;
 
-    P2.x=1.75;
-    P2.y=1.599;
-    P2.z=-0.666;
-    P2.R=1;
+    P2.x=2*RMAX;
+    P2.y=0;
+    P2.z=0;
+    P2.R=RMAX;
 
-    P3.x=0.375;
-    P3.y=2.24856;
-    P3.z=0.633012;
-    P3.R=1;
-double RMAX=0.5;
+    P3.x=RMAX;
+    P3.y=2.0*RMAX*sqrt(3.0)/2.0;
+    P3.z=0;
+    P3.R=RMAX;
+
 
    random->init(RMAX,RMAX,10);
 
