@@ -33,12 +33,18 @@ void SpherePackingAlgorithm::pack()
                 INT rand_particle_index = F[rand_particle_index_f_index];
         vector<INT>neighbours=search->getNeighboursID(rand_particle_index);
 
+
+        double new_R=random->getNextValue();
+        for(int t=0;t<neighbours.size();t++){ ////// RYtoj testi cia ///////
+            if(vector_len(data->getPoint(rand_particle_index)-data->getPoint(neighbours[t]))
+
+        }
         // code to benchmark
-        cout << neighbours.size() << endl;
+        //cout << neighbours.size() << endl;
         // if(rand_particle_index==-1) continue;
         //tikrinimas=true;
         //cout << F[k] << endl;
-        double new_R=random->getNextValue();
+
 
         temp = rand_particle_index;
         int check=i;
@@ -99,8 +105,8 @@ void SpherePackingAlgorithm::pack()
            }
 
 
-        std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
-        std::cout <<"poringumas "<< daleliu_turis/kubo_turis << endl;
+        //std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
+        //std::cout <<"poringumas "<< daleliu_turis/kubo_turis << endl;
         }
 
 
