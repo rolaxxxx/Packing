@@ -39,7 +39,7 @@ int main()
     kint2.y=15;
     kint2.z=15;
 
-    double RMAX=0.4;
+    double RMAX=1;
     P1.x=0;
     P1.y=0;
     P1.z=0;
@@ -55,23 +55,39 @@ int main()
     P3.z=0;
     P3.R=RMAX;
 
+std::vector<REAL> probabilities;
+probabilities.push_back(0.1);
+probabilities.push_back(0.4);
+probabilities.push_back(0.3);
+probabilities.push_back(0.2);
+probabilities.push_back(0.1);
+probabilities.push_back(0.4);
+   random->init(0.5,RMAX,5, probabilities);
 
-   random->init(RMAX,RMAX,10);
+
+
+
+  // for(int i=0;i<100;i++)
+   //{
+       //cout << random->getNextValue() << endl;
+
+
+  // }
 
     search->init(data, kint1, kint2,RMAX);
 
-    search->addPoint(P1);
-    search->addPoint(P2);
-    search->addPoint(P3);
+   search->addPoint(P1);
+   search->addPoint(P2);
+   search->addPoint(P3);
 
 
 
 	//cout << search->getMapSIZE() << endl; testuoju ar elementai per init funkcija is data masyvo isidejo i suformuota grida
-    algorithm->init(data,random,search,10);
+   algorithm->init(data,random,search,10);
 
     /// atliekame tikraji pakinima
     algorithm->pack();
-    writer.write(data, search, "output.vtk");// irasome rezultata
+   writer.write(data, search, "output.vtk");// irasome rezultata
     return 0;
 
 }

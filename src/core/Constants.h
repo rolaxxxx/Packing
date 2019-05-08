@@ -25,6 +25,16 @@
 #include <boost/compute/container/vector.hpp>
 
 
+#include <boost/compute/algorithm/count_if.hpp>
+#include <boost/compute/container/vector.hpp>
+#include <boost/compute/random/default_random_engine.hpp>
+#include <boost/compute/random/discrete_distribution.hpp>
+#include <boost/compute/lambda.hpp>
+
+#include <boost/random/discrete_distribution.hpp>
+#include <boost/random/linear_congruential.hpp>
+#include <boost/assign/list_of.hpp>
+
 #include <vtkVersion.h>
 #include <vtkSmartPointer.h>
 #include <vtkDoubleArray.h>
@@ -43,9 +53,17 @@
 #include <vtkDataArray.h>
 #include <vtkCubeSource.h>
 
+#include <boost/random/discrete_distribution.hpp>
+#include <boost/random/uniform_int.hpp>
+#include <boost/random/mersenne_twister.hpp>
+#include <boost/lexical_cast.hpp>
+#include <boost/exception/diagnostic_information.hpp>
 #include <chrono>
 
 using namespace std::chrono;
+using boost::compute::uint_;
+using boost::compute::lambda::_1;
+
 /// surasome visas konstantas kurias naudosi
 
 #define EPSILON 1.0E-12

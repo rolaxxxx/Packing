@@ -12,13 +12,14 @@ void SpherePackingAlgorithm::pack()
     std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
     // for(int i=0;i<25000;i++){ senas for ciklas
     int i=0;
+    PointType pasirinkta_dalele;
 
-    int F_index=0;
-    double time=0;
 
     double daleliu_turis=0;
+
     double  kubo_turis=pow((fabs(search->getBmax().x))+(fabs(search->getBmin().x)),3);
-    bool tikrinimas=true;
+
+
     do{
 
         //std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
@@ -32,18 +33,16 @@ void SpherePackingAlgorithm::pack()
                 INT rand_particle_index_f_index=dis(gen);
                 INT rand_particle_index = F[rand_particle_index_f_index];
         vector<INT>neighbours=search->getNeighboursID(rand_particle_index);
+        pasirinkta_dalele=data->getPoint(rand_particle_index);
 
 
         double new_R=random->getNextValue();
-        for(int t=0;t<neighbours.size();t++){ ////// RYtoj testi cia ///////
-            if(vector_len(data->getPoint(rand_particle_index)-data->getPoint(neighbours[t]))
-
+        //c//out << new_R << endl;
+        for(int t=0;t<neighbours.size();t++){
+            //cout << vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]) )<< " " << pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R << endl;
+            if(vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]))>pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R)
+                neighbours.erase(neighbours.begin()+t);
         }
-        // code to benchmark
-        //cout << neighbours.size() << endl;
-        // if(rand_particle_index==-1) continue;
-        //tikrinimas=true;
-        //cout << F[k] << endl;
 
 
         temp = rand_particle_index;
@@ -60,7 +59,9 @@ void SpherePackingAlgorithm::pack()
                             data->getPoint(neighbours[l]),
                             data->getPoint(rand_particle_index),
                             new_R);
-               // cout << newSphere.size() << endl;
+
+
+                // cout << newSphere.size() << endl;
                 for(int z=0;z<newSphere.size();z++)
                 {
                     //std::cout<<"nagrinejame "<<z<<"\n";
@@ -105,8 +106,8 @@ void SpherePackingAlgorithm::pack()
            }
 
 
-        //std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
-        //std::cout <<"poringumas "<< daleliu_turis/kubo_turis << endl;
+        std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
+        std::cout <<"poringumas "<< daleliu_turis/kubo_turis << endl;
         }
 
 

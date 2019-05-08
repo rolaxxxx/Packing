@@ -32,6 +32,10 @@ void Writer::write(Data*data, ASearch *search, std::string filename)
               vtkSmartPointer<vtkPolyData>::New();
             polydata->SetPoints(points);
           polydata->GetPointData()->SetScalars(radius);
+
+          //vtkdatasetwriter
+
+
             vtkSmartPointer<vtkPolyData> glyph =
         vtkSmartPointer<vtkPolyData>::New();
 
