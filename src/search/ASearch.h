@@ -2,7 +2,7 @@
 #define ASEARCH_H
 #include "core/Data.h"
 #include "core/Constants.h"
-#include "core/time.h"
+
 
 class ASearch
 {
@@ -12,7 +12,7 @@ public:
     virtual std::vector<INT> getNeighboursID(INT id)=0;
     virtual std::vector<INT> getGridNeigbours(INT id)=0;
 
-    virtual bool intersect(PointType id)=0;
+    virtual bool intersect(PointType id, std::vector<INT>neighbours)=0;
     virtual void addPoint(PointType p)=0;
     Point getBmax() const;
 

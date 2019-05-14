@@ -36,17 +36,17 @@ void SpherePackingAlgorithm::pack()
         vector<INT>neighbours=search->getNeighboursID(rand_particle_index);
         pasirinkta_dalele=data->getPoint(rand_particle_index);
 
-
+//vector - > particle index -> ID -> cell elements//
         double new_R=random->getNextValue();
         //c//out << new_R << endl;
-       // cout << neighbours.size() << " pries " << endl;
+        //cout << neighbours.size() << " pries " << endl;
         for(int t=0;t<neighbours.size();t++){
             //cout << vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]) )<< " " << pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R << endl;
             if(vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]))>pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R)
                 neighbours.erase(neighbours.begin()+t);
         }
-        //cout << neighbours.size() << " po" << endl;
-
+       // cout << neighbours.size() << " po" << endl;
+       // cout << "____" << endl;
 
         temp = rand_particle_index;
         int check=i;
@@ -73,7 +73,7 @@ void SpherePackingAlgorithm::pack()
                     //std::cout<<"nagrinejame "<<z<<"\n";
                     //time.StartTimer();
                     //auto begin = std::chrono::high_resolution_clock::now();
-                    if(!search->intersect(newSphere[z]))
+                    if(!search->intersect(newSphere[z], neighbours))
                     {
                         //  std::cout<<"dedame\n";
                         if(bounds->check(newSphere[z], search->getBmin(), search->getBmax())){
@@ -82,7 +82,7 @@ void SpherePackingAlgorithm::pack()
                             search->addPoint(newSphere[z]);
                             F.push_back(data->getNumberOfPoints()-1);
                             daleliu_turis+=(4.0/3.0)*PI*pow(newSphere[z].R,3);
-
+                            //cout << F.size() << "daleliu kiekis" << endl;
                             i++;
                         }
                     }
@@ -108,8 +108,8 @@ void SpherePackingAlgorithm::pack()
            }
 
 
-        std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
-        std::cout <<"poringumas "<< daleliu_turis/kubo_turis << endl;
+        //std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
+        //std::cout <<"poringumas "<< daleliu_turis/kubo_turis << endl;
         }
 
 

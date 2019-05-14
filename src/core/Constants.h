@@ -5,6 +5,7 @@
 #include <random>
 #include <map>
 #include <stdlib.h>
+#include <unordered_map>
 #include <list>
 #include <cmath>
 #include <utility>
@@ -12,7 +13,8 @@
 #include <ctime>
 #include <chrono>
 #include <algorithm>
-
+#include "core/time.h"
+#include <utility>
 
 
 #include <boost/compute/system.hpp>
@@ -59,6 +61,10 @@
 #include <boost/lexical_cast.hpp>
 #include <boost/exception/diagnostic_information.hpp>
 #include <chrono>
+#include <boost/fusion/container/map.hpp>
+#include <boost/fusion/include/map.hpp>
+#include <boost/fusion/container/map/map_fwd.hpp>
+#include <boost/fusion/include/map_fwd.hpp>
 
 using namespace std::chrono;
 using boost::compute::uint_;

@@ -15,7 +15,6 @@ set(LIB_SOURCES
     src/core/Data.cxx
     src/core/Point.cxx
     src/core/Math.cxx
-    src/core/time.cxx
 
     src/search/ASearch.cxx
     src/search/SearchUnform.cxx

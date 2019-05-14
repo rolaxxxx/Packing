@@ -21,7 +21,9 @@ INT SearchUnform::calculateID(PointType p){
 void SearchUnform::addPoint(PointType p)
 {
     int id=data->getNumberOfPoints();
-    SUFORMUOTAS_GRIDAS[calculateID(p)].push_back(id);
+    SUFORMUOTAS_GRIDAS.
+
+
     p.ID=id;
     data->insertNextPoint(p);
     //p.PrintStructure();
@@ -29,7 +31,9 @@ void SearchUnform::addPoint(PointType p)
 
 
 std::vector<INT> SearchUnform::getCellElements(INT id){
+
     return SUFORMUOTAS_GRIDAS[id];
+     //cout << time.CumulativeTime("sec") << " laikas sekundemis paimti elementams is mapo " << endl;
 }
 
 
@@ -40,23 +44,29 @@ std::vector<INT> SearchUnform::GetPotentialNeighbours(Point temp)
     INT xx=(int)floor((temp.x-bmin.x)/CELL_SIZE);
     INT yy=(int)floor((temp.y-bmin.y)/CELL_SIZE);
     INT zz=(int)floor((temp.z-bmin.z)/CELL_SIZE);
+
    // cout << bmin.x<< " " << bmin.y << " " << bmin.z << " " << CELL_SIZE << endl;
+
     for(INT x=xx-1;x<=xx+1;x++){
         for(INT y=yy-1;y<=yy+1;y++){
             for(INT z=zz-1;z<=zz+1;z++){
    // cout << x << " " << y << " " << z << endl;
                 INT  TEMP_ID=x+y*Nx+z*Nx*Ny;
+                 time.StartTimer();
                 potencialus_kaimynai=getCellElements(TEMP_ID);
+                time.StopTimer();
+
+                //
+
                 for (INT i = 0; i < potencialus_kaimynai.size(); i++) {
 
                     if(temp.ID!=potencialus_kaimynai[i])
                        ids.push_back(potencialus_kaimynai[i]);
-
-
             }
         }
     }
 }
+ cout << time.CumulativeTime("sec") << " " << " laikas sekundemis"<< endl;
     //cout << " ____ " << endl;
     return ids;
 
@@ -78,29 +88,39 @@ std::vector<INT> SearchUnform::getNeighboursID(INT id)
 
    // std::cout<<"Potencialus kaimynu skaicius "<<potencialus_kaimynai.size()<<"\n";
     std::vector<INT> ids;
+    //cout << potencialus_kaimynai.size() << endl;
     for(int i=0;i<potencialus_kaimynai.size();i++)
     {
         //std::cout<<"target id "<<p.ID<<"  potencialus kaimynas "<<potencialus_kaimynai[i]<<"\n";
         Point target=data->getPoint(potencialus_kaimynai[i]);
         double L=vector_len(p-target);
         double L2=L-p.R-target.R;
-        if(L2<= 2*RMax)//  EPSILON 2*RMax
+
+        if(L2<= 4*RMax)//  EPSILON 2*RMax // paimti daugiau kad po to nereiketu vel kartoti funkcijos
         {
 
             ids.push_back(potencialus_kaimynai[i]);
            // target.PrintStructure();
           // cout << potencialus_kaimynai[i] << endl;
         }
-
     }
    // std::cout<<"real neigb "<<ids.size()<<"\n";
     //cout << "_______" << endl;
     return ids;
 }
-bool SearchUnform::intersect(PointType p)
+bool SearchUnform::intersect(PointType p, vector<INT>neighbours)
 {
 
+
+   // time.StartTimer();
+    // cout << neighbours.size() << " kaimynu kiekis " << endl;
+   // std::vector<INT> potencialus_kaimynai=;
     std::vector<INT> potencialus_kaimynai=GetPotentialNeighbours(p);
+    //time.StopTimer();
+
+    //cout << "iteracijos laikas " << time.ElapsedTime("sec") << endl;
+    //cout << "visas laikas  " << time.CumulativeTime("sec") << " ir kaimynai " << potencialus_kaimynai.size() <<endl;
+
    // cout << potencialus_kaimynai.size() << endl;
 
     for(int i=0;i<potencialus_kaimynai.size();i++)

@@ -2,12 +2,13 @@
 #define SEARCHUNFORM_H
 #include "search/ASearch.h"
 
+using namespace std;
 class SearchUnform:public ASearch
 {
 public:
     SearchUnform();
     std::vector<INT> getNeighboursID(INT id);
-    bool intersect(PointType p);
+    bool intersect(PointType p, std::vector<INT>neighbours);
     std::vector<INT> getGridNeigbours(INT id);
     void addPoint(PointType p);
 
@@ -19,8 +20,11 @@ public:
 protected:
     void initialization();
 private:
-    std::map<INT, std::vector<INT>>SUFORMUOTAS_GRIDAS;
+    //std::unordered_map<INT, std::vector<INT>>SUFORMUOTAS_GRIDAS;
+    //std::vector<pair<INT, vector> SUFORMUOTAS_GRIDAS
+    ///boost<int, std::vector<INT> SUFORMUOTAS_GRIDAS; paversti mapa i vektoriu
     std::vector<INT> GetPotentialNeighbours(Point p);
+    Timer time;
 
 };
 
