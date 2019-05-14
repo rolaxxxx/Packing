@@ -4,6 +4,7 @@
 #include <vector>
 #include <random>
 #include <map>
+#include <boost/container/map.hpp>
 #include <stdlib.h>
 #include <unordered_map>
 #include <list>
@@ -54,7 +55,7 @@
 #include <vtkPointData.h>
 #include <vtkDataArray.h>
 #include <vtkCubeSource.h>
-
+#include <boost/unordered_map.hpp>
 #include <boost/random/discrete_distribution.hpp>
 #include <boost/random/uniform_int.hpp>
 #include <boost/random/mersenne_twister.hpp>
@@ -78,6 +79,7 @@ using boost::compute::lambda::_1;
 
 typedef double REAL;
 typedef int INT;
+typedef boost::unordered_map<int, std::vector<INT>> unordered_map;
 
 
 

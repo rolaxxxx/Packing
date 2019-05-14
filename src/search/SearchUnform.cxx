@@ -21,9 +21,7 @@ INT SearchUnform::calculateID(PointType p){
 void SearchUnform::addPoint(PointType p)
 {
     int id=data->getNumberOfPoints();
-    SUFORMUOTAS_GRIDAS.
-
-
+    mp[calculateID(p)].push_back(id);
     p.ID=id;
     data->insertNextPoint(p);
     //p.PrintStructure();
@@ -32,7 +30,7 @@ void SearchUnform::addPoint(PointType p)
 
 std::vector<INT> SearchUnform::getCellElements(INT id){
 
-    return SUFORMUOTAS_GRIDAS[id];
+    return mp[id];
      //cout << time.CumulativeTime("sec") << " laikas sekundemis paimti elementams is mapo " << endl;
 }
 
