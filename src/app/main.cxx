@@ -1,8 +1,10 @@
 #include "random/RandomFactory.h"
 #include "search/SearchFactory.h"
 #include "algorithm/AlgorithmFactory.h"
+#include "Boundaries/BoundariesShape.h"
 #include "core/Data.h"
 #include "IO/Reader.h"
+#include "core/time.h"
 #include "IO/Writer.h"
 using namespace std;
 int main()
@@ -23,7 +25,7 @@ int main()
     AlgorithmFactory algorithmFactory;
 
     ARandom * random=randomFactory.create(RandomTypes::Uniform);
-    ASearch * search =searchFactory.create(SearchTypes::Uniform);
+    ASearch * search=searchFactory.create(SearchTypes::Uniform);
     AAlgorithm*algorithm=algorithmFactory.create(AlgorithmType::SpherePackingAlgorithm);
     PointType P1, P2, P3, P4;
 
@@ -80,13 +82,24 @@ probabilities.push_back(0.4);
    search->addPoint(P2);
    search->addPoint(P3);
 
+   BoundariesShape shape;
+   BBoundaries * bounds=shape.create(BoundsTypes::Cube);
 
 
+
+
+    Timer time;
 	//cout << search->getMapSIZE() << endl; testuoju ar elementai per init funkcija is data masyvo isidejo i suformuota grida
-   algorithm->init(data,random,search,10);
 
-    /// atliekame tikraji pakinima
+    algorithm->init(data,random,search, bounds, 10);
+
+
+
+
     algorithm->pack();
+
+
+
    writer.write(data, search, "output.vtk");// irasome rezultata
     return 0;
 

@@ -11,9 +11,10 @@ void SpherePackingAlgorithm::pack()
     std::random_device rd;  //Will be used to obtain a seed for the random number engine
     std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
     // for(int i=0;i<25000;i++){ senas for ciklas
+    Timer time;
     int i=0;
     PointType pasirinkta_dalele;
-
+    double rez_time;
 
     double daleliu_turis=0;
 
@@ -38,11 +39,13 @@ void SpherePackingAlgorithm::pack()
 
         double new_R=random->getNextValue();
         //c//out << new_R << endl;
+       // cout << neighbours.size() << " pries " << endl;
         for(int t=0;t<neighbours.size();t++){
             //cout << vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]) )<< " " << pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R << endl;
             if(vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]))>pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R)
                 neighbours.erase(neighbours.begin()+t);
         }
+        //cout << neighbours.size() << " po" << endl;
 
 
         temp = rand_particle_index;
@@ -53,6 +56,7 @@ void SpherePackingAlgorithm::pack()
             for (INT l = j+1; l < neighbours.size(); l++) {
 
                 //std::cout<<"generuojame sfera is "<<neighbours[j]<<" "<<neighbours[l]<<" "<<rand_particle_index<<"\n";
+
                 PointsArrayType newSphere=
                         this->math.getSpheresTouchingThreeOtherSpheres(
                             data->getPoint(neighbours[j]),
@@ -60,23 +64,19 @@ void SpherePackingAlgorithm::pack()
                             data->getPoint(rand_particle_index),
                             new_R);
 
+                //time.ElapsedTime("sec");
+
 
                 // cout << newSphere.size() << endl;
                 for(int z=0;z<newSphere.size();z++)
                 {
                     //std::cout<<"nagrinejame "<<z<<"\n";
-
+                    //time.StartTimer();
                     //auto begin = std::chrono::high_resolution_clock::now();
                     if(!search->intersect(newSphere[z]))
                     {
                         //  std::cout<<"dedame\n";
-                        if(       newSphere[z].x<search->getBmax().x
-                                &&newSphere[z].y<search->getBmax().y
-                                &&newSphere[z].z<search->getBmax().z
-                                &&newSphere[z].x>search->getBmin().x
-                                &&newSphere[z].y>search->getBmin().y
-                                &&newSphere[z].z>search->getBmin().z
-                                  ){
+                        if(bounds->check(newSphere[z], search->getBmin(), search->getBmax())){
 
                             //newSphere[z].PrintStructure();
                             search->addPoint(newSphere[z]);
@@ -86,6 +86,8 @@ void SpherePackingAlgorithm::pack()
                             i++;
                         }
                     }
+                   // time.StopTimer();
+                   // rez_time+=time.ElapsedTime("sec");
                    // auto end = std::chrono::high_resolution_clock::now();
                   // duration<double> time_span = duration_cast<duration<double>>(end - begin);
                   // time=time_span.count();
@@ -115,9 +117,7 @@ void SpherePackingAlgorithm::pack()
 
 
     while(F.size());
-   // cout << "average intersect time " << time/F_index;
-    //cout << kubo_turis << " " << data->getNumberOfPoints() <<  endl;
-    //cout << daleliu_turis/kubo_turis << endl;
+   //cout << rez_time << endl;
 
     std::cout<<"packing done\n";
 }

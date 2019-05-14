@@ -15,6 +15,7 @@ set(LIB_SOURCES
     src/core/Data.cxx
     src/core/Point.cxx
     src/core/Math.cxx
+    src/core/time.cxx
 
     src/search/ASearch.cxx
     src/search/SearchUnform.cxx
@@ -24,9 +25,9 @@ set(LIB_SOURCES
     src/algorithm/AlgorithmFactory.cxx
     src/algorithm/SpherePackingAlgorithm.cxx
 
-
-
-
+    src/Boundaries/BBoundaries.cxx
+    src/Boundaries/BoundariesShape.cxx
+    src/Boundaries/CubeShape.cxx
 
     src/IO/Reader.cxx
     src/IO/Writer.cxx
@@ -37,10 +38,10 @@ set(LIB_HEADERS
     src/random/RandomUniform.h
     src/random/RandomFactory.h
 
-
     src/core/Data.h
     src/core/Point.h
     src/core/Math.h
+    src/core/time.h
 
     src/search/ASearch.h
     src/search/SearchUnform.h
@@ -50,6 +51,9 @@ set(LIB_HEADERS
     src/algorithm/AlgorithmFactory.h
     src/algorithm/SpherePackingAlgorithm.h
 
+    src/Boundaries/BBoundaries.h
+    src/Boundaries/BoundariesShape.h
+    src/Boundaries/CubeShape.h
 
     src/IO/Reader.h
     src/IO/Writer.h

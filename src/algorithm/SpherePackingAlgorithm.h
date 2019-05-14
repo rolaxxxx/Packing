@@ -1,7 +1,7 @@
 #ifndef SPHEREPACKINGALGORITHM_H
 #define SPHEREPACKINGALGORITHM_H
 #include "algorithm/AAlgorithm.h"
-
+#include "core/time.h"
 class SpherePackingAlgorithm:public AAlgorithm
 {
 public:

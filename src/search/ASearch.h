@@ -2,6 +2,7 @@
 #define ASEARCH_H
 #include "core/Data.h"
 #include "core/Constants.h"
+#include "core/time.h"
 
 class ASearch
 {

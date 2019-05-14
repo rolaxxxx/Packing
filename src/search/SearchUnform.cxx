@@ -57,7 +57,6 @@ std::vector<INT> SearchUnform::GetPotentialNeighbours(Point temp)
         }
     }
 }
-
     //cout << " ____ " << endl;
     return ids;
 
@@ -100,8 +99,6 @@ std::vector<INT> SearchUnform::getNeighboursID(INT id)
 }
 bool SearchUnform::intersect(PointType p)
 {
-
-
 
     std::vector<INT> potencialus_kaimynai=GetPotentialNeighbours(p);
    // cout << potencialus_kaimynai.size() << endl;
