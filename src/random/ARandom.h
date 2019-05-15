@@ -8,6 +8,10 @@ public:
     ARandom();
     virtual REAL getNextValue()=0;
     void init(REAL minValue,REAL maxValue,INT count, std::vector<REAL> probs);
+    std::vector<REAL> getIntervals() const;
+
+    std::vector<REAL> getProbs() const;
+
 protected:
     virtual void initialization()=0;
     INT count;
@@ -15,6 +19,7 @@ protected:
     REAL maxValue;
     REAL delta_R;
     std::vector<REAL> intervals;
+
     std::vector<REAL> probs ; // is main paimti
 };
 

@@ -16,7 +16,7 @@
 #include <algorithm>
 #include "core/time.h"
 #include <utility>
-
+#include <vtkDataSetWriter.h>
 
 #include <boost/compute/system.hpp>
 #include <boost/compute/command_queue.hpp>

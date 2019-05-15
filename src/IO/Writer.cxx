@@ -5,7 +5,7 @@ Writer::Writer()
 
 }
 
-void Writer::write(Data*data, ASearch *search, std::string filename)
+void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<REAL> probabilities, std::string filename)
 {
 
          vtkSmartPointer<vtkDoubleArray> radius =
@@ -16,6 +16,7 @@ void Writer::write(Data*data, ASearch *search, std::string filename)
 
 
     radius->SetName("RADIUS");
+
 
          PointType tempDalele;
         for(INT i=0;i<data->getNumberOfPoints();i++)
@@ -32,9 +33,33 @@ void Writer::write(Data*data, ASearch *search, std::string filename)
               vtkSmartPointer<vtkPolyData>::New();
             polydata->SetPoints(points);
           polydata->GetPointData()->SetScalars(radius);
+          //polydata->GetPointData()->SetScalars(particle_probabilities);
 
-          //vtkdatasetwriter
+          vtkDoubleArray *Unique_radius = vtkDoubleArray::New();
+              Unique_radius->SetName("UNIQUE_RADIUS");
 
+              for(int i=0;i<intervals.size();i++){
+                  Unique_radius->InsertNextTuple1(intervals[i]);
+              }
+
+
+              vtkDoubleArray *procentai = vtkDoubleArray::New();
+                  procentai->SetName("PARTICLE_TYPE");
+
+                  for(int i=0;i<probabilities.size();i++){
+                      procentai->InsertNextTuple1(probabilities[i]);
+                  }
+
+
+              polydata->GetFieldData()->AddArray(Unique_radius);
+              polydata->GetFieldData()->AddArray(procentai);
+
+          vtkDataSetWriter *dsw = vtkDataSetWriter::New();
+                dsw->SetFileName("rezultatai.vtk");
+                dsw->SetInputData(polydata);
+
+                dsw->Write();
+/*
 
             vtkSmartPointer<vtkPolyData> glyph =
         vtkSmartPointer<vtkPolyData>::New();
@@ -104,4 +129,5 @@ void Writer::write(Data*data, ASearch *search, std::string filename)
        renderWindowInteractor->Start();
 
     /// irasome duomenis greiciausiai i VTK faila kaip rezultata.
+*/
 }

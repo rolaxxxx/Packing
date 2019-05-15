@@ -33,15 +33,15 @@ int main()
     ///
     Point kint1, kint2;
     // bounds size
-    kint1.x=-15;
-    kint1.y=-15;
-    kint1.z=-15;
+    kint1.x=0;
+    kint1.y=0;
+    kint1.z=0;
 
-    kint2.x=15;
-    kint2.y=15;
-    kint2.z=15;
+    kint2.x=0.025;
+    kint2.y=0.005;
+    kint2.z=0.001;
 
-    double RMAX=1;
+    double RMAX=1.00E-04;
     P1.x=0;
     P1.y=0;
     P1.z=0;
@@ -57,26 +57,12 @@ int main()
     P3.z=0;
     P3.R=RMAX;
 
-std::vector<REAL> probabilities;
-probabilities.push_back(0.1);
-probabilities.push_back(0.4);
-probabilities.push_back(0.3);
-probabilities.push_back(0.2);
-probabilities.push_back(0.1);
-probabilities.push_back(0.4);
-   random->init(0.5,RMAX,5, probabilities);
+        std::vector<REAL> probabilities;
+        probabilities.push_back(1);
+        random->init(RMAX,RMAX,2, probabilities);
 
+        search->init(data, kint1, kint2,RMAX);
 
-
-
-  // for(int i=0;i<100;i++)
-   //{
-       //cout << random->getNextValue() << endl;
-
-
-  // }
-
-    search->init(data, kint1, kint2,RMAX);
 
    search->addPoint(P1);
    search->addPoint(P2);
@@ -86,7 +72,8 @@ probabilities.push_back(0.4);
    BBoundaries * bounds=shape.create(BoundsTypes::Cube);
 
 
-
+    std::vector<REAL> intervals;
+    intervals=random->getIntervals();
 
     Timer time;
 	//cout << search->getMapSIZE() << endl; testuoju ar elementai per init funkcija is data masyvo isidejo i suformuota grida
@@ -95,12 +82,13 @@ probabilities.push_back(0.4);
 
 
 
-
+    time.StartTimer();
     algorithm->pack();
+    time.StopTimer();
+   cout << time.ElapsedTime("sec") << endl;
 
 
-
-   writer.write(data, search, "output.vtk");// irasome rezultata
+   writer.write(data, search, intervals, probabilities, "output.vtk");// irasome rezultata
     return 0;
 
 }
