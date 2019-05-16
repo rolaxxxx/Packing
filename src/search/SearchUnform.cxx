@@ -49,8 +49,9 @@ std::vector<INT> SearchUnform::GetPotentialNeighbours(Point temp)
     INT yy=(int)floor((temp.y-bmin.y)/CELL_SIZE);
     INT zz=(int)floor((temp.z-bmin.z)/CELL_SIZE);
 
-   // cout << bmin.x<< " " << bmin.y << " " << bmin.z << " " << CELL_SIZE << endl;
 
+    //cout << bmin.x<< " " << bmin.y << " " << bmin.z << " " << CELL_SIZE << endl;
+   // cout << ((temp.x-bmin.x)/CELL_SIZE) << " " << (int)floor((temp.x-bmin.x)/CELL_SIZE) << endl;
  // time.StartTimer();
     for(INT x=xx-1;x<=xx+1;x++){
         for(INT y=yy-1;y<=yy+1;y++){

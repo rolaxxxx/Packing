@@ -35,7 +35,7 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
           polydata->GetPointData()->SetScalars(radius);
           //polydata->GetPointData()->SetScalars(particle_probabilities);
 
-          vtkDoubleArray *Unique_radius = vtkDoubleArray::New();
+         /* vtkDoubleArray *Unique_radius = vtkDoubleArray::New();
               Unique_radius->SetName("UNIQUE_RADIUS");
 
               for(int i=0;i<intervals.size();i++){
@@ -59,7 +59,7 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
                 dsw->SetInputData(polydata);
 
                 dsw->Write();
-/*
+*/
 
             vtkSmartPointer<vtkPolyData> glyph =
         vtkSmartPointer<vtkPolyData>::New();
@@ -93,7 +93,7 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
        mapper->SetScalarModeToUsePointFieldData();
        vtkSmartPointer<vtkCubeSource> cubeSource =
              vtkSmartPointer<vtkCubeSource>::New();
-           cubeSource.Get()->SetBounds(-15,15,-15,15,-15, 15);
+           cubeSource.Get()->SetBounds(0,15,0,15,0, 15);
            //cubeSource.GetProperty()->SetOpacity(.4);
            // Visualize
 
@@ -129,5 +129,5 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
        renderWindowInteractor->Start();
 
     /// irasome duomenis greiciausiai i VTK faila kaip rezultata.
-*/
+
 }
