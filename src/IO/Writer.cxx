@@ -5,7 +5,7 @@ Writer::Writer()
 
 }
 
-void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<REAL> probabilities, std::string filename)
+void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<REAL> probabilities, REAL poringumas, std::string filename)
 {
 
          vtkSmartPointer<vtkDoubleArray> radius =
@@ -35,7 +35,12 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
           polydata->GetPointData()->SetScalars(radius);
           //polydata->GetPointData()->SetScalars(particle_probabilities);
 
-         /* vtkDoubleArray *Unique_radius = vtkDoubleArray::New();
+          vtkDoubleArray *por = vtkDoubleArray::New();
+
+              por->SetName("PORINGUMAS");
+          por->InsertNextTuple1(poringumas);
+
+          vtkDoubleArray *Unique_radius = vtkDoubleArray::New();
               Unique_radius->SetName("UNIQUE_RADIUS");
 
               for(int i=0;i<intervals.size();i++){
@@ -50,18 +55,22 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
                       procentai->InsertNextTuple1(probabilities[i]);
                   }
 
-
+              polydata->GetFieldData()->AddArray(por);
               polydata->GetFieldData()->AddArray(Unique_radius);
               polydata->GetFieldData()->AddArray(procentai);
 
+            //VTK_DOUBLE poring=poringumas;
+
+
+
           vtkDataSetWriter *dsw = vtkDataSetWriter::New();
-                dsw->SetFileName("rezultatai.vtk");
+                dsw->SetFileName("cube3_var5.vtk");
                 dsw->SetInputData(polydata);
 
                 dsw->Write();
-*/
 
-            vtkSmartPointer<vtkPolyData> glyph =
+
+            /*vtkSmartPointer<vtkPolyData> glyph =
         vtkSmartPointer<vtkPolyData>::New();
 
             vtkSmartPointer<vtkSphereSource> SphereSource =
@@ -93,7 +102,7 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
        mapper->SetScalarModeToUsePointFieldData();
        vtkSmartPointer<vtkCubeSource> cubeSource =
              vtkSmartPointer<vtkCubeSource>::New();
-           cubeSource.Get()->SetBounds(0,15,0,15,0, 15);
+           cubeSource.Get()->SetBounds(0,0.025,0,0.005,0, 0.001);
            //cubeSource.GetProperty()->SetOpacity(.4);
            // Visualize
 
@@ -127,7 +136,7 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
 
            renderWindow->Render();
        renderWindowInteractor->Start();
-
+*/
     /// irasome duomenis greiciausiai i VTK faila kaip rezultata.
 
 }

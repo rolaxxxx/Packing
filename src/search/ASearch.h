@@ -18,6 +18,12 @@ public:
 
     Point getBmin() const;
 
+    INT getNx() const;
+
+    INT getNy() const;
+
+    INT getNz() const;
+
 protected:
     virtual void initialization()=0;
 

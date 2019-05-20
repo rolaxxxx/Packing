@@ -7,8 +7,11 @@ class SpherePackingAlgorithm:public AAlgorithm
 public:
     SpherePackingAlgorithm();
     void pack();
+
+
 protected:
     void initialization();
+
     std::vector<INT>F;
 };
 

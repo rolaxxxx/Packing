@@ -12,6 +12,8 @@ public:
     AAlgorithm();
     void init(Data*data,ARandom *random,ASearch *search, BBoundaries *bounds, INT count);
     virtual void pack()=0;
+    REAL getPoringumas() const;
+
 protected:
     virtual void initialization()=0;
     ARandom *random;
@@ -20,6 +22,7 @@ protected:
     Math math;
     Data*data;
     BBoundaries *bounds;
+    REAL poringumas;
 
 
 };

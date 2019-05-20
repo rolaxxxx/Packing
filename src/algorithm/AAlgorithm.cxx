@@ -15,3 +15,8 @@ void AAlgorithm::init(Data *data, ARandom *random, ASearch *search, BBoundaries 
 
 
 }
+
+REAL AAlgorithm::getPoringumas() const
+{
+    return poringumas;
+}

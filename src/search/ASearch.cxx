@@ -27,3 +27,18 @@ Point ASearch::getBmin() const
 {
     return bmin;
 }
+
+INT ASearch::getNx() const
+{
+    return Nx;
+}
+
+INT ASearch::getNy() const
+{
+    return Ny;
+}
+
+INT ASearch::getNz() const
+{
+    return Nz;
+}

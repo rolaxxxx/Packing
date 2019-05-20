@@ -7,7 +7,10 @@ SearchUnform::SearchUnform()
 }
 void SearchUnform::initialization()
 {
-    SUFORMUOTAS_GRIDAS.resize(((bmax.x-bmin.x)*(bmax.y-bmin.y)*(bmax.z-bmin.z))/2*RMax); // vektoriaus dydis
+    SUFORMUOTAS_GRIDAS.resize(Nx*Ny*Nz); // vektoriaus dydis
+    //SUFORMUOTAS_GRIDAS.resize(sqrt(pow((bmax.x-bmin.x),2)+pow((bmax.y-bmin.y),2)+pow((bmax.z-bmin.z),2))/(2*RMax));
+    //cout << SUFORMUOTAS_GRIDAS.size() << endl;
+   // cout <<((bmax.x-bmin.x)*(bmax.y-bmin.y)*(bmax.z-bmin.z))<< " " << 2*RMax << endl;
 }
 
 INT SearchUnform::calculateID(PointType p){
@@ -30,7 +33,7 @@ void SearchUnform::addPoint(PointType p)
     temp.push_back(id);
 
     SUFORMUOTAS_GRIDAS[calc_id]=temp;
-
+    //cout << calc_id << " " << SUFORMUOTAS_GRIDAS.size() << endl;
     p.ID=id;
     data->insertNextPoint(p);
     //p.PrintStructure();
@@ -48,7 +51,7 @@ std::vector<INT> SearchUnform::GetPotentialNeighbours(Point temp)
     INT xx=(int)floor((temp.x-bmin.x)/CELL_SIZE);
     INT yy=(int)floor((temp.y-bmin.y)/CELL_SIZE);
     INT zz=(int)floor((temp.z-bmin.z)/CELL_SIZE);
-
+    //cout << xx << " " << yy << " " << zz << endl;
 
     //cout << bmin.x<< " " << bmin.y << " " << bmin.z << " " << CELL_SIZE << endl;
    // cout << ((temp.x-bmin.x)/CELL_SIZE) << " " << (int)floor((temp.x-bmin.x)/CELL_SIZE) << endl;
@@ -61,7 +64,10 @@ std::vector<INT> SearchUnform::GetPotentialNeighbours(Point temp)
                 if(x<Nx&&y<Ny&&z<Nz&&x>=0&&y>=0&&z>=0)
                 {
                 INT  TEMP_ID=x+y*Nx+z*Nx*Ny;
-
+                //cout << Nx << " " << Ny << " " << Nz << endl;
+                //cout << x << " " << y << " " << z << endl;
+               // cout << TEMP_ID << endl;
+               // cout << Nx << " " << Ny << " " << Nz << endl;
                 std::vector<INT>& potencialus_kaimynai=getCellElements(TEMP_ID);
 
 

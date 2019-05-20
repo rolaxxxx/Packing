@@ -18,7 +18,7 @@ void SpherePackingAlgorithm::pack()
 
     double daleliu_turis=0;
 
-    double  kubo_turis=pow((fabs(search->getBmax().x))+(fabs(search->getBmin().x)),3);
+    double  kubo_turis=((fabs(search->getBmax().x))-(fabs(search->getBmin().x)))*((fabs(search->getBmax().y))-(fabs(search->getBmin().y)))*((fabs(search->getBmax().z))-(fabs(search->getBmin().z)));
 
 
 
@@ -119,7 +119,7 @@ void SpherePackingAlgorithm::pack()
 
    // cout << time.CumulativeTime("sec") << endl;
    //cout << rez_time << endl;
-
+    poringumas=daleliu_turis/kubo_turis;
     std::cout<<"packing done\n";
 }
 
@@ -130,3 +130,5 @@ void SpherePackingAlgorithm::initialization()
     }
     std::cout<<"Performing initialization\n";
 }
+
+

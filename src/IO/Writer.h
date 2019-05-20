@@ -8,7 +8,7 @@ class Writer
 {
 public:
     Writer();
-    void write(Data*data, ASearch *search, std::vector<REAL> intervals, std::vector<REAL> probabilities, std::string filename);
+    void write(Data*data, ASearch *search, std::vector<REAL> intervals, std::vector<REAL> probabilities, REAL poringumas, std::string filename);
 };
 
 #endif // WRITER_H
