@@ -14,6 +14,15 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
          vtkSmartPointer<vtkPoints> points =
          vtkSmartPointer<vtkPoints>::New();
 
+         vtkSmartPointer<vtkCylinderSource> cylinderSource =
+             vtkSmartPointer<vtkCylinderSource>::New();
+
+           cylinderSource->SetCenter(0.0, 0.0, 0.0);
+           cylinderSource->SetRadius(0.15);
+           cylinderSource->SetHeight(0.22);
+           cylinderSource->SetResolution(100);
+
+
 
     radius->SetName("RADIUS");
 
@@ -34,7 +43,7 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
             polydata->SetPoints(points);
           polydata->GetPointData()->SetScalars(radius);
           //polydata->GetPointData()->SetScalars(particle_probabilities);
-
+/*
           vtkDoubleArray *por = vtkDoubleArray::New();
 
               por->SetName("PORINGUMAS");
@@ -64,13 +73,13 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
 
 
           vtkDataSetWriter *dsw = vtkDataSetWriter::New();
-                dsw->SetFileName("cube3_var5.vtk");
+                dsw->SetFileName("rezultatai.vtk");
                 dsw->SetInputData(polydata);
 
                 dsw->Write();
+*/
 
-
-            /*vtkSmartPointer<vtkPolyData> glyph =
+           vtkSmartPointer<vtkPolyData> glyph =
         vtkSmartPointer<vtkPolyData>::New();
 
             vtkSmartPointer<vtkSphereSource> SphereSource =
@@ -109,14 +118,22 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
            mapper->SetInputConnection(glyph3D->GetOutputPort());
 
 
-           vtkSmartPointer<vtkPolyDataMapper> Cubemapper =
+           /*vtkSmartPointer<vtkPolyDataMapper> Cubemapper =
              vtkSmartPointer<vtkPolyDataMapper>::New();
            Cubemapper->SetInputConnection(cubeSource->GetOutputPort());
+           */
 
-           vtkSmartPointer<vtkActor> Cubeactor =
-             vtkSmartPointer<vtkActor>::New();
-           Cubeactor->GetProperty()->SetOpacity(.2);
-       Cubeactor->SetMapper(Cubemapper);
+           vtkSmartPointer<vtkPolyDataMapper> Cylindermapper =
+             vtkSmartPointer<vtkPolyDataMapper>::New();
+           Cylindermapper->SetInputConnection(cylinderSource->GetOutputPort());
+           vtkSmartPointer<vtkActor>Cylinderactor =
+                 vtkSmartPointer<vtkActor>::New();
+                 Cylinderactor->SetMapper(Cylindermapper);
+                 Cylinderactor->GetProperty()->SetOpacity(.4);
+          // vtkSmartPointer<vtkActor> Cubeactor =
+           //  vtkSmartPointer<vtkActor>::New();
+           //Cubeactor->GetProperty()->SetOpacity(.2);
+           // Cubeactor->SetMapper(Cubemapper);
        vtkSmartPointer<vtkActor>Glyphactor =
              vtkSmartPointer<vtkActor>::New();
              Glyphactor->SetMapper(mapper);
@@ -130,13 +147,14 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
              vtkSmartPointer<vtkRenderWindowInteractor>::New();
            renderWindowInteractor->SetRenderWindow(renderWindow);
 
-          renderer->AddActor(Cubeactor);
+          //renderer->AddActor(Cubeactor);
+           renderer->AddActor(Cylinderactor);
            renderer->AddActor(Glyphactor);
            renderer->SetBackground(255, 255, 255); // Background color green
 
            renderWindow->Render();
        renderWindowInteractor->Start();
-*/
+
     /// irasome duomenis greiciausiai i VTK faila kaip rezultata.
 
 }

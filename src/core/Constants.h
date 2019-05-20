@@ -9,6 +9,7 @@
 #include <unordered_map>
 #include <list>
 #include <cmath>
+#include <vtkCylinderSource.h>
 #include <utility>
 #include <iomanip>
 #include <ctime>
