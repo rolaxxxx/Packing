@@ -7,10 +7,7 @@ SearchUnform::SearchUnform()
 }
 void SearchUnform::initialization()
 {
-    SUFORMUOTAS_GRIDAS.resize(Nx*Ny*Nz); // vektoriaus dydis
-    //SUFORMUOTAS_GRIDAS.resize(sqrt(pow((bmax.x-bmin.x),2)+pow((bmax.y-bmin.y),2)+pow((bmax.z-bmin.z),2))/(2*RMax));
-    //cout << SUFORMUOTAS_GRIDAS.size() << endl;
-   // cout <<((bmax.x-bmin.x)*(bmax.y-bmin.y)*(bmax.z-bmin.z))<< " " << 2*RMax << endl;
+    SUFORMUOTAS_GRIDAS.resize(Nx*Ny*Nz);
 }
 
 INT SearchUnform::calculateID(PointType p){

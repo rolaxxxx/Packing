@@ -1,7 +1,7 @@
 #ifndef READER_H
 #define READER_H
 #include "core/Data.h"
-
+#include "core/Constants.h"
 class Reader
 {
 public:

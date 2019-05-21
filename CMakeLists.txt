@@ -3,6 +3,9 @@ cmake_minimum_required(VERSION 2.8)
 FIND_PACKAGE(VTK REQUIRED)
 INCLUDE(${VTK_USE_FILE})
 
+
+
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -27,6 +30,7 @@ set(LIB_SOURCES
     src/Boundaries/BBoundaries.cxx
     src/Boundaries/BoundariesShape.cxx
     src/Boundaries/CubeShape.cxx
+    src/Boundaries/cylindershape.cpp
 
     src/IO/Reader.cxx
     src/IO/Writer.cxx
@@ -53,6 +57,7 @@ set(LIB_HEADERS
     src/Boundaries/BBoundaries.h
     src/Boundaries/BoundariesShape.h
     src/Boundaries/CubeShape.h
+    src/Boundaries/cylindershape.h
 
     src/IO/Reader.h
     src/IO/Writer.h
@@ -65,6 +70,6 @@ add_executable(Packing src/app/main.cxx)
 target_link_libraries(Packing  ${VTK_LIBRARIES} -lpthread -lboost_log -lstdc++fs  libPacking)
 
 add_executable(MathTests src/app/MathTests.cxx)
-target_link_libraries(MathTests  ${VTK_LIBRARIES} -lpthread -lboost_log -lstdc++fs  libPacking)
+target_link_libraries(MathTests  ${VTK_LIBRARIES}  -lpthread -lboost_log -lstdc++fs  libPacking)
 
 

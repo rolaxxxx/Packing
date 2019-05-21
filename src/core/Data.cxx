@@ -22,3 +22,18 @@ INT Data::getNumberOfPoints()
     return data.size();
 }
 
+std::string Data::getDuomenys() const
+{
+    return duomenys;
+}
+
+void Data::setDuomenys(const std::string &value)
+{
+    duomenys = value;
+}
+
+
+
+
+
+

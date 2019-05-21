@@ -3,15 +3,18 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <nlohmann/json.hpp>
 #include <map>
 #include <boost/container/map.hpp>
 #include <stdlib.h>
 #include <unordered_map>
+using json = nlohmann::json;
 #include <list>
 #include <cmath>
 #include <vtkCylinderSource.h>
 #include <utility>
 #include <iomanip>
+#include <string>
 #include <ctime>
 #include <chrono>
 #include <algorithm>

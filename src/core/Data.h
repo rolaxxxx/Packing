@@ -26,9 +26,16 @@ public:
 
     PointType getPoint_v(INT i);
     void insertNextPoint_v(PointType p);
+
+
+
+
+    std::string getDuomenys() const;
+    void setDuomenys(const std::string &value);
+
 private:
     PointsArrayType data; /// tik daleles kuriuose ieskomi kaimynai
-
+    std::string duomenys;
 
 
 };

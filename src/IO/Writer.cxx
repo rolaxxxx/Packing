@@ -1,4 +1,5 @@
 #include "Writer.h"
+#include <vtkCellArray.h>
 using namespace std;
 Writer::Writer()
 {
@@ -7,7 +8,7 @@ Writer::Writer()
 
 void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<REAL> probabilities, REAL poringumas, std::string filename)
 {
-
+        ///Irasyti i faila prie daleles kad butu zinomas koks jos tipas tarp procentu 18 4 2 14 21
          vtkSmartPointer<vtkDoubleArray> radius =
          vtkSmartPointer<vtkDoubleArray>::New();
 
@@ -20,21 +21,26 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
            cylinderSource->SetCenter(0.0, 0.0, 0.0);
            cylinderSource->SetRadius(0.15);
            cylinderSource->SetHeight(0.22);
+           // x  0  0
+           // y  0  0.15
+           // z  0  0.22
            cylinderSource->SetResolution(100);
 
-
-
     radius->SetName("RADIUS");
-
+     radius->SetNumberOfComponents(1);
+     radius->SetNumberOfTuples(data->getNumberOfPoints());
 
          PointType tempDalele;
+         vtkSmartPointer<vtkCellArray> cells=vtkSmartPointer<vtkCellArray>::New();
         for(INT i=0;i<data->getNumberOfPoints();i++)
         {
              tempDalele=data->getPoint(i);
              //cout << tempDalele << endl;
              points->InsertNextPoint(tempDalele.x,tempDalele.y, tempDalele.z);
-             radius->InsertNextTuple1(tempDalele.R);
+             radius->SetTuple1(i,tempDalele.R);
             // cout<< tempDalele.x << " " << tempDalele.y << " " << tempDalele.z << " " << tempDalele.R << endl;
+             cells->InsertNextCell(1);
+             cells->InsertCellPoint(i);
         }
 
 
@@ -42,31 +48,34 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
               vtkSmartPointer<vtkPolyData>::New();
             polydata->SetPoints(points);
           polydata->GetPointData()->SetScalars(radius);
+          polydata->SetVerts(cells);
           //polydata->GetPointData()->SetScalars(particle_probabilities);
-/*
+
+          /*vtkSmartPointer<vtkDoubleArray> procentai = vtkDoubleArray::New();
+              procentai->SetName("PARTICLE_TYPE");
+       procentai->SetNumberOfComponents(1);
+              for(int i=0;i<probabilities.size();i++){
+                  procentai->InsertNextTuple1(probabilities[i]);
+              }
+        */
           vtkDoubleArray *por = vtkDoubleArray::New();
 
               por->SetName("PORINGUMAS");
+              por->SetNumberOfComponents(1);
           por->InsertNextTuple1(poringumas);
 
           vtkDoubleArray *Unique_radius = vtkDoubleArray::New();
               Unique_radius->SetName("UNIQUE_RADIUS");
-
+           Unique_radius->SetNumberOfComponents(1);
               for(int i=0;i<intervals.size();i++){
                   Unique_radius->InsertNextTuple1(intervals[i]);
               }
 
 
-              vtkDoubleArray *procentai = vtkDoubleArray::New();
-                  procentai->SetName("PARTICLE_TYPE");
-
-                  for(int i=0;i<probabilities.size();i++){
-                      procentai->InsertNextTuple1(probabilities[i]);
-                  }
 
               polydata->GetFieldData()->AddArray(por);
               polydata->GetFieldData()->AddArray(Unique_radius);
-              polydata->GetFieldData()->AddArray(procentai);
+              //polydata->GetFieldData()->AddArray(procentai);
 
             //VTK_DOUBLE poring=poringumas;
 
@@ -77,7 +86,7 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
                 dsw->SetInputData(polydata);
 
                 dsw->Write();
-*/
+/*
 
            vtkSmartPointer<vtkPolyData> glyph =
         vtkSmartPointer<vtkPolyData>::New();
@@ -118,10 +127,10 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
            mapper->SetInputConnection(glyph3D->GetOutputPort());
 
 
-           /*vtkSmartPointer<vtkPolyDataMapper> Cubemapper =
+           vtkSmartPointer<vtkPolyDataMapper> Cubemapper =
              vtkSmartPointer<vtkPolyDataMapper>::New();
            Cubemapper->SetInputConnection(cubeSource->GetOutputPort());
-           */
+
 
            vtkSmartPointer<vtkPolyDataMapper> Cylindermapper =
              vtkSmartPointer<vtkPolyDataMapper>::New();
@@ -154,7 +163,7 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
 
            renderWindow->Render();
        renderWindowInteractor->Start();
-
+*/
     /// irasome duomenis greiciausiai i VTK faila kaip rezultata.
 
 }
