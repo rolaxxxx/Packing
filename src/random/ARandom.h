@@ -8,21 +8,21 @@ class ARandom
 public:
     ARandom();
     virtual REAL getNextValue()=0;
-    void init( REAL minValue,REAL maxValue,INT count);
+    void init(json duomenys);
     std::vector<REAL> getIntervals() const;
 
     std::vector<REAL> getProbs() const;
 
 protected:
-    virtual void initialization()=0;
+    virtual void initialization(json duomenys)=0;
     INT count;
     Data* data;
     REAL minValue;
     REAL maxValue;
     REAL delta_R;
-    std::vector<REAL> intervals;
-
-    std::vector<REAL> probs ; // is main paimti
+    std::vector<REAL>probs;
+    std::vector<REAL>intervals;
+    json duomenys;
 };
 
 #endif // ARANDOM_H

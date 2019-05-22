@@ -8,7 +8,7 @@ class ASearch
 {
 public:
     ASearch();
-    void init(Data*data,Point bmin, Point bmax,REAL RMax);
+    void init(Data*data,json duomenys);
     virtual std::vector<INT> getNeighboursID(INT id)=0;
     virtual std::vector<INT> getGridNeigbours(INT id)=0;
 
@@ -28,7 +28,7 @@ protected:
     virtual void initialization()=0;
 
     Data*data;
-
+    json duomenys;
     Point bmax;
     Point bmin;// min max bounds
     INT Nx;

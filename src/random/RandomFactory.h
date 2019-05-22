@@ -2,16 +2,13 @@
 #define RANDOMFACTORY_H
 #include "ARandom.h"
 
-enum class RandomTypes
-{
-    Uniform
-};
+
 
 class RandomFactory
 {
 public:
     RandomFactory();
-    ARandom* create(RandomTypes type);
+    ARandom* create(std::string type);
 
 };
 

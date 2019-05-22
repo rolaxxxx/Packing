@@ -10,7 +10,7 @@ public:
     REAL getNextValue();
     boost::minstd_rand0 gen;
 protected:
-    void initialization();
+    void initialization(json duomenys);
 };
 
 #endif // RANDOMUNIFORM_H

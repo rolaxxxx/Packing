@@ -6,13 +6,13 @@ BoundariesShape::BoundariesShape()
 
 }
 
-BBoundaries* BoundariesShape::create(BoundsTypes type)
+BBoundaries* BoundariesShape::create(std::string type)
 {
-    if(type==BoundsTypes::Cube)
+    if(type=="Cube")
     {
         return new CubeShape();
     }
-    else if(type==BoundsTypes::Cylinder)
+    else if(type=="Cylinder")
     {
         return new CylinderShape();
     }

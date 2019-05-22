@@ -5,9 +5,9 @@ AlgorithmFactory::AlgorithmFactory()
 {
 
 }
-AAlgorithm* AlgorithmFactory::create(AlgorithmType type)
+AAlgorithm* AlgorithmFactory::create(std::string type)
 {
-    if(type==AlgorithmType::SpherePackingAlgorithm)
+    if(type=="SpherePackingAlgorithm")
     {
         return new SpherePackingAlgorithm();
     }

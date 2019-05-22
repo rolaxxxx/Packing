@@ -7,9 +7,9 @@ class CubeShape: public BBoundaries{
 
 public:
     CubeShape();
-    bool check(Point newSphere, Point min, Point max);
+    bool check(Point newSphere);
 protected:
-    void initialization();
+    void initialization(json duomenys);
 };
 
 #endif

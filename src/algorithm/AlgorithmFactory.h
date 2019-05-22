@@ -11,7 +11,7 @@ class AlgorithmFactory
 {
 public:
     AlgorithmFactory();
-    AAlgorithm* create(AlgorithmType type);
+    AAlgorithm* create(std::string type);
 };
 
 #endif // ALGORITHMFACTORY_H

@@ -2,16 +2,12 @@
 #define SEARCHFACTORY_H
 #include "search/ASearch.h"
 
-enum class SearchTypes
-{
-    Uniform
-};
 
 class SearchFactory
 {
 public:
     SearchFactory();
-    ASearch* create(SearchTypes type);
+    ASearch* create(std::string type);
 };
 
 #endif // SEARCHFACTORY_H

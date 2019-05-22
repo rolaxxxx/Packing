@@ -6,10 +6,9 @@ BBoundaries::BBoundaries()
 
 }
 
-void BBoundaries::init(ASearch *search)
+void BBoundaries::init(ASearch *search, json duomenys)
 {
     this->search=search;
-    this->initialization();
-
-
+    this->duomenys=duomenys;
+    this->initialization(duomenys);
 }

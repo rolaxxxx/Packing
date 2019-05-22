@@ -6,7 +6,7 @@ Writer::Writer()
 
 }
 
-void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<REAL> probabilities, REAL poringumas, std::string filename)
+void Writer::write(Data*data, ASearch *search ,json duomenys, REAL poringumas)
 {
         ///Irasyti i faila prie daleles kad butu zinomas koks jos tipas tarp procentu 18 4 2 14 21
          vtkSmartPointer<vtkDoubleArray> radius =
@@ -16,19 +16,26 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
          vtkSmartPointer<vtkPoints>::New();
 
          vtkSmartPointer<vtkCylinderSource> cylinderSource =
-             vtkSmartPointer<vtkCylinderSource>::New();
+         vtkSmartPointer<vtkCylinderSource>::New();
 
-           cylinderSource->SetCenter(0.0, 0.0, 0.0);
-           cylinderSource->SetRadius(0.15);
-           cylinderSource->SetHeight(0.22);
-           // x  0  0
-           // y  0  0.15
-           // z  0  0.22
-           cylinderSource->SetResolution(100);
+         vtkSmartPointer<vtkIntArray> radius_index =
+         vtkSmartPointer<vtkIntArray>::New();
 
-    radius->SetName("RADIUS");
+         vector<REAL>intervals;
+         int index=duomenys["DISTRIBUTION"]["COUNT"];
+         for(int k=0;k<index;k++)
+         {
+                 intervals.push_back(duomenys["DISTRIBUTION"]["RADIUS"][k]);
+         }
+     radius->SetName("RADIUS");
      radius->SetNumberOfComponents(1);
      radius->SetNumberOfTuples(data->getNumberOfPoints());
+
+     radius_index->SetName("PARTICLE_TYPE");
+     radius_index->SetNumberOfComponents(1);
+     radius_index->SetNumberOfTuples(data->getNumberOfPoints());
+
+
 
          PointType tempDalele;
          vtkSmartPointer<vtkCellArray> cells=vtkSmartPointer<vtkCellArray>::New();
@@ -37,7 +44,11 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
              tempDalele=data->getPoint(i);
              //cout << tempDalele << endl;
              points->InsertNextPoint(tempDalele.x,tempDalele.y, tempDalele.z);
-             radius->SetTuple1(i,tempDalele.R);
+
+             radius->SetTuple1(i,  tempDalele.R);
+             radius_index->SetTuple1(i, distance(intervals.begin(), find(intervals.begin(), intervals.end(), tempDalele.R)));
+
+             //cout << distance(intervals.begin(), find(intervals.begin(), intervals.end(), tempDalele.R)) <<  endl;
             // cout<< tempDalele.x << " " << tempDalele.y << " " << tempDalele.z << " " << tempDalele.R << endl;
              cells->InsertNextCell(1);
              cells->InsertCellPoint(i);
@@ -75,7 +86,7 @@ void Writer::write(Data*data, ASearch *search, vector<REAL> intervals, vector<RE
 
               polydata->GetFieldData()->AddArray(por);
               polydata->GetFieldData()->AddArray(Unique_radius);
-              //polydata->GetFieldData()->AddArray(procentai);
+              polydata->GetPointData()->AddArray(radius_index);
 
             //VTK_DOUBLE poring=poringumas;
 

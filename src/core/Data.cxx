@@ -4,6 +4,7 @@ Data::Data()
 {
 
 }
+
 void Data::insertNextPoint(PointType p)
 {
     data.push_back(p);
@@ -31,6 +32,7 @@ void Data::setDuomenys(const std::string &value)
 {
     duomenys = value;
 }
+
 
 
 

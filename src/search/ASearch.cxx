@@ -4,12 +4,20 @@ ASearch::ASearch()
 {
 
 }
-void ASearch::init(Data*data,Point bmin, Point bmax, REAL RMax)
+void ASearch::init(Data*data, json duomenys)
 {
     this->data=data;
-    this->bmin=bmin;
-    this->bmax=bmax;
-    this->RMax=RMax;
+    //cout << (duomenys["SEARCH"]["BMIN"][0]) << endl;
+    this->bmin.x=(duomenys["SEARCH"]["BMIN"][0]);
+    this->bmin.y=(duomenys["SEARCH"]["BMIN"][1]);
+    this->bmin.z=(duomenys["SEARCH"]["BMIN"][2]);
+
+    this->bmax.x=(duomenys["SEARCH"]["BMAX"][0]);
+    this->bmax.y=(duomenys["SEARCH"]["BMAX"][1]);
+    this->bmax.z=(duomenys["SEARCH"]["BMAX"][2]);
+
+    this->RMax=duomenys["DISTRIBUTION"]["RMAX"];
+
     this->CELL_SIZE=2*RMax;
     this->Nx=ceil((this->bmax.x-this->bmin.x)/this->CELL_SIZE)+1;
     this->Ny=ceil((this->bmax.y-this->bmin.y)/this->CELL_SIZE)+1;

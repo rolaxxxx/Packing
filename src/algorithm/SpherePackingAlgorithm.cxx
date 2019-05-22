@@ -20,9 +20,6 @@ void SpherePackingAlgorithm::pack()
 
     double  kubo_turis=((fabs(search->getBmax().x))-(fabs(search->getBmin().x)))*((fabs(search->getBmax().y))-(fabs(search->getBmin().y)))*((fabs(search->getBmax().z))-(fabs(search->getBmin().z)));
 
-
-
-
     do{
 
         //std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
@@ -79,7 +76,7 @@ void SpherePackingAlgorithm::pack()
                     if(!search->intersect(newSphere[z], neighbours))
                     {
                         //  std::cout<<"dedame\n";
-                        if(bounds->check(newSphere[z], search->getBmin(), search->getBmax())){
+                        if(bounds->check(newSphere[z])){
 
                             //newSphere[z].PrintStructure();
                             search->addPoint(newSphere[z]);

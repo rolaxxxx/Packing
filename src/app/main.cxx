@@ -27,33 +27,12 @@ int main()
       SearchFactory searchFactory;
       AlgorithmFactory algorithmFactory;
 
-      ARandom * random=randomFactory.create(RandomTypes::Uniform);
-      ASearch * search =searchFactory.create(SearchTypes::Uniform);
-      AAlgorithm*algorithm=algorithmFactory.create(AlgorithmType::SpherePackingAlgorithm);
+      ARandom * random=randomFactory.create(duomenys["DISTRIBUTION"]["TYPE"]);
+      ASearch * search =searchFactory.create(duomenys["SEARCH"]["TYPE"]);
+      AAlgorithm*algorithm=algorithmFactory.create(duomenys["ALGORITHM"]["TYPE"]);
       PointType P1, P2, P3, P4;
 
-      ///viska inicializuojame ka reikia
-      //VAR		Fraction 1	Fraction 2	Fraction 3	Fraction 4
-      //Cilindras	Diametras	0.3	pasidaryti spinduli	1	R	0.003
-      //Ilgis	0.22	0		Probability	100
-      //2R	0.002
-      // Probability	100
-      //3	R	0.001
-      //Probability	100
-      //4	R	0.0005	0.0007	0.0009	0.0012
-      //Probability	27	36	30	7
-
-      Point kint1, kint2;
-      // bounds size
-      kint1.x=0;
-      kint1.y=0;
-      kint1.z=0;
-
-      kint2.x=0.005;
-      kint2.y=0.005;
-      kint2.z=0.001;
-
-      double RMAX=8.50E-05;
+      double RMAX=duomenys["DISTRIBUTION"]["RMAX"];
       P1.x=0;
       P1.y=0;
       P1.z=0;
@@ -68,14 +47,15 @@ int main()
       P3.y=2.0*RMAX*sqrt(3.0)/2.0;
       P3.z=0;
       P3.R=RMAX;
-    cout << duomenys["DISTRIBUTION"]["TYPE"] << endl;
+    //cout << duomenys["DISTRIBUTION"]["TYPE"] << endl;
 
-    /* random->init( RMAX,RMAX,1);
+     random->init(duomenys);
 
      BoundariesShape shape;
-     BBoundaries * bounds=shape.create(BoundsTypes::Cube);
+     BBoundaries * bounds=shape.create(duomenys["BOUNDARIES"]["TYPE"]);
+     bounds->init(search, duomenys);
 
-      search->init(data, kint1, kint2,RMAX);
+      search->init(data, duomenys);
 
      search->addPoint(P1);
      search->addPoint(P2);
@@ -85,10 +65,9 @@ int main()
 
       /// atliekame tikraji pakinima
       algorithm->pack();
-     writer.write(data, search, intervals, probabilities, algorithm->getPoringumas(), "output.vtk");// irasome rezultata
-  }
-}
-        */
+     writer.write(data, search, duomenys, algorithm->getPoringumas());// irasome rezultata
+
+
      return 0;
 
 }

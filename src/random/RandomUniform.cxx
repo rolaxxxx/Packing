@@ -16,7 +16,17 @@ REAL RandomUniform::getNextValue()
        boost::random::discrete_distribution<> dist(probs);
        return intervals[dist(gen)];
 }
-void RandomUniform::initialization()
+void RandomUniform::initialization(json duomenys)
 {
+    //cout << duomenys["DISTRIBUTION"]["COUNT"] << endl;
+    int index=duomenys["DISTRIBUTION"]["COUNT"];
+    for(int k=0;k<index;k++)
+    {
+            intervals.push_back(duomenys["DISTRIBUTION"]["RADIUS"][k]);
+    }
+    for(int k=0;k<index-1;k++)
+    {
+            probs.push_back(duomenys["DISTRIBUTION"]["PROBABILITY"][k]);
+    }
 
 }

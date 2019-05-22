@@ -5,20 +5,11 @@ ARandom::ARandom()
 
 }
 
-void ARandom::init( REAL minValue,REAL maxValue,INT count)
+void ARandom::init(json duomenys)
 {
-    this->count=count;
-    this->minValue=minValue;
-    this->maxValue=maxValue;
-    this->initialization();
-}
 
-std::vector<REAL> ARandom::getIntervals() const
-{
-    return intervals;
-}
-
-std::vector<REAL> ARandom::getProbs() const
-{
-    return probs;
+    this->count=duomenys["DISTRIBUTION"]["COUNT"];
+    this->minValue=duomenys["DISTRIBUTION"]["RMIN"];
+    this->maxValue=duomenys["DISTRIBUTION"]["RMAX"];
+    this->initialization(duomenys);
 }

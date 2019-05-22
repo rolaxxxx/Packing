@@ -4,9 +4,9 @@ SearchFactory::SearchFactory()
 {
 
 }
-ASearch* SearchFactory::create(SearchTypes type)
+ASearch* SearchFactory::create(std::string type)
 {
-    if(type==SearchTypes::Uniform)
+    if(type=="Uniform")
     {
         return new SearchUnform();
     }

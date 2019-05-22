@@ -7,9 +7,9 @@ RandomFactory::RandomFactory()
 }
 
 
-ARandom* RandomFactory::create(RandomTypes type)
+ARandom* RandomFactory::create(std::string type)
 {
-    if(type==RandomTypes::Uniform)
+    if(type=="Uniform")
     {
         return new RandomUniform();
     }
