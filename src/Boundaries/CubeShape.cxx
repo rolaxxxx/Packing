@@ -7,6 +7,11 @@ CubeShape::CubeShape(){
 bool CubeShape::check(Point newSphere){
      //newSphere.PrintStructure();
    //  max.PrintStructure();
+    /*
+
+
+
+*/
     if( newSphere.x<max.x
                  &&newSphere.y<max.y
                  &&newSphere.z<max.z

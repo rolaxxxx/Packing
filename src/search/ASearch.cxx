@@ -17,7 +17,7 @@ void ASearch::init(Data*data, json duomenys)
     this->bmax.z=(duomenys["SEARCH"]["BMAX"][2]);
 
     this->RMax=duomenys["DISTRIBUTION"]["RMAX"];
-
+    //cout << this->RMax << " " << bmax.x << " " << bmax.y << " " << bmax.z << endl;
     this->CELL_SIZE=2*RMax;
     this->Nx=ceil((this->bmax.x-this->bmin.x)/this->CELL_SIZE)+1;
     this->Ny=ceil((this->bmax.y-this->bmin.y)/this->CELL_SIZE)+1;

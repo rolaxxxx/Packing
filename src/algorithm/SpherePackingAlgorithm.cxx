@@ -76,6 +76,7 @@ void SpherePackingAlgorithm::pack()
                     if(!search->intersect(newSphere[z], neighbours))
                     {
                         //  std::cout<<"dedame\n";
+
                         if(bounds->check(newSphere[z])){
 
                             //newSphere[z].PrintStructure();

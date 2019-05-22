@@ -5,14 +5,23 @@ CylinderShape::CylinderShape()
 
 }
 bool CylinderShape::check(Point newSphere){
-    if( newSphere.x<max.x
-                 &&newSphere.y<max.y
-                 &&newSphere.z<max.z
-                 &&newSphere.x>min.x
-                 &&newSphere.y>min.y
-                 &&newSphere.z>min.z
-                   )
+   // newSphere.PrintStructure();
+   // cout << newSphere.z << " " << center.y+height << " " <<  center.y << endl;
+cout << newSphere.y << " " << center.y+radius << " " << center.y-radius << endl;
+/*
+            CILINDO RIBU PAIESKOS PRATESTI CIA
+
+
+*/
+    if( newSphere.x<center.x+radius&&newSphere.x>center.x-radius&&
+             newSphere.y<center.y+radius&&newSphere.y>center.y-radius&&
+            newSphere.z<center.z+height && newSphere.z>center.z
+            ){
+
+         //newSphere.PrintStructure();
+
         return true;
+    }
     else return false;
 
 }
