@@ -12,6 +12,7 @@ struct Point
     int ID;
     void PrintStructure()
             {
+                    std::cout << " daleles koordinates " << std::endl;
                      std::cout << "x: " << x <<  std::endl;
                       std::cout << "y: " << y << std::endl;
                        std::cout << "z: " << z  << std::endl;

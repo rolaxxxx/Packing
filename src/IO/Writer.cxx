@@ -97,8 +97,8 @@ void Writer::write(Data*data, ASearch *search ,json duomenys, REAL poringumas)
                 dsw->SetInputData(polydata);
 
                 dsw->Write();
-/*
 
+/*
            vtkSmartPointer<vtkPolyData> glyph =
         vtkSmartPointer<vtkPolyData>::New();
 

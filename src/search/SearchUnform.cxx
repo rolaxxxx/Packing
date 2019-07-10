@@ -23,7 +23,9 @@ void SearchUnform::addPoint(PointType p)
     //cout << SUFORMUOTAS_GRIDAS.max_size() << endl;
     int id=data->getNumberOfPoints();
     INT calc_id=calculateID(p);
+   // cout << "suskaiciuotas taskas  ir tasko id " << calc_id <<  endl;
     //p.PrintStructure();
+
     //cout << SUFORMUOTAS_GRIDAS.size() << " " << calc_id <<  endl;
     std::vector<INT>temp=SUFORMUOTAS_GRIDAS[calc_id];
    // cout << calculateID(p) << endl;

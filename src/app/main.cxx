@@ -47,6 +47,8 @@ int main()
       P3.y=2.0*RMAX*sqrt(3.0)/2.0;
       P3.z=0;
       P3.R=RMAX;
+
+
     //cout << duomenys["DISTRIBUTION"]["TYPE"] << endl;
 
      random->init(duomenys);
