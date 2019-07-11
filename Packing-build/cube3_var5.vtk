@@ -1,0 +1,18 @@
+# vtk DataFile Version 4.1
+vtk output
+ASCII
+DATASET POLYDATA
+FIELD FieldData 3
+PORINGUMAS 1 1 double
+0 
+UNIQUE_RADIUS 1 7 double
+2.5e-05 3.5e-05 4.5e-05 5.5e-05 6.5e-05 7.5e-05 8.5e-05 
+PARTICLE_TYPE 1 7 double
+3 4 8 14 21 20 17 
+POINTS 3 float
+0 0 0 0.00017 0 0 8.5e-05 0.000147224 0 
+
+POINT_DATA 3
+SCALARS RADIUS double
+LOOKUP_TABLE default
+8.5e-05 8.5e-05 8.5e-05 

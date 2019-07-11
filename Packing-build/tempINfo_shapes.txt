@@ -1,0 +1,11 @@
+"BOUNDARIES":
+		{
+		"TYPE":"CUBE",
+		"BMIN":[0,0,0],
+		"BNAX":[0,0,0],
+
+		"TYPE":"CYLINDER",
+		"RADIUS":5,
+		"LENGTH":100,
+		"CENTER":[0,0,0]
+		},

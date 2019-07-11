@@ -18,13 +18,15 @@ void SpherePackingAlgorithm::pack()
 
     double daleliu_turis=0;
 
-    double  kubo_turis=((fabs(search->getBmax().x))-(fabs(search->getBmin().x)))*((fabs(search->getBmax().y))-(fabs(search->getBmin().y)))*((fabs(search->getBmax().z))-(fabs(search->getBmin().z)));
+    //double  kubo_turis=((fabs(search->getBmax().x))-(fabs(search->getBmin().x)))*((fabs(search->getBmax().y))-(fabs(search->getBmin().y)))*((fabs(search->getBmax().z))-(fabs(search->getBmin().z)));
+    double figuros_turis=PI*fabs(bounds->getRadius())*fabs(bounds->getRadius())*fabs(bounds->getHight());
 
     do{
 
         //std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
          //   cout <<"poringumas "<< daleliu_turis/kubo_turis << endl;
         //cout << data->getNumberOfPoints() << endl;
+        //cout <<"figuros ismatavimai " <<  bounds->getRadius() << " " << bounds->getHight() << endl;
         //tikrinimas=false;
         int dydis=F.size();
 
@@ -83,6 +85,7 @@ void SpherePackingAlgorithm::pack()
                             search->addPoint(newSphere[z]);
                             F.push_back(data->getNumberOfPoints()-1);
                             daleliu_turis+=(4.0/3.0)*PI*pow(newSphere[z].R,3);
+                            //cout << j << " "   << newSphere[z].R << " " << daleliu_turis << " ismatavimai " << endl;
                             //cout << F.size() << "daleliu kiekis" << endl;
                             i++;
                         }
@@ -111,13 +114,13 @@ void SpherePackingAlgorithm::pack()
 
 
         std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
-        std::cout <<"poringumas "<< daleliu_turis/kubo_turis << endl;
+        std::cout <<"poringumas "<< daleliu_turis/figuros_turis << endl;
         }
     while(F.size());
 
    // cout << time.CumulativeTime("sec") << endl;
    //cout << rez_time << endl;
-    poringumas=daleliu_turis/kubo_turis;
+    poringumas=daleliu_turis/figuros_turis;
     std::cout<<"packing done\n";
 }
 

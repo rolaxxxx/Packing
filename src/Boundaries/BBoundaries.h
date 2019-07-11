@@ -12,7 +12,8 @@ public:
    BBoundaries();
     void init(ASearch *search, json duomenys);
     virtual bool check(Point newSphere)=0;
-
+     double getRadius() const;
+     double getHight() const;
 protected:
     virtual void initialization(json duomenys)=0;
     ASearch *search;

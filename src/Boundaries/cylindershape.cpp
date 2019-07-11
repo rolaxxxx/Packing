@@ -28,7 +28,7 @@ bool CylinderShape::check(Point newSphere )
     dx = max.x - min.x;	// translate so min is origin.  Make vector from
     dy = max.y - min.y;     // min to max.  Need for this is easily eliminated
     dz = max.z - min.z;
-    newSphere.PrintStructure();
+    //newSphere.PrintStructure();
     pdx = newSphere.x - min.x;		// vector from min to test point.
     pdy = newSphere.y - min.y;
     pdz = newSphere.z - min.z;
