@@ -4,7 +4,7 @@
 
 #include "core/Constants.h"
 #include "search/ASearch.h"
-
+#include "core/Point.h"
 
 class BBoundaries
 {

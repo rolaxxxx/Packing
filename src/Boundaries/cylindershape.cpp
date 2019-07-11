@@ -4,22 +4,17 @@ CylinderShape::CylinderShape()
 {
 
 }
-/*bool CylinderShape::check(Point newSphere){
+bool CylinderShape::check(Point newSphere){
     //cout << "min ir max tikrinimo vietoje " << endl;
+    //fabs(vector_len(p1)-vector_len(p2));
 
-   //min.PrintStructure();
-   // max.PrintStructure();
-    //cout << "suskaiciuota sfera " << endl;
-    //newSphere.PrintStructure();
-        if( newSphere.x>min.x&&newSphere.x<max.x&&
-                newSphere.y>min.y&&newSphere.y<max.y&&
-                     newSphere.z>min.z&&newSphere.z<max.z
-                       )
+        if(dot_prod(( newSphere-min),(max-min))>=0&&dot_prod((newSphere-max),(max-min))<=0
+                &&  (((vector_len(cross_prod((newSphere-min),(max-min))))/(vector_len(max-min)))<=radius))
             return true;
         else return false;
 }
-*/
-bool CylinderShape::check(Point newSphere )
+
+/*bool CylinderShape::check(Point newSphere )
 {
     float dx, dy, dz;	// vector d  from line segment point 1 to point 2
     float pdx, pdy, pdz;	// vector pd from point 1 to test point
@@ -73,6 +68,7 @@ bool CylinderShape::check(Point newSphere )
         }
     }
 }
+*/
 void CylinderShape::initialization(json duomenys)
 {
 

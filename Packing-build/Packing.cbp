@@ -413,6 +413,9 @@
 		<Unit filename="/home/rolandas/Desktop/Packing/src/core/Point.h">
 			<Option target="libPacking"/>
 		</Unit>
+		<Unit filename="/home/rolandas/Desktop/Packing/src/core/json_reader.h">
+			<Option target="libPacking"/>
+		</Unit>
 		<Unit filename="/home/rolandas/Desktop/Packing/src/core/time.h">
 			<Option target="libPacking"/>
 		</Unit>

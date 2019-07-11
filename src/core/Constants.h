@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <random>
-#include <nlohmann/json.hpp>
+#include "core/json_reader.h"
 #include <map>
 #include <boost/container/map.hpp>
 #include <stdlib.h>

@@ -67,7 +67,7 @@ int main()
 
       /// atliekame tikraji pakinima
       algorithm->pack();
-    // writer.write(data, search, duomenys, algorithm->getPoringumas());// irasome rezultata
+     writer.write(data, search, duomenys, algorithm->getPoringumas());// irasome rezultata
 
 
      return 0;

@@ -111,7 +111,7 @@ void SpherePackingAlgorithm::pack()
             remove(F.begin(),F.end(), rand_particle_index);
             F.pop_back();
            }
-
+        //cout << F.size() << endl;
 
         std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
         std::cout <<"poringumas "<< daleliu_turis/figuros_turis << endl;
@@ -131,5 +131,3 @@ void SpherePackingAlgorithm::initialization()
     }
     std::cout<<"Performing initialization\n";
 }
-
-

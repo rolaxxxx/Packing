@@ -45,6 +45,7 @@ set(LIB_HEADERS
     src/core/Point.h
     src/core/Math.h
     src/core/time.h
+    src/core/json_reader.h
 
     src/search/ASearch.h
     src/search/SearchUnform.h

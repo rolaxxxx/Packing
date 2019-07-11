@@ -15,9 +15,6 @@ void Writer::write(Data*data, ASearch *search ,json duomenys, REAL poringumas)
          vtkSmartPointer<vtkPoints> points =
          vtkSmartPointer<vtkPoints>::New();
 
-         vtkSmartPointer<vtkCylinderSource> cylinderSource =
-         vtkSmartPointer<vtkCylinderSource>::New();
-
          vtkSmartPointer<vtkIntArray> radius_index =
          vtkSmartPointer<vtkIntArray>::New();
 
@@ -98,6 +95,42 @@ void Writer::write(Data*data, ASearch *search ,json duomenys, REAL poringumas)
 
                 dsw->Write();
 
+
+
+
+/*
+
+
+                ///// cylinder output
+                vtkSmartPointer<vtkPolyDataMapper> mapper =
+                    vtkSmartPointer<vtkPolyDataMapper>::New();
+                  mapper->SetInputConnection(cylinderSource->GetOutputPort());
+                  vtkSmartPointer<vtkActor> actor =
+                    vtkSmartPointer<vtkActor>::New();
+                  actor->SetMapper(mapper);
+                  actor->GetProperty()->SetOpacity(0.4);
+
+                  //Create a renderer, render window, and interactor
+                  vtkSmartPointer<vtkRenderer> renderer =
+                    vtkSmartPointer<vtkRenderer>::New();
+                  vtkSmartPointer<vtkRenderWindow> renderWindow =
+                    vtkSmartPointer<vtkRenderWindow>::New();
+                  renderWindow->AddRenderer(renderer);
+                  vtkSmartPointer<vtkRenderWindowInteractor> renderWindowInteractor =
+                    vtkSmartPointer<vtkRenderWindowInteractor>::New();
+                  renderWindowInteractor->SetRenderWindow(renderWindow);
+
+                  // Add the actor to the scene
+                  renderer->AddActor(actor);
+                  renderer->SetBackground(.1, .3,.2); // Background color dark green
+
+                  // Render and interact
+                  renderWindow->Render();
+                  renderWindowInteractor->Start();
+
+*/
+
+                  ////// cylinder output end
 /*
            vtkSmartPointer<vtkPolyData> glyph =
         vtkSmartPointer<vtkPolyData>::New();

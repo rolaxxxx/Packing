@@ -4,17 +4,17 @@
 		"TYPE":"Cylinder",
 		"BMIN":[0,0,0],
 		"BMAX":[0,0,0.22],
-		"LENGTHSQ":0.44,
-		"RADIUSSQ":0.3
+		"LENGTHSQ":0.22,
+		"RADIUSSQ":0.15
 		},
 	"DISTRIBUTION":
 	{			
 		"COUNT":1,
 		"TYPE":"Uniform",
-		"RADIUS":[0.003],
+		"RADIUS":[0.001],
 		"PROBABILITY":[100],
-		"RMIN":0.003,
-		"RMAX":0.003		
+		"RMIN":0.001,
+		"RMAX":0.001		
 	},
 	"SEARCH":
 	{

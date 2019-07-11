@@ -6,6 +6,7 @@ CMakeFiles/libPacking.dir/src/Boundaries/BBoundaries.cxx.o: /home/rolandas/Deskt
 CMakeFiles/libPacking.dir/src/Boundaries/BBoundaries.cxx.o: /home/rolandas/Desktop/Packing/src/core/Constants.h
 CMakeFiles/libPacking.dir/src/Boundaries/BBoundaries.cxx.o: /home/rolandas/Desktop/Packing/src/core/Data.h
 CMakeFiles/libPacking.dir/src/Boundaries/BBoundaries.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/Boundaries/BBoundaries.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/Boundaries/BBoundaries.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/Boundaries/BBoundaries.cxx.o: /home/rolandas/Desktop/Packing/src/search/ASearch.h
 CMakeFiles/libPacking.dir/src/Boundaries/BBoundaries.cxx.o: /usr/include/vtk-7.1/vtkABI.h
@@ -130,6 +131,7 @@ CMakeFiles/libPacking.dir/src/Boundaries/BoundariesShape.cxx.o: /home/rolandas/D
 CMakeFiles/libPacking.dir/src/Boundaries/BoundariesShape.cxx.o: /home/rolandas/Desktop/Packing/src/core/Constants.h
 CMakeFiles/libPacking.dir/src/Boundaries/BoundariesShape.cxx.o: /home/rolandas/Desktop/Packing/src/core/Data.h
 CMakeFiles/libPacking.dir/src/Boundaries/BoundariesShape.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/Boundaries/BoundariesShape.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/Boundaries/BoundariesShape.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/Boundaries/BoundariesShape.cxx.o: /home/rolandas/Desktop/Packing/src/search/ASearch.h
 CMakeFiles/libPacking.dir/src/Boundaries/BoundariesShape.cxx.o: /usr/include/vtk-7.1/vtkABI.h
@@ -252,6 +254,7 @@ CMakeFiles/libPacking.dir/src/Boundaries/CubeShape.cxx.o: /home/rolandas/Desktop
 CMakeFiles/libPacking.dir/src/Boundaries/CubeShape.cxx.o: /home/rolandas/Desktop/Packing/src/core/Constants.h
 CMakeFiles/libPacking.dir/src/Boundaries/CubeShape.cxx.o: /home/rolandas/Desktop/Packing/src/core/Data.h
 CMakeFiles/libPacking.dir/src/Boundaries/CubeShape.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/Boundaries/CubeShape.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/Boundaries/CubeShape.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/Boundaries/CubeShape.cxx.o: /home/rolandas/Desktop/Packing/src/search/ASearch.h
 CMakeFiles/libPacking.dir/src/Boundaries/CubeShape.cxx.o: /usr/include/vtk-7.1/vtkABI.h
@@ -374,6 +377,7 @@ CMakeFiles/libPacking.dir/src/Boundaries/cylindershape.cpp.o: /home/rolandas/Des
 CMakeFiles/libPacking.dir/src/Boundaries/cylindershape.cpp.o: /home/rolandas/Desktop/Packing/src/core/Constants.h
 CMakeFiles/libPacking.dir/src/Boundaries/cylindershape.cpp.o: /home/rolandas/Desktop/Packing/src/core/Data.h
 CMakeFiles/libPacking.dir/src/Boundaries/cylindershape.cpp.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/Boundaries/cylindershape.cpp.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/Boundaries/cylindershape.cpp.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/Boundaries/cylindershape.cpp.o: /home/rolandas/Desktop/Packing/src/search/ASearch.h
 CMakeFiles/libPacking.dir/src/Boundaries/cylindershape.cpp.o: /usr/include/vtk-7.1/vtkABI.h
@@ -495,6 +499,7 @@ CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o: /home/rolandas/Desktop/Packing/sr
 CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o: /home/rolandas/Desktop/Packing/src/core/Constants.h
 CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o: /home/rolandas/Desktop/Packing/src/core/Data.h
 CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o: /usr/include/vtk-7.1/vtkABI.h
 CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o: /usr/include/vtk-7.1/vtkAOSDataArrayTemplate.h
@@ -615,6 +620,7 @@ CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o: /home/rolandas/Desktop/Packing/sr
 CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o: /home/rolandas/Desktop/Packing/src/core/Constants.h
 CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o: /home/rolandas/Desktop/Packing/src/core/Data.h
 CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o: /home/rolandas/Desktop/Packing/src/search/ASearch.h
 CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o: /home/rolandas/Desktop/Packing/src/search/SearchUnform.h
@@ -739,6 +745,7 @@ CMakeFiles/libPacking.dir/src/algorithm/AAlgorithm.cxx.o: /home/rolandas/Desktop
 CMakeFiles/libPacking.dir/src/algorithm/AAlgorithm.cxx.o: /home/rolandas/Desktop/Packing/src/core/Data.h
 CMakeFiles/libPacking.dir/src/algorithm/AAlgorithm.cxx.o: /home/rolandas/Desktop/Packing/src/core/Math.h
 CMakeFiles/libPacking.dir/src/algorithm/AAlgorithm.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/algorithm/AAlgorithm.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/algorithm/AAlgorithm.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/algorithm/AAlgorithm.cxx.o: /home/rolandas/Desktop/Packing/src/random/ARandom.h
 CMakeFiles/libPacking.dir/src/algorithm/AAlgorithm.cxx.o: /home/rolandas/Desktop/Packing/src/search/ASearch.h
@@ -865,6 +872,7 @@ CMakeFiles/libPacking.dir/src/algorithm/AlgorithmFactory.cxx.o: /home/rolandas/D
 CMakeFiles/libPacking.dir/src/algorithm/AlgorithmFactory.cxx.o: /home/rolandas/Desktop/Packing/src/core/Data.h
 CMakeFiles/libPacking.dir/src/algorithm/AlgorithmFactory.cxx.o: /home/rolandas/Desktop/Packing/src/core/Math.h
 CMakeFiles/libPacking.dir/src/algorithm/AlgorithmFactory.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/algorithm/AlgorithmFactory.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/algorithm/AlgorithmFactory.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/algorithm/AlgorithmFactory.cxx.o: /home/rolandas/Desktop/Packing/src/random/ARandom.h
 CMakeFiles/libPacking.dir/src/algorithm/AlgorithmFactory.cxx.o: /home/rolandas/Desktop/Packing/src/search/ASearch.h
@@ -990,6 +998,7 @@ CMakeFiles/libPacking.dir/src/algorithm/SpherePackingAlgorithm.cxx.o: /home/rola
 CMakeFiles/libPacking.dir/src/algorithm/SpherePackingAlgorithm.cxx.o: /home/rolandas/Desktop/Packing/src/core/Data.h
 CMakeFiles/libPacking.dir/src/algorithm/SpherePackingAlgorithm.cxx.o: /home/rolandas/Desktop/Packing/src/core/Math.h
 CMakeFiles/libPacking.dir/src/algorithm/SpherePackingAlgorithm.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/algorithm/SpherePackingAlgorithm.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/algorithm/SpherePackingAlgorithm.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/algorithm/SpherePackingAlgorithm.cxx.o: /home/rolandas/Desktop/Packing/src/random/ARandom.h
 CMakeFiles/libPacking.dir/src/algorithm/SpherePackingAlgorithm.cxx.o: /home/rolandas/Desktop/Packing/src/search/ASearch.h
@@ -1111,6 +1120,7 @@ CMakeFiles/libPacking.dir/src/core/Data.cxx.o: /home/rolandas/Desktop/Packing/sr
 CMakeFiles/libPacking.dir/src/core/Data.cxx.o: /home/rolandas/Desktop/Packing/src/core/Data.cxx
 CMakeFiles/libPacking.dir/src/core/Data.cxx.o: /home/rolandas/Desktop/Packing/src/core/Data.h
 CMakeFiles/libPacking.dir/src/core/Data.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/core/Data.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/core/Data.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/core/Data.cxx.o: /usr/include/vtk-7.1/vtkABI.h
 CMakeFiles/libPacking.dir/src/core/Data.cxx.o: /usr/include/vtk-7.1/vtkAOSDataArrayTemplate.h
@@ -1230,6 +1240,7 @@ CMakeFiles/libPacking.dir/src/core/Math.cxx.o: /home/rolandas/Desktop/Packing/sr
 CMakeFiles/libPacking.dir/src/core/Math.cxx.o: /home/rolandas/Desktop/Packing/src/core/Math.cxx
 CMakeFiles/libPacking.dir/src/core/Math.cxx.o: /home/rolandas/Desktop/Packing/src/core/Math.h
 CMakeFiles/libPacking.dir/src/core/Math.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/core/Math.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/core/Math.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/core/Math.cxx.o: /usr/include/vtk-7.1/vtkABI.h
 CMakeFiles/libPacking.dir/src/core/Math.cxx.o: /usr/include/vtk-7.1/vtkAOSDataArrayTemplate.h
@@ -1348,6 +1359,7 @@ CMakeFiles/libPacking.dir/src/core/Math.cxx.o: /usr/include/x86_64-linux-gnu/sys
 CMakeFiles/libPacking.dir/src/core/Point.cxx.o: /home/rolandas/Desktop/Packing/src/core/Constants.h
 CMakeFiles/libPacking.dir/src/core/Point.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.cxx
 CMakeFiles/libPacking.dir/src/core/Point.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/core/Point.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/core/Point.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/core/Point.cxx.o: /usr/include/vtk-7.1/vtkABI.h
 CMakeFiles/libPacking.dir/src/core/Point.cxx.o: /usr/include/vtk-7.1/vtkAOSDataArrayTemplate.h
@@ -1466,6 +1478,7 @@ CMakeFiles/libPacking.dir/src/core/Point.cxx.o: /usr/include/x86_64-linux-gnu/sy
 CMakeFiles/libPacking.dir/src/random/ARandom.cxx.o: /home/rolandas/Desktop/Packing/src/core/Constants.h
 CMakeFiles/libPacking.dir/src/random/ARandom.cxx.o: /home/rolandas/Desktop/Packing/src/core/Data.h
 CMakeFiles/libPacking.dir/src/random/ARandom.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/random/ARandom.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/random/ARandom.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/random/ARandom.cxx.o: /home/rolandas/Desktop/Packing/src/random/ARandom.cxx
 CMakeFiles/libPacking.dir/src/random/ARandom.cxx.o: /home/rolandas/Desktop/Packing/src/random/ARandom.h
@@ -1586,6 +1599,7 @@ CMakeFiles/libPacking.dir/src/random/ARandom.cxx.o: /usr/include/x86_64-linux-gn
 CMakeFiles/libPacking.dir/src/random/RandomFactory.cxx.o: /home/rolandas/Desktop/Packing/src/core/Constants.h
 CMakeFiles/libPacking.dir/src/random/RandomFactory.cxx.o: /home/rolandas/Desktop/Packing/src/core/Data.h
 CMakeFiles/libPacking.dir/src/random/RandomFactory.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/random/RandomFactory.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/random/RandomFactory.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/random/RandomFactory.cxx.o: /home/rolandas/Desktop/Packing/src/random/ARandom.h
 CMakeFiles/libPacking.dir/src/random/RandomFactory.cxx.o: /home/rolandas/Desktop/Packing/src/random/RandomFactory.cxx
@@ -1708,6 +1722,7 @@ CMakeFiles/libPacking.dir/src/random/RandomFactory.cxx.o: /usr/include/x86_64-li
 CMakeFiles/libPacking.dir/src/random/RandomUniform.cxx.o: /home/rolandas/Desktop/Packing/src/core/Constants.h
 CMakeFiles/libPacking.dir/src/random/RandomUniform.cxx.o: /home/rolandas/Desktop/Packing/src/core/Data.h
 CMakeFiles/libPacking.dir/src/random/RandomUniform.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/random/RandomUniform.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/random/RandomUniform.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/random/RandomUniform.cxx.o: /home/rolandas/Desktop/Packing/src/random/ARandom.h
 CMakeFiles/libPacking.dir/src/random/RandomUniform.cxx.o: /home/rolandas/Desktop/Packing/src/random/RandomUniform.cxx
@@ -1829,6 +1844,7 @@ CMakeFiles/libPacking.dir/src/random/RandomUniform.cxx.o: /usr/include/x86_64-li
 CMakeFiles/libPacking.dir/src/search/ASearch.cxx.o: /home/rolandas/Desktop/Packing/src/core/Constants.h
 CMakeFiles/libPacking.dir/src/search/ASearch.cxx.o: /home/rolandas/Desktop/Packing/src/core/Data.h
 CMakeFiles/libPacking.dir/src/search/ASearch.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/search/ASearch.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/search/ASearch.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/search/ASearch.cxx.o: /home/rolandas/Desktop/Packing/src/search/ASearch.cxx
 CMakeFiles/libPacking.dir/src/search/ASearch.cxx.o: /home/rolandas/Desktop/Packing/src/search/ASearch.h
@@ -1949,6 +1965,7 @@ CMakeFiles/libPacking.dir/src/search/ASearch.cxx.o: /usr/include/x86_64-linux-gn
 CMakeFiles/libPacking.dir/src/search/SearchFactory.cxx.o: /home/rolandas/Desktop/Packing/src/core/Constants.h
 CMakeFiles/libPacking.dir/src/search/SearchFactory.cxx.o: /home/rolandas/Desktop/Packing/src/core/Data.h
 CMakeFiles/libPacking.dir/src/search/SearchFactory.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/search/SearchFactory.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/search/SearchFactory.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/search/SearchFactory.cxx.o: /home/rolandas/Desktop/Packing/src/search/ASearch.h
 CMakeFiles/libPacking.dir/src/search/SearchFactory.cxx.o: /home/rolandas/Desktop/Packing/src/search/SearchFactory.cxx
@@ -2071,6 +2088,7 @@ CMakeFiles/libPacking.dir/src/search/SearchFactory.cxx.o: /usr/include/x86_64-li
 CMakeFiles/libPacking.dir/src/search/SearchUnform.cxx.o: /home/rolandas/Desktop/Packing/src/core/Constants.h
 CMakeFiles/libPacking.dir/src/search/SearchUnform.cxx.o: /home/rolandas/Desktop/Packing/src/core/Data.h
 CMakeFiles/libPacking.dir/src/search/SearchUnform.cxx.o: /home/rolandas/Desktop/Packing/src/core/Point.h
+CMakeFiles/libPacking.dir/src/search/SearchUnform.cxx.o: /home/rolandas/Desktop/Packing/src/core/json_reader.h
 CMakeFiles/libPacking.dir/src/search/SearchUnform.cxx.o: /home/rolandas/Desktop/Packing/src/core/time.h
 CMakeFiles/libPacking.dir/src/search/SearchUnform.cxx.o: /home/rolandas/Desktop/Packing/src/search/ASearch.h
 CMakeFiles/libPacking.dir/src/search/SearchUnform.cxx.o: /home/rolandas/Desktop/Packing/src/search/SearchUnform.cxx
