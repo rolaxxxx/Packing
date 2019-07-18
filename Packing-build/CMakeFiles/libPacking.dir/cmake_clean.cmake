@@ -15,6 +15,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/libPacking.dir/src/Boundaries/BoundariesShape.cxx.o"
   "CMakeFiles/libPacking.dir/src/Boundaries/CubeShape.cxx.o"
   "CMakeFiles/libPacking.dir/src/Boundaries/cylindershape.cpp.o"
+  "CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.o"
   "CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o"
   "CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o"
   "liblibPacking.pdb"

@@ -7,7 +7,7 @@
 #include "core/time.h"
 #include "IO/Writer.h"
 using namespace std;
-int main()
+int main(int argc, char** argv)
 {
 
     Reader reader;
@@ -17,7 +17,7 @@ int main()
       Data * data=new Data();
 
       //nuskaitome duomenis is failo jeigu to reikia
-      reader.read(data,"input.vtk");
+      reader.read(data, argv[1]);
       // galime ir rankomis sudeti pradinius taskus, naudojant Data klases objekta
       srand(time(NULL));
       ///koks failo formatas turi buti paduotas i funkcija dabar paduodamas string formatas
@@ -30,6 +30,9 @@ int main()
       ARandom * random=randomFactory.create(duomenys["DISTRIBUTION"]["TYPE"]);
       ASearch * search =searchFactory.create(duomenys["SEARCH"]["TYPE"]);
       AAlgorithm*algorithm=algorithmFactory.create(duomenys["ALGORITHM"]["TYPE"]);
+      if(argc>2)
+          reader.read(data, "VTK_MESH");
+
       PointType P1, P2, P3, P4;
 
       double RMAX=duomenys["DISTRIBUTION"]["RMAX"];

@@ -11,10 +11,10 @@
 	{			
 		"COUNT":1,
 		"TYPE":"Uniform",
-		"RADIUS":[0.001],
+		"RADIUS":[0.003],
 		"PROBABILITY":[100],
-		"RMIN":0.001,
-		"RMAX":0.001		
+		"RMIN":0.003,
+		"RMAX":0.003		
 	},
 	"SEARCH":
 	{

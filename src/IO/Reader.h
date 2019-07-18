@@ -8,6 +8,7 @@ public:
     Reader();
     void read(Data * data,std::string filename);
 
+
 };
 
 #endif // READER_H

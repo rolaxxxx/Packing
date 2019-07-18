@@ -441,9 +441,33 @@ CMakeFiles/libPacking.dir/src/Boundaries/cylindershape.cpp.o.provides: CMakeFile
 CMakeFiles/libPacking.dir/src/Boundaries/cylindershape.cpp.o.provides.build: CMakeFiles/libPacking.dir/src/Boundaries/cylindershape.cpp.o
 
 
+CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.o: CMakeFiles/libPacking.dir/flags.make
+CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.o: /home/rolandas/Desktop/Packing/src/Boundaries/Mesh.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rolandas/Desktop/Packing-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.o -c /home/rolandas/Desktop/Packing/src/Boundaries/Mesh.cpp
+
+CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rolandas/Desktop/Packing/src/Boundaries/Mesh.cpp > CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.i
+
+CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rolandas/Desktop/Packing/src/Boundaries/Mesh.cpp -o CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.s
+
+CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.o.requires:
+
+.PHONY : CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.o.requires
+
+CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.o.provides: CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.o.requires
+	$(MAKE) -f CMakeFiles/libPacking.dir/build.make CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.o.provides.build
+.PHONY : CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.o.provides
+
+CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.o.provides.build: CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.o
+
+
 CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o: CMakeFiles/libPacking.dir/flags.make
 CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o: /home/rolandas/Desktop/Packing/src/IO/Reader.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rolandas/Desktop/Packing-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rolandas/Desktop/Packing-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o -c /home/rolandas/Desktop/Packing/src/IO/Reader.cxx
 
 CMakeFiles/libPacking.dir/src/IO/Reader.cxx.i: cmake_force
@@ -467,7 +491,7 @@ CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o.provides.build: CMakeFiles/libPack
 
 CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o: CMakeFiles/libPacking.dir/flags.make
 CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o: /home/rolandas/Desktop/Packing/src/IO/Writer.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rolandas/Desktop/Packing-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rolandas/Desktop/Packing-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o -c /home/rolandas/Desktop/Packing/src/IO/Writer.cxx
 
 CMakeFiles/libPacking.dir/src/IO/Writer.cxx.i: cmake_force
@@ -507,6 +531,7 @@ libPacking_OBJECTS = \
 "CMakeFiles/libPacking.dir/src/Boundaries/BoundariesShape.cxx.o" \
 "CMakeFiles/libPacking.dir/src/Boundaries/CubeShape.cxx.o" \
 "CMakeFiles/libPacking.dir/src/Boundaries/cylindershape.cpp.o" \
+"CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.o" \
 "CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o" \
 "CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o"
 
@@ -529,11 +554,12 @@ liblibPacking.a: CMakeFiles/libPacking.dir/src/Boundaries/BBoundaries.cxx.o
 liblibPacking.a: CMakeFiles/libPacking.dir/src/Boundaries/BoundariesShape.cxx.o
 liblibPacking.a: CMakeFiles/libPacking.dir/src/Boundaries/CubeShape.cxx.o
 liblibPacking.a: CMakeFiles/libPacking.dir/src/Boundaries/cylindershape.cpp.o
+liblibPacking.a: CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.o
 liblibPacking.a: CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o
 liblibPacking.a: CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o
 liblibPacking.a: CMakeFiles/libPacking.dir/build.make
 liblibPacking.a: CMakeFiles/libPacking.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rolandas/Desktop/Packing-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX static library liblibPacking.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rolandas/Desktop/Packing-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX static library liblibPacking.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/libPacking.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/libPacking.dir/link.txt --verbose=$(VERBOSE)
 
@@ -558,6 +584,7 @@ CMakeFiles/libPacking.dir/requires: CMakeFiles/libPacking.dir/src/Boundaries/BBo
 CMakeFiles/libPacking.dir/requires: CMakeFiles/libPacking.dir/src/Boundaries/BoundariesShape.cxx.o.requires
 CMakeFiles/libPacking.dir/requires: CMakeFiles/libPacking.dir/src/Boundaries/CubeShape.cxx.o.requires
 CMakeFiles/libPacking.dir/requires: CMakeFiles/libPacking.dir/src/Boundaries/cylindershape.cpp.o.requires
+CMakeFiles/libPacking.dir/requires: CMakeFiles/libPacking.dir/src/Boundaries/Mesh.cpp.o.requires
 CMakeFiles/libPacking.dir/requires: CMakeFiles/libPacking.dir/src/IO/Reader.cxx.o.requires
 CMakeFiles/libPacking.dir/requires: CMakeFiles/libPacking.dir/src/IO/Writer.cxx.o.requires
 

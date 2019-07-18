@@ -350,6 +350,12 @@
 		<Unit filename="/home/rolandas/Desktop/Packing/src/Boundaries/CubeShape.h">
 			<Option target="libPacking"/>
 		</Unit>
+		<Unit filename="/home/rolandas/Desktop/Packing/src/Boundaries/Mesh.cpp">
+			<Option target="libPacking"/>
+		</Unit>
+		<Unit filename="/home/rolandas/Desktop/Packing/src/Boundaries/Mesh.h">
+			<Option target="libPacking"/>
+		</Unit>
 		<Unit filename="/home/rolandas/Desktop/Packing/src/Boundaries/cylindershape.cpp">
 			<Option target="libPacking"/>
 		</Unit>

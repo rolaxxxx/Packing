@@ -33,9 +33,13 @@ public:
     std::string getDuomenys() const;
     void setDuomenys(const std::string &value);
 
+    std::string getVtk_duomenys() const;
+    void setVtk_duomenys(const std::string &value);
+
 private:
     PointsArrayType data; /// tik daleles kuriuose ieskomi kaimynai
     std::string duomenys;
+    std::string vtk_duomenys;
 
 
 };

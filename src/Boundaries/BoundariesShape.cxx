@@ -1,6 +1,7 @@
 #include "BoundariesShape.h"
 #include "Boundaries/CubeShape.h"
 #include "Boundaries/cylindershape.h"
+#include "Boundaries/Mesh.h"
 BoundariesShape::BoundariesShape()
 {
 
@@ -16,6 +17,7 @@ BBoundaries* BoundariesShape::create(std::string type)
     {
         return new CylinderShape();
     }
+
     std::cerr<<"Klaida tokio modulio nera!!!\n";
     exit(1000);
 }

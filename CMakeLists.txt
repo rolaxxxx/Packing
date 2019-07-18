@@ -31,6 +31,8 @@ set(LIB_SOURCES
     src/Boundaries/BoundariesShape.cxx
     src/Boundaries/CubeShape.cxx
     src/Boundaries/cylindershape.cpp
+    src/Boundaries/Mesh.cpp
+    src/Boundaries/Mesh.h
 
     src/IO/Reader.cxx
     src/IO/Writer.cxx

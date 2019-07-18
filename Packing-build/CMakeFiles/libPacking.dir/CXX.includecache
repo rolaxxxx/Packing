@@ -25,6 +25,8 @@ Boundaries/CubeShape.h
 /home/rolandas/Desktop/Packing/src/Boundaries/Boundaries/CubeShape.h
 Boundaries/cylindershape.h
 /home/rolandas/Desktop/Packing/src/Boundaries/Boundaries/cylindershape.h
+Boundaries/Mesh.h
+/home/rolandas/Desktop/Packing/src/Boundaries/Boundaries/Mesh.h
 
 /home/rolandas/Desktop/Packing/src/Boundaries/BoundariesShape.h
 BBoundaries.h
@@ -35,6 +37,14 @@ CubeShape.h
 /home/rolandas/Desktop/Packing/src/Boundaries/CubeShape.h
 
 /home/rolandas/Desktop/Packing/src/Boundaries/CubeShape.h
+BBoundaries.h
+/home/rolandas/Desktop/Packing/src/Boundaries/BBoundaries.h
+
+/home/rolandas/Desktop/Packing/src/Boundaries/Mesh.cpp
+Mesh.h
+/home/rolandas/Desktop/Packing/src/Boundaries/Mesh.h
+
+/home/rolandas/Desktop/Packing/src/Boundaries/Mesh.h
 BBoundaries.h
 /home/rolandas/Desktop/Packing/src/Boundaries/BBoundaries.h
 
@@ -86,7 +96,7 @@ core/Math.h
 core/Data.h
 /home/rolandas/Desktop/Packing/src/algorithm/core/Data.h
 core/Constants.h
--
+/home/rolandas/Desktop/Packing/src/algorithm/core/Constants.h
 
 /home/rolandas/Desktop/Packing/src/algorithm/AlgorithmFactory.cxx
 AlgorithmFactory.h
