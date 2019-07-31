@@ -7,7 +7,7 @@ class Reader
 public:
     Reader();
     void read(Data * data,std::string filename);
-
+    void readVTK(Data * data, std::string filename);
 
 };
 

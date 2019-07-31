@@ -39,7 +39,7 @@ public:
 private:
     PointsArrayType data; /// tik daleles kuriuose ieskomi kaimynai
     std::string duomenys;
-    std::string vtk_duomenys;
+
 
 
 };

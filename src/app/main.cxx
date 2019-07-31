@@ -31,7 +31,7 @@ int main(int argc, char** argv)
       ASearch * search =searchFactory.create(duomenys["SEARCH"]["TYPE"]);
       AAlgorithm*algorithm=algorithmFactory.create(duomenys["ALGORITHM"]["TYPE"]);
       if(argc>2)
-          reader.read(data, "VTK_MESH");
+          reader.readVTK(data, argv[2]);
 
       PointType P1, P2, P3, P4;
 
@@ -69,8 +69,8 @@ int main(int argc, char** argv)
      algorithm->init(data,random,search, bounds, 10);
 
       /// atliekame tikraji pakinima
-      algorithm->pack();
-     writer.write(data, search, duomenys, algorithm->getPoringumas());// irasome rezultata
+     // algorithm->pack();
+    // writer.write(data, search, duomenys, algorithm->getPoringumas());// irasome rezultata
 
 
      return 0;

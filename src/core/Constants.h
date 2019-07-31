@@ -21,8 +21,9 @@ using json = nlohmann::json;
 #include "core/time.h"
 #include <utility>
 #include <vtkDataSetWriter.h>
-
+#include <vtkGenericDataObjectReader.h>
 #include <boost/compute/system.hpp>
+#include <vtkCellArray.h>
 #include <boost/compute/command_queue.hpp>
 #include <boost/compute/algorithm/copy.hpp>
 #include <boost/compute/algorithm/fill.hpp>
@@ -30,7 +31,20 @@ using json = nlohmann::json;
 #include <boost/compute/algorithm/remove.hpp>
 #include <boost/compute/allocator/pinned_allocator.hpp>
 #include <boost/compute/container/vector.hpp>
-
+#include <vtkDataSetReader.h>
+#include <vtkDataSetAttributes.h>
+#include <vtkDataSet.h>
+#include <vtkVersion.h>
+#include <vtkSmartPointer.h>
+#include <vtkTriangle.h>
+#include <vtkCellArray.h>
+#include <vtkPolyData.h>
+#include <vtkPolyDataMapper.h>
+#include <vtkActor.h>
+#include <vtkPolyDataReader.h>
+#include <vtkRenderWindow.h>
+#include <vtkRenderer.h>
+#include <vtkRenderWindowInteractor.h>
 
 #include <boost/compute/algorithm/count_if.hpp>
 #include <boost/compute/container/vector.hpp>
@@ -41,6 +55,17 @@ using json = nlohmann::json;
 #include <boost/random/discrete_distribution.hpp>
 #include <boost/random/linear_congruential.hpp>
 #include <boost/assign/list_of.hpp>
+
+#include <vtkSmartPointer.h>
+#include <vtkProperty.h>
+#include <vtkPolyData.h>
+#include <vtkTriangleFilter.h>
+#include <vtkRegularPolygonSource.h>
+#include <vtkPolyDataMapper.h>
+#include <vtkActor.h>
+#include <vtkRenderWindow.h>
+#include <vtkRenderer.h>
+#include <vtkRenderWindowInteractor.h>
 
 #include <vtkVersion.h>
 #include <vtkSmartPointer.h>
@@ -66,6 +91,7 @@ using json = nlohmann::json;
 #include <boost/lexical_cast.hpp>
 #include <boost/exception/diagnostic_information.hpp>
 #include <chrono>
+#include "vtkDataSetReader.h"
 #include <boost/fusion/container/map.hpp>
 #include <boost/fusion/include/map.hpp>
 #include <boost/fusion/container/map/map_fwd.hpp>

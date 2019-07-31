@@ -33,15 +33,15 @@ void Data::setDuomenys(const std::string &value)
     duomenys = value;
 }
 
-std::string Data::getVtk_duomenys() const
-{
-    return vtk_duomenys;
-}
+//std::string Data::getVtk_duomenys() const
+//{
+    //return output;
+//}
 
-void Data::setVtk_duomenys(const std::string &value)
-{
-    vtk_duomenys = value;
-}
+//void Data::setVtk_duomenys(const std::string &value)
+//{
+    //output = value;
+//}
 
 
 
