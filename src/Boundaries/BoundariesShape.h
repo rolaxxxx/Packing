@@ -6,7 +6,7 @@
 #include "BBoundaries.h"
 enum class BoundsTypes
 {
-    Cube, Cylinder
+    Cube, Cylinder, Mesh
 };
 class BoundariesShape{
 

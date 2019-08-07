@@ -17,6 +17,10 @@ BBoundaries* BoundariesShape::create(std::string type)
     {
         return new CylinderShape();
     }
+    else if(type=="Mesh")
+    {
+        return new Mesh();
+    }
 
     std::cerr<<"Klaida tokio modulio nera!!!\n";
     exit(1000);

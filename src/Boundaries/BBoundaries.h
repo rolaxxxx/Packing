@@ -23,6 +23,13 @@ protected:
     Point center;
     Point min;
     Point max;
+    vtkPoints * trianglePoints = vtkPoints::New();
+   vtkSmartPointer<vtkTriangle> triangle =
+     vtkSmartPointer<vtkTriangle>::New();
+   vtkSmartPointer<vtkCellArray> triangles =
+     vtkSmartPointer<vtkCellArray>::New();
+   vtkSmartPointer<vtkPolyData> trianglePolyData =
+     vtkSmartPointer<vtkPolyData>::New();
 };
 
 #endif

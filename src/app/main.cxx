@@ -30,8 +30,6 @@ int main(int argc, char** argv)
       ARandom * random=randomFactory.create(duomenys["DISTRIBUTION"]["TYPE"]);
       ASearch * search =searchFactory.create(duomenys["SEARCH"]["TYPE"]);
       AAlgorithm*algorithm=algorithmFactory.create(duomenys["ALGORITHM"]["TYPE"]);
-      if(argc>2)
-          reader.readVTK(data, argv[2]);
 
       PointType P1, P2, P3, P4;
 
@@ -69,7 +67,7 @@ int main(int argc, char** argv)
      algorithm->init(data,random,search, bounds, 10);
 
       /// atliekame tikraji pakinima
-     // algorithm->pack();
+      algorithm->pack();
     // writer.write(data, search, duomenys, algorithm->getPoringumas());// irasome rezultata
 
 
