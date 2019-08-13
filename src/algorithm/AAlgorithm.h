@@ -14,6 +14,7 @@ public:
     virtual void pack()=0;
     REAL getPoringumas() const;
 
+
 protected:
     virtual void initialization()=0;
     ARandom *random;

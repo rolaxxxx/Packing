@@ -36,6 +36,8 @@ public:
     std::string getVtk_duomenys() const;
     void setVtk_duomenys(const std::string &value);
 
+    PointsArrayType getData() const;
+
 private:
     PointsArrayType data; /// tik daleles kuriuose ieskomi kaimynai
     std::string duomenys;

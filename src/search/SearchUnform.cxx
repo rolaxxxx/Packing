@@ -152,6 +152,8 @@ bool SearchUnform::intersect(PointType p, vector<INT>neighbours)
         if(L2<-EPSILON) return true;
     }
     return false;
-
+}
+bool SearchUnform::intersect(PointType p, PointsArrayType data)
+{
 
 }

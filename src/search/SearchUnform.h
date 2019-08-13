@@ -9,6 +9,7 @@ public:
     SearchUnform();
     std::vector<INT> getNeighboursID(INT id);
     bool intersect(PointType p, std::vector<INT>neighbours);
+    bool intersect(PointType p, PointsArrayType data);
     std::vector<INT> getGridNeigbours(INT id);
     void addPoint(PointType p);
 

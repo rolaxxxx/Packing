@@ -23,9 +23,11 @@ set(LIB_SOURCES
     src/search/SearchUnform.cxx
     src/search/SearchFactory.cxx
 
+
     src/algorithm/AAlgorithm.cxx
     src/algorithm/AlgorithmFactory.cxx
     src/algorithm/SpherePackingAlgorithm.cxx
+    src/algorithm/MeshPackingAlgorithm.cxx
 
     src/Boundaries/BBoundaries.cxx
     src/Boundaries/BoundariesShape.cxx
@@ -53,9 +55,11 @@ set(LIB_HEADERS
     src/search/SearchUnform.h
     src/search/SearchFactory.h
 
+
     src/algorithm/AAlgorithm.h
     src/algorithm/AlgorithmFactory.h
     src/algorithm/SpherePackingAlgorithm.h
+    src/algorithm/MeshPackingAlgorithm.h
 
     src/Boundaries/BBoundaries.h
     src/Boundaries/BoundariesShape.h

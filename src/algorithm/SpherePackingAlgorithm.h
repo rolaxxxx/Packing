@@ -11,7 +11,6 @@ public:
 
 protected:
     void initialization();
-
     std::vector<INT>F;
 };
 

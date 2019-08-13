@@ -13,11 +13,11 @@ Point a, b, c;
         a.x=p[0];
         a.y=p[1];
         a.z=p[2];
-
+        trianglePolyData->GetPoint(i, p);
         b.x=p[0];
         b.y=p[1];
         b.z=p[2];
-
+        trianglePolyData->GetPoint(i, p);
         c.x=p[0];
         c.y=p[1];
         c.z=p[2];

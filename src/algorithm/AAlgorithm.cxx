@@ -20,3 +20,5 @@ REAL AAlgorithm::getPoringumas() const
 {
     return poringumas;
 }
+
+

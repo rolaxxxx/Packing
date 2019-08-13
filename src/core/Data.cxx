@@ -33,9 +33,14 @@ void Data::setDuomenys(const std::string &value)
     duomenys = value;
 }
 
+PointsArrayType Data::getData() const
+{
+    return data;
+}
+
 //std::string Data::getVtk_duomenys() const
 //{
-    //return output;
+//return output;
 //}
 
 //void Data::setVtk_duomenys(const std::string &value)

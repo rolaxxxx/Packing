@@ -4,7 +4,7 @@
 
 enum class AlgorithmType
 {
-    SpherePackingAlgorithm
+    SpherePackingAlgorithm, MeshPackingAlgorithm
 };
 
 class AlgorithmFactory
