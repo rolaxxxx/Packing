@@ -25,10 +25,10 @@ void MeshPackingAlgorithm::pack()
 
         int dydis=F.size();
         std::uniform_int_distribution<> dis(0, F.size()-1);
-                INT rand_particle_index_f_index=dis(gen);
-      //          INT rand_particle_index = F[rand_particle_index_f_index];
+           INT rand_particle_index_f_index=dis(gen);
+           INT rand_particle_index = F[rand_particle_index_f_index];
 
-        /*pasirinkta_dalele=data->getPoint(rand_particle_index);
+        pasirinkta_dalele=data->getPoint(rand_particle_index);
 
 //vector - > particle index -> ID -> cell elements//
         double new_R=random->getNextValue();
@@ -36,8 +36,6 @@ void MeshPackingAlgorithm::pack()
 
         temp = rand_particle_index;
         int check=i;
-
-
         for (INT j = 0; j < F.size()-1; j++){
             for (INT l = j+1; l < F.size(); l++) {
 
@@ -45,17 +43,14 @@ void MeshPackingAlgorithm::pack()
                         this->math.getSpheresTouchingThreeOtherSpheres(
                             data->getPoint(j),
                             data->getPoint(l),
-                            data->getPoint(rand_particle_index),
+                            pasirinkta_dalele,
                             new_R);
-
-                // cout << newSphere.size() << endl;
 
                 for(int z=0;z<newSphere.size();z++)
                 {
-
-                        //  std::cout<<"dedame\n";
                     if(!search->intersect(newSphere[z], data->getData()))
                     {
+
                         if(bounds->check(newSphere[z])){
 
                             F.push_back(data->getNumberOfPoints()-1);
@@ -64,6 +59,7 @@ void MeshPackingAlgorithm::pack()
                         }
 
                     }
+
                 }
 
 
@@ -80,7 +76,7 @@ void MeshPackingAlgorithm::pack()
         std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
         std::cout <<"poringumas "<< daleliu_turis/figuros_turis << endl;
         }
-*/
+
     }
     while(F.size());
 
@@ -92,5 +88,8 @@ void MeshPackingAlgorithm::pack()
 
 void MeshPackingAlgorithm::initialization()
 {
-
+    for(int i=0;i<data->getNumberOfPoints();i++){
+        F.push_back(i);
+    }
+    std::cout<<"Performing initialization\n";
 }

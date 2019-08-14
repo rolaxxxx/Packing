@@ -48,7 +48,9 @@ int main(int argc, char** argv)
       P3.y=2.0*RMAX*sqrt(3.0)/2.0;
       P3.z=0;
       P3.R=RMAX;
-
+        data->insertNextPoint(P1);
+        data->insertNextPoint(P2);
+        data->insertNextPoint(P3);
 
     //cout << duomenys["DISTRIBUTION"]["TYPE"] << endl;
 
@@ -60,11 +62,11 @@ int main(int argc, char** argv)
 
       search->init(data, duomenys);
 
-     search->addPoint(P1);
-     search->addPoint(P2);
-     search->addPoint(P3);
+     //search->addPoint(P1);
+     //search->addPoint(P2);
+     //search->addPoint(P3);
 
-     algorithm->init(data,random,search, bounds, 10);
+     algorithm->init(data,random,search, duomenys, bounds, 10);
 
       /// atliekame tikraji pakinima
       algorithm->pack();

@@ -10,7 +10,7 @@ class AAlgorithm
 {
 public:
     AAlgorithm();
-    void init(Data*data,ARandom *random,ASearch *search, BBoundaries *bounds, INT count);
+    void init(Data*data,ARandom *random,ASearch *search, json duomenys, BBoundaries *bounds, INT count);
     virtual void pack()=0;
     REAL getPoringumas() const;
 
@@ -24,6 +24,7 @@ protected:
     Data*data;
     BBoundaries *bounds;
     REAL poringumas;
+
 
 
 };

@@ -155,5 +155,11 @@ bool SearchUnform::intersect(PointType p, vector<INT>neighbours)
 }
 bool SearchUnform::intersect(PointType p, PointsArrayType data)
 {
-
+    for(int i=0;i<data.size();i++)
+    {
+        Point target=data[i];
+        double L2=vector_len(p-target)-p.R-target.R;
+        if(L2<-EPSILON) return true;
+    }
+    return false;
 }
