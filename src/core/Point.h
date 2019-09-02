@@ -40,5 +40,6 @@ typedef std::set<PointType> PointsSetType;
     REAL dot_prod(Point vec_a, Point vec_b);
     Point cross_prod(Point vec_a, Point vec_b);
     REAL vector_len(Point vec);
+    REAL tripleScalarProd(Point vec_a, Point vec_b, Point vec_c);
 
 #endif // POINT_H

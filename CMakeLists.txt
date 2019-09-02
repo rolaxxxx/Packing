@@ -14,6 +14,7 @@ set(LIB_SOURCES
     src/random/ARandom.cxx
     src/random/RandomUniform.cxx
     src/random/RandomFactory.cxx
+    src/random/RandomDiscrete.cxx
 
     src/core/Data.cxx
     src/core/Point.cxx
@@ -27,7 +28,7 @@ set(LIB_SOURCES
     src/algorithm/AAlgorithm.cxx
     src/algorithm/AlgorithmFactory.cxx
     src/algorithm/SpherePackingAlgorithm.cxx
-    src/algorithm/MeshPackingAlgorithm.cxx
+
 
     src/Boundaries/BBoundaries.cxx
     src/Boundaries/BoundariesShape.cxx
@@ -44,6 +45,7 @@ set(LIB_HEADERS
     src/random/ARandom.h
     src/random/RandomUniform.h
     src/random/RandomFactory.h
+    src/random/RandomDiscrete.h
 
     src/core/Data.h
     src/core/Point.h
@@ -59,7 +61,7 @@ set(LIB_HEADERS
     src/algorithm/AAlgorithm.h
     src/algorithm/AlgorithmFactory.h
     src/algorithm/SpherePackingAlgorithm.h
-    src/algorithm/MeshPackingAlgorithm.h
+
 
     src/Boundaries/BBoundaries.h
     src/Boundaries/BoundariesShape.h

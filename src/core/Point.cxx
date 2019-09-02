@@ -27,6 +27,7 @@ Point operator * (REAL A, Point B)
     B.R*=A;
     return B;
 }
+
 Point operator * (Point A, Point B)
 {
     A.x*=B.x;
@@ -68,6 +69,12 @@ Point cross_prod(Point vec_a, Point vec_b){ //  cross produkto skaiciavimas
     prod_rez.y=vec_a.z*vec_b.x-vec_a.x*vec_b.z;
     prod_rez.z=vec_a.x*vec_b.y-vec_a.y*vec_b.x;
     return prod_rez;
+}
+REAL tripleScalarProd(Point vec_a, Point vec_b, Point vec_c){
+     REAL tripleProdRez;
+    tripleProdRez=dot_prod(cross_prod(vec_a, vec_b), vec_c);
+    return tripleProdRez;
+
 }
 
 REAL vector_len(Point vec){

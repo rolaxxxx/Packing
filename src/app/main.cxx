@@ -26,51 +26,56 @@ int main(int argc, char** argv)
       RandomFactory randomFactory;
       SearchFactory searchFactory;
       AlgorithmFactory algorithmFactory;
+      BoundariesShape shape;
 
       ARandom * random=randomFactory.create(duomenys["DISTRIBUTION"]["TYPE"]);
       ASearch * search =searchFactory.create(duomenys["SEARCH"]["TYPE"]);
       AAlgorithm*algorithm=algorithmFactory.create(duomenys["ALGORITHM"]["TYPE"]);
 
+      BBoundaries * bounds=shape.create(duomenys["BOUNDARIES"]["TYPE"]);
+       bounds->init(search, duomenys);
+      search->SetBounds(bounds->getBounds());
       PointType P1, P2, P3, P4;
 
       double RMAX=duomenys["DISTRIBUTION"]["RMAX"];
-      P1.x=0;
-      P1.y=0;
-      P1.z=0;
+      double * boundaries;
+      boundaries=bounds->getBounds();
+      Point half_bounds;
+
+      half_bounds.x=(boundaries[1]+boundaries[0])/2;
+      half_bounds.y=(boundaries[3]+boundaries[2])/2;
+      half_bounds.z=(boundaries[5]+boundaries[4])/2;
+      cout << " bounds struktura " << endl;
+              half_bounds.PrintStructure();
+        //cout << "boundaries " << boundaries[0] << " " << boundaries[1] << " " << " " << boundaries[2]<< " " << boundaries[3]<< " " << boundaries[4] << " " << boundaries[5] << endl;
+      P1.x=half_bounds.x;
+      P1.y=half_bounds.y;
+      P1.z=half_bounds.z;
       P1.R=RMAX;
 
-      P2.x=2*RMAX;
-      P2.y=0;
-      P2.z=0;
+      P2.x=(half_bounds.x)+2*RMAX;
+      P2.y=half_bounds.y;
+      P2.z=half_bounds.z;
       P2.R=RMAX;
 
-      P3.x=RMAX;
-      P3.y=2.0*RMAX*sqrt(3.0)/2.0;
-      P3.z=0;
+      P3.x=half_bounds.x+RMAX;
+      P3.y=(2.0*RMAX*sqrt(3.0)/2.0)+half_bounds.y;
+      P3.z=half_bounds.z;
       P3.R=RMAX;
-        data->insertNextPoint(P1);
-        data->insertNextPoint(P2);
-        data->insertNextPoint(P3);
-
     //cout << duomenys["DISTRIBUTION"]["TYPE"] << endl;
 
      random->init(duomenys);
-
-     BoundariesShape shape;
-     BBoundaries * bounds=shape.create(duomenys["BOUNDARIES"]["TYPE"]);
-     bounds->init(search, duomenys);
-
       search->init(data, duomenys);
 
-     //search->addPoint(P1);
-     //search->addPoint(P2);
-     //search->addPoint(P3);
+     search->addPoint(P1);
+     search->addPoint(P2);
+     search->addPoint(P3);
 
      algorithm->init(data,random,search, duomenys, bounds, 10);
 
       /// atliekame tikraji pakinima
       algorithm->pack();
-    // writer.write(data, search, duomenys, algorithm->getPoringumas());// irasome rezultata
+     writer.write(data, search, duomenys, algorithm->getPoringumas());// irasome rezultata
 
 
      return 0;

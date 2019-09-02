@@ -99,8 +99,6 @@ void Writer::write(Data*data, ASearch *search ,json duomenys, REAL poringumas)
 
 
 /*
-
-
                 ///// cylinder output
                 vtkSmartPointer<vtkPolyDataMapper> mapper =
                     vtkSmartPointer<vtkPolyDataMapper>::New();
@@ -109,7 +107,6 @@ void Writer::write(Data*data, ASearch *search ,json duomenys, REAL poringumas)
                     vtkSmartPointer<vtkActor>::New();
                   actor->SetMapper(mapper);
                   actor->GetProperty()->SetOpacity(0.4);
-
                   //Create a renderer, render window, and interactor
                   vtkSmartPointer<vtkRenderer> renderer =
                     vtkSmartPointer<vtkRenderer>::New();
@@ -119,30 +116,24 @@ void Writer::write(Data*data, ASearch *search ,json duomenys, REAL poringumas)
                   vtkSmartPointer<vtkRenderWindowInteractor> renderWindowInteractor =
                     vtkSmartPointer<vtkRenderWindowInteractor>::New();
                   renderWindowInteractor->SetRenderWindow(renderWindow);
-
                   // Add the actor to the scene
                   renderer->AddActor(actor);
                   renderer->SetBackground(.1, .3,.2); // Background color dark green
-
                   // Render and interact
                   renderWindow->Render();
                   renderWindowInteractor->Start();
-
 */
 
                   ////// cylinder output end
-/*
+
            vtkSmartPointer<vtkPolyData> glyph =
         vtkSmartPointer<vtkPolyData>::New();
-
             vtkSmartPointer<vtkSphereSource> SphereSource =
           vtkSmartPointer<vtkSphereSource>::New();
-
-        SphereSource->SetPhiResolution(4);
+        SphereSource->SetPhiResolution(10);
          SphereSource->SetRadius(1); //radius visada vienas kai atvaizduoju sferas //reikia pakeisti/////
-     SphereSource->SetThetaResolution(4);
+     SphereSource->SetThetaResolution(10);
             SphereSource.Get()->GetCenter();
-
             vtkSmartPointer<vtkGlyph3D> glyph3D =
               vtkSmartPointer<vtkGlyph3D>::New();
             glyph3D->SetColorModeToColorByScalar();
@@ -155,7 +146,6 @@ void Writer::write(Data*data, ASearch *search ,json duomenys, REAL poringumas)
             glyph3D->SetInputData(polydata);
           #endif
         glyph3D->Update();
-
         vtkSmartPointer<vtkPolyDataMapper> mapper =
              vtkSmartPointer<vtkPolyDataMapper>::New();
        mapper->SetInputConnection(glyph3D->GetOutputPort());
@@ -164,33 +154,28 @@ void Writer::write(Data*data, ASearch *search ,json duomenys, REAL poringumas)
        mapper->SetScalarModeToUsePointFieldData();
        vtkSmartPointer<vtkCubeSource> cubeSource =
              vtkSmartPointer<vtkCubeSource>::New();
-           cubeSource.Get()->SetBounds(0,0.025,0,0.005,0, 0.001);
+           cubeSource.Get()->SetBounds(-0.125, 0.125,-0.125, 0.125, -0.125, 0.125);
            //cubeSource.GetProperty()->SetOpacity(.4);
            // Visualize
-
            mapper->SetInputConnection(glyph3D->GetOutputPort());
-
-
            vtkSmartPointer<vtkPolyDataMapper> Cubemapper =
              vtkSmartPointer<vtkPolyDataMapper>::New();
            Cubemapper->SetInputConnection(cubeSource->GetOutputPort());
-
-
-           vtkSmartPointer<vtkPolyDataMapper> Cylindermapper =
+           /*vtkSmartPointer<vtkPolyDataMapper> Cylindermapper =
              vtkSmartPointer<vtkPolyDataMapper>::New();
            Cylindermapper->SetInputConnection(cylinderSource->GetOutputPort());
            vtkSmartPointer<vtkActor>Cylinderactor =
                  vtkSmartPointer<vtkActor>::New();
                  Cylinderactor->SetMapper(Cylindermapper);
                  Cylinderactor->GetProperty()->SetOpacity(.4);
-          // vtkSmartPointer<vtkActor> Cubeactor =
-           //  vtkSmartPointer<vtkActor>::New();
-           //Cubeactor->GetProperty()->SetOpacity(.2);
-           // Cubeactor->SetMapper(Cubemapper);
+                 */
+           vtkSmartPointer<vtkActor> Cubeactor =
+             vtkSmartPointer<vtkActor>::New();
+           Cubeactor->GetProperty()->SetOpacity(.2);
+            Cubeactor->SetMapper(Cubemapper);
        vtkSmartPointer<vtkActor>Glyphactor =
              vtkSmartPointer<vtkActor>::New();
              Glyphactor->SetMapper(mapper);
-
            vtkSmartPointer<vtkRenderer> renderer =
              vtkSmartPointer<vtkRenderer>::New();
            vtkSmartPointer<vtkRenderWindow> renderWindow =
@@ -199,15 +184,13 @@ void Writer::write(Data*data, ASearch *search ,json duomenys, REAL poringumas)
            vtkSmartPointer<vtkRenderWindowInteractor> renderWindowInteractor =
              vtkSmartPointer<vtkRenderWindowInteractor>::New();
            renderWindowInteractor->SetRenderWindow(renderWindow);
-
-          //renderer->AddActor(Cubeactor);
-           renderer->AddActor(Cylinderactor);
+          renderer->AddActor(Cubeactor);
+          // renderer->AddActor(Cylinderactor);
            renderer->AddActor(Glyphactor);
            renderer->SetBackground(255, 255, 255); // Background color green
-
            renderWindow->Render();
        renderWindowInteractor->Start();
-*/
+
     /// irasome duomenis greiciausiai i VTK faila kaip rezultata.
 
 }

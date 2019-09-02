@@ -13,7 +13,7 @@ public:
     virtual std::vector<INT> getGridNeigbours(INT id)=0;
 
     virtual bool intersect(PointType id, std::vector<INT>neighbours)=0;
-    virtual bool intersect(PointType id, PointsArrayType neighbours)=0;
+
     virtual void addPoint(PointType p)=0;
     Point getBmax() const;
 
@@ -24,6 +24,8 @@ public:
     INT getNy() const;
 
     INT getNz() const;
+
+    void SetBounds(double *boundai);
 
 protected:
     virtual void initialization()=0;

@@ -25,8 +25,12 @@ void SearchUnform::addPoint(PointType p)
     INT calc_id=calculateID(p);
    // cout << "suskaiciuotas taskas  ir tasko id " << calc_id <<  endl;
     //p.PrintStructure();
-
+if(calc_id<0){
+    p.PrintStructure();
+}
+        //cout << calc_id << " " << " neigiama reiksme " << endl;
     //cout << SUFORMUOTAS_GRIDAS.size() << " " << calc_id <<  endl;
+
     std::vector<INT>temp=SUFORMUOTAS_GRIDAS[calc_id];
    // cout << calculateID(p) << endl;
 
@@ -37,6 +41,7 @@ void SearchUnform::addPoint(PointType p)
     p.ID=id;
     data->insertNextPoint(p);
     //p.PrintStructure();
+
 }
 
 
@@ -153,13 +158,4 @@ bool SearchUnform::intersect(PointType p, vector<INT>neighbours)
     }
     return false;
 }
-bool SearchUnform::intersect(PointType p, PointsArrayType data)
-{
-    for(int i=0;i<data.size();i++)
-    {
-        Point target=data[i];
-        double L2=vector_len(p-target)-p.R-target.R;
-        if(L2<-EPSILON) return true;
-    }
-    return false;
-}
+

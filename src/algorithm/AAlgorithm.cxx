@@ -12,6 +12,7 @@ void AAlgorithm::init(Data *data, ARandom *random, ASearch *search, json duomeny
     this->search=search;
     this->bounds=bounds;
     this->count=count;
+    this->boundaries=bounds->getBounds();
     this->initialization();
 }
 

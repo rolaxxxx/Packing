@@ -19,7 +19,8 @@ void SpherePackingAlgorithm::pack()
     double daleliu_turis=0;
 
     //double  kubo_turis=((fabs(search->getBmax().x))-(fabs(search->getBmin().x)))*((fabs(search->getBmax().y))-(fabs(search->getBmin().y)))*((fabs(search->getBmax().z))-(fabs(search->getBmin().z)));
-    double figuros_turis=PI*fabs(bounds->getRadius())*fabs(bounds->getRadius())*fabs(bounds->getHight());
+    double figuros_turis=(boundaries[1]-boundaries[0])*(boundaries[3]-boundaries[2])*(boundaries[5]-boundaries[4]);
+    //cout << "boundaries reiksme ------  " <<
 
     do{
 
@@ -32,7 +33,7 @@ void SpherePackingAlgorithm::pack()
 
 
         std::uniform_int_distribution<> dis(0, F.size()-1);
-                INT rand_particle_index_f_index=dis(gen);
+              INT rand_particle_index_f_index=dis(gen);
                 INT rand_particle_index = F[rand_particle_index_f_index];
         vector<INT>neighbours=search->getGridNeigbours(rand_particle_index);
         pasirinkta_dalele=data->getPoint(rand_particle_index);
@@ -46,11 +47,13 @@ void SpherePackingAlgorithm::pack()
             if(vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]))>pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R)
                 neighbours.erase(neighbours.begin()+t);
         }
+
         //cout << neighbours.size() << " po" << endl;
       // cout << "____" << endl;
 
         temp = rand_particle_index;
         int check=i;
+
 
 
         for (INT j = 0; j < neighbours.size()-1; j++){
@@ -89,6 +92,7 @@ void SpherePackingAlgorithm::pack()
                             //cout << F.size() << "daleliu kiekis" << endl;
                             i++;
                         }
+
                     }
                    // time.StopTimer();
                    // rez_time+=time.ElapsedTime("sec");
@@ -103,6 +107,7 @@ void SpherePackingAlgorithm::pack()
             }
 
         }
+
                            // time.StopTimer();
         if(check==i)
            {
@@ -115,8 +120,10 @@ void SpherePackingAlgorithm::pack()
 
         std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
         std::cout <<"poringumas "<< daleliu_turis/figuros_turis << endl;
-        }
-    while(F.size());
+
+}
+
+    while(data->getNumberOfPoints()<7500);
 
    // cout << time.CumulativeTime("sec") << endl;
    //cout << rez_time << endl;

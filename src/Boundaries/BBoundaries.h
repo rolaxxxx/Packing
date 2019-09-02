@@ -14,8 +14,11 @@ public:
     virtual bool check(Point newSphere)=0;
      double getRadius() const;
      double getHight() const;
+
+     double *getBounds() const;
+
 protected:
-    virtual void initialization(json duomenys)=0;
+     virtual void initialization(json duomenys)=0;
     ASearch *search;
     json duomenys;
     REAL radius;
@@ -23,13 +26,11 @@ protected:
     Point center;
     Point min;
     Point max;
-    vtkPoints * trianglePoints = vtkPoints::New();
-   vtkSmartPointer<vtkTriangle> triangle =
-     vtkSmartPointer<vtkTriangle>::New();
-   vtkSmartPointer<vtkCellArray> triangles =
-     vtkSmartPointer<vtkCellArray>::New();
-   vtkSmartPointer<vtkPolyData> trianglePolyData =
-     vtkSmartPointer<vtkPolyData>::New();
+    std::vector<Point> taskai;
+    int tria_kiekis;
+
+
+    double * bounds;
 };
 
 #endif

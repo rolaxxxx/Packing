@@ -24,6 +24,7 @@ protected:
     Data*data;
     BBoundaries *bounds;
     REAL poringumas;
+    double * boundaries;
 
 
 
