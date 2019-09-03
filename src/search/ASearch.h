@@ -42,6 +42,7 @@ protected:
     PointType prad3;
     REAL RMax;
     REAL CELL_SIZE;
+    double rez=0;
 };
 
 #endif // ASEARCH_H

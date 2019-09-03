@@ -28,6 +28,7 @@ protected:
     Point max;
     std::vector<Point> taskai;
     int tria_kiekis;
+    double rez=0;
 
 
     double * bounds;

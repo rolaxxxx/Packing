@@ -31,7 +31,7 @@ set(LIB_SOURCES
 
 
     src/Boundaries/BBoundaries.cxx
-    src/Boundaries/BoundariesShape.cxx
+    src/Boundaries/BoundariesFactory.cxx
     src/Boundaries/CubeShape.cxx
     src/Boundaries/cylindershape.cpp
     src/Boundaries/Mesh.cpp
@@ -64,7 +64,7 @@ set(LIB_HEADERS
 
 
     src/Boundaries/BBoundaries.h
-    src/Boundaries/BoundariesShape.h
+    src/Boundaries/BoundariesFactory.h
     src/Boundaries/CubeShape.h
     src/Boundaries/cylindershape.h
 

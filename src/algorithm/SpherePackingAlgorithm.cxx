@@ -15,7 +15,7 @@ void SpherePackingAlgorithm::pack()
     int i=0;
     PointType pasirinkta_dalele;
     double rez_time;
-
+    int isvedimo_kintamasis=10000;
     double daleliu_turis=0;
 
     //double  kubo_turis=((fabs(search->getBmax().x))-(fabs(search->getBmin().x)))*((fabs(search->getBmax().y))-(fabs(search->getBmin().y)))*((fabs(search->getBmax().z))-(fabs(search->getBmin().z)));
@@ -47,7 +47,8 @@ void SpherePackingAlgorithm::pack()
             if(vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]))>pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R)
                 neighbours.erase(neighbours.begin()+t);
         }
-
+        //cout << neighbours.size() << endl;
+         pasirinkta_dalele.koordinacinis_num=neighbours.size()-1;
         //cout << neighbours.size() << " po" << endl;
       // cout << "____" << endl;
 
@@ -72,30 +73,66 @@ void SpherePackingAlgorithm::pack()
 
 
                 // cout << newSphere.size() << endl;
+               // for(int z=0;z<newSphere.size();z++)
+               // {
+                // Neideti_taskai.push_back(newSphere[z]);
+
+               // }
+
                 for(int z=0;z<newSphere.size();z++)
                 {
                     //std::cout<<"nagrinejame "<<z<<"\n";
-                    //time.StartTimer();
-                    //auto begin = std::chrono::high_resolution_clock::now();
+
+
                      //time.StartTimer();
+
+                if(newSphere[z].x+newSphere[z].R<boundaries[1]&& newSphere[z].x-newSphere[z].R>boundaries[0]&& newSphere[z].y+newSphere[z].R<boundaries[3]&& newSphere[z].y+newSphere[z].R>boundaries[2]&& newSphere[z].z+newSphere[z].R<boundaries[5]&& newSphere[z].z-newSphere[z].R>boundaries[4])
+                {
                     if(!search->intersect(newSphere[z], neighbours))
                     {
                         //  std::cout<<"dedame\n";
-
-                        if(bounds->check(newSphere[z])){
-
+                      //  time.StartTimer();
+                        if(bounds->check(newSphere[z]) ){
+                           // Neideti_taskai.pop_back();
                             //newSphere[z].PrintStructure();
                             search->addPoint(newSphere[z]);
+                            if(isvedimo_kintamasis==0){
+                            writer->write(data, search, duomenys, poringumas);
+                            isvedimo_kintamasis=10000;
+                            }
                             F.push_back(data->getNumberOfPoints()-1);
                             daleliu_turis+=(4.0/3.0)*PI*pow(newSphere[z].R,3);
                             //cout << j << " "   << newSphere[z].R << " " << daleliu_turis << " ismatavimai " << endl;
                             //cout << F.size() << "daleliu kiekis" << endl;
                             i++;
+                            isvedimo_kintamasis--;
                         }
-
+                       // time.StopTimer();
+                       // rez_time+=time.ElapsedTime("sec");
                     }
-                   // time.StopTimer();
-                   // rez_time+=time.ElapsedTime("sec");
+                }
+              }
+/* parasyta neidetu tasku funkcija /// letina programa
+                for(int k=0;k<Neideti_taskai.size();k++){
+                    if(!search->intersect(Neideti_taskai[k], neighbours))
+                    {
+                        //  std::cout<<"dedame\n";
+                        if(bounds->check(Neideti_taskai[k])){
+                            Neideti_taskai.pop_back();
+                            //newSphere[z].PrintStructure();
+                            search->addPoint(Neideti_taskai[k]);
+                            F.push_back(data->getNumberOfPoints()-1);
+                            daleliu_turis+=(4.0/3.0)*PI*pow(Neideti_taskai[k].R,3);
+                            //cout << j << " "   << newSphere[z].R << " " << daleliu_turis << " ismatavimai " << endl;
+                            //cout << F.size() << "daleliu kiekis" << endl;
+                            i++;
+                        }
+                    }
+                   }
+                */
+
+                }
+
                    // auto end = std::chrono::high_resolution_clock::now();
                   // duration<double> time_span = duration_cast<duration<double>>(end - begin);
                   // time=time_span.count();
@@ -104,9 +141,7 @@ void SpherePackingAlgorithm::pack()
 
                 }
 
-            }
 
-        }
 
                            // time.StopTimer();
         if(check==i)
@@ -120,13 +155,15 @@ void SpherePackingAlgorithm::pack()
 
         std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
         std::cout <<"poringumas "<< daleliu_turis/figuros_turis << endl;
+        //std::cout <<"koordinacinis numeris "<< koord << endl;
+
 
 }
 
-    while(data->getNumberOfPoints()<7500);
+    while(F.size());
 
    // cout << time.CumulativeTime("sec") << endl;
-   //cout << rez_time << endl;
+   //cout << programos_laikas << " " << " intersect funkcijos laikas " << endl;
     poringumas=daleliu_turis/figuros_turis;
     std::cout<<"packing done\n";
 }

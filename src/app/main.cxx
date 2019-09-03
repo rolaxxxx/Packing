@@ -9,15 +9,17 @@
 using namespace std;
 int main(int argc, char** argv)
 {
-
+   // Timer taim;
+  //  taim.StartTimer();
     Reader reader;
       Writer writer;
-
+ // double rez_time;
 
       Data * data=new Data();
 
       //nuskaitome duomenis is failo jeigu to reikia
       reader.read(data, argv[1]);
+     // cout << argv[1] << endl;
       // galime ir rankomis sudeti pradinius taskus, naudojant Data klases objekta
       srand(time(NULL));
       ///koks failo formatas turi buti paduotas i funkcija dabar paduodamas string formatas
@@ -37,7 +39,7 @@ int main(int argc, char** argv)
       search->SetBounds(bounds->getBounds());
       PointType P1, P2, P3, P4;
 
-      double RMAX=duomenys["DISTRIBUTION"]["RMAX"];
+      double RMIN=duomenys["DISTRIBUTION"]["RMIN"];
       double * boundaries;
       boundaries=bounds->getBounds();
       Point half_bounds;
@@ -51,17 +53,22 @@ int main(int argc, char** argv)
       P1.x=half_bounds.x;
       P1.y=half_bounds.y;
       P1.z=half_bounds.z;
-      P1.R=RMAX;
+      P1.R=RMIN;
 
-      P2.x=(half_bounds.x)+2*RMAX;
+      P2.x=(half_bounds.x)+2*RMIN;
       P2.y=half_bounds.y;
       P2.z=half_bounds.z;
-      P2.R=RMAX;
+      P2.R=RMIN;
 
-      P3.x=half_bounds.x+RMAX;
-      P3.y=(2.0*RMAX*sqrt(3.0)/2.0)+half_bounds.y;
+      P3.x=half_bounds.x+RMIN;
+      P3.y=(2.0*RMIN*sqrt(3.0)/2.0)+half_bounds.y;
       P3.z=half_bounds.z;
-      P3.R=RMAX;
+      P3.R=RMIN;
+// REAL tempo=0;
+     // tempo+=(4.0/3.0)*PI*pow(P1.R,3);
+     // tempo+=(4.0/3.0)*PI*pow(P2.R,3);
+     // tempo+=(4.0/3.0)*PI*pow(P3.R,3);
+      //algorithm->setPoringumas(tempo);
     //cout << duomenys["DISTRIBUTION"]["TYPE"] << endl;
 
      random->init(duomenys);
@@ -71,13 +78,14 @@ int main(int argc, char** argv)
      search->addPoint(P2);
      search->addPoint(P3);
 
-     algorithm->init(data,random,search, duomenys, bounds, 10);
+     algorithm->init(data,random,search, duomenys, bounds, 10, writer);
 
       /// atliekame tikraji pakinima
       algorithm->pack();
      writer.write(data, search, duomenys, algorithm->getPoringumas());// irasome rezultata
-
-
+  // taim.StopTimer();
+  //  rez_time+=taim.ElapsedTime("sec");
+   // cout << rez_time << "laikas visai programai ------------ " << endl;
      return 0;
 
 }

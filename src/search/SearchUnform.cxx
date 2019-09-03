@@ -139,11 +139,10 @@ bool SearchUnform::intersect(PointType p, vector<INT>neighbours)
 {
 
 
-    //time.StartTimer();
+   // time.StartTimer();
     // cout << neighbours.size() << " kaimynu kiekis " << endl;
    // std::vector<INT> potencialus_kaimynai=;
     std::vector<INT> potencialus_kaimynai=GetPotentialNeighbours(p);
-  // time.StopTimer();
 
     //cout << "iteracijos laikas " << time.ElapsedTime("sec") << endl;
     //cout << "visas laikas  " << time.CumulativeTime("sec") <<endl;
@@ -156,6 +155,10 @@ bool SearchUnform::intersect(PointType p, vector<INT>neighbours)
         double L2=vector_len(p-target)-p.R-target.R;
         if(L2<-EPSILON) return true;
     }
+     //time.StopTimer();
+   // rez+=time.ElapsedTime("sec");
+   // cout << rez << " praeitas laikas " << endl;
+
     return false;
 }
 

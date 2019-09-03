@@ -1,24 +1,20 @@
 {
 	"BOUNDARIES":
 		{
-		"TYPE":"Cube",
-		"BMIN":[0,0,0],
-		"BMAX":[0.025,0.005,0.001]
+		"TYPE":"Mesh"
 		},
 	"DISTRIBUTION":
 	{			
-		"COUNT":7,
+		"COUNT":4,
 		"TYPE":"Uniform",
-		"RADIUS":[5.00E-05, 7.00E-05, 9.00E-05, 1.10E-04, 1.30E-04, 1.50E-04, 1.70E-04],
-		"PROBABILITY":[3, 4, 8, 14, 21, 20, 17],
-		"RMIN":5.00E-05,
-		"RMAX":1.70E-04		
+		"RADIUS":[0.005, 0.007, 0.009, 0.012],
+		"PROBABILITY":[27, 36, 30, 7],
+		"RMIN":0.005,
+		"RMAX":0.012		
 	},
 	"SEARCH":
 	{
-		"TYPE":"Uniform",
-		"BMIN":[0,0,0],
-		"BMAX":[0.025,0.005,0.001]
+		"TYPE":"Uniform"
 	},
 	"WRITER":{
 		"FILENAME":"output.vtk"
@@ -26,6 +22,9 @@
 	"INPUT":{
 		"TYPE":"STANDART",
 		"filename":"input.vtk"
+	},
+	"MESH":{
+        "FILENAME":"cylinder_mesh.vtk"
 	},
 	"ALGORITHM":{
 		"TYPE":"SpherePackingAlgorithm"

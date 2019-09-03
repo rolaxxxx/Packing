@@ -72,17 +72,12 @@ void Writer::write(Data*data, ASearch *search ,json duomenys, REAL poringumas)
               por->SetNumberOfComponents(1);
           por->InsertNextTuple1(poringumas);
 
-          vtkDoubleArray *Unique_radius = vtkDoubleArray::New();
-              Unique_radius->SetName("UNIQUE_RADIUS");
-           Unique_radius->SetNumberOfComponents(1);
-              for(int i=0;i<intervals.size();i++){
-                  Unique_radius->InsertNextTuple1(intervals[i]);
-              }
+
 
 
 
               polydata->GetFieldData()->AddArray(por);
-              polydata->GetFieldData()->AddArray(Unique_radius);
+
               polydata->GetPointData()->AddArray(radius_index);
 
             //VTK_DOUBLE poring=poringumas;
@@ -91,9 +86,11 @@ void Writer::write(Data*data, ASearch *search ,json duomenys, REAL poringumas)
 
           vtkDataSetWriter *dsw = vtkDataSetWriter::New();
                 dsw->SetFileName("rezultatai.vtk");
+                dsw->SetFileTypeToBinary();
                 dsw->SetInputData(polydata);
 
                 dsw->Write();
+                cout << "writing done " << endl;
 
 
 
@@ -168,7 +165,7 @@ void Writer::write(Data*data, ASearch *search ,json duomenys, REAL poringumas)
                  vtkSmartPointer<vtkActor>::New();
                  Cylinderactor->SetMapper(Cylindermapper);
                  Cylinderactor->GetProperty()->SetOpacity(.4);
-                 */
+*/
            vtkSmartPointer<vtkActor> Cubeactor =
              vtkSmartPointer<vtkActor>::New();
            Cubeactor->GetProperty()->SetOpacity(.2);

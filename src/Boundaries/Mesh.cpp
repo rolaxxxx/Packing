@@ -58,17 +58,19 @@ bool Mesh::check(Point newSphere){
         //cout << " ribu reiksmes " << bounds[0] << " " << bounds[1] << " " << bounds[2] << " " << bounds[3] << " " << bounds[4] << " " << bounds[5] << endl;
        // newSphere.PrintStructure();
         //std::cout << "tikrinamas taskas " << endl;
+      // Timer timer;
+       //double rezultatai;
+      // timer.StartTimer();
         for(int i=0, j=0;i<tria_kiekis;i++, j+=3){
            // cout << j <<"-------------- j reiksme " << " ---- ---- i reiksme >>> " << i <<  endl;
-
+//&& newSphere.x+newSphere.R<bounds[1]&& newSphere.x-newSphere.R>bounds[0]&& newSphere.y+newSphere.R<bounds[3]&& newSphere.y+newSphere.R>bounds[2]&& newSphere.z+newSphere.R<bounds[5]&& newSphere.z-newSphere.R>bounds[4])
             if(IntersectLineTriangle(newSphere, q, taskai[j], taskai[j+1], taskai[j+2])&& newSphere.x<bounds[1]&& newSphere.x>bounds[0]&& newSphere.y<bounds[3]&& newSphere.y>bounds[2]&& newSphere.z<bounds[5]&& newSphere.z>bounds[4]){
                 count++;
-
             }
-            //newSphere.PrintStructure();
-           // cout << count << " kiekis  susikirtimu sferos " << endl;
-
         }
+        //timer.StopTimer();
+        //rez+=timer.ElapsedTime("sec");
+        //cout << rez<< " boundaries check laikas  " << endl;
        /* if(newSphere.x<bounds[0]||newSphere.x>bounds[1]||newSphere.y<bounds[2]||newSphere.y>bounds[3]||newSphere.z<bounds[4]||newSphere.z>bounds[5]&&count==1)
         {
            newSphere.PrintStructure();

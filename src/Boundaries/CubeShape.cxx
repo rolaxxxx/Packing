@@ -6,9 +6,9 @@ CubeShape::CubeShape(){
 }
 bool CubeShape::check(Point newSphere){
 
-    if( newSphere.x+newSphere.R<max.x
-                 &&newSphere.y+newSphere.R<max.y
-                 &&newSphere.z+newSphere.R<max.z
+    if( newSphere.x-newSphere.R<max.x
+                 &&newSphere.y-newSphere.R<max.y
+                 &&newSphere.z-newSphere.R<max.z
                  &&newSphere.x+newSphere.R>min.x
                  &&newSphere.y+newSphere.R>min.y
                  &&newSphere.z+newSphere.R>min.z

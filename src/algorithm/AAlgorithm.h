@@ -6,14 +6,17 @@
 #include "core/Math.h"
 #include "core/Data.h"
 #include "core/Constants.h"
+#include "IO/Writer.h"
 class AAlgorithm
 {
 public:
     AAlgorithm();
-    void init(Data*data,ARandom *random,ASearch *search, json duomenys, BBoundaries *bounds, INT count);
+    void init(Data*data,ARandom *random,ASearch *search, json duomenys, BBoundaries *bounds, INT count, Writer writer);
     virtual void pack()=0;
     REAL getPoringumas() const;
 
+
+    void setPoringumas(const REAL &value);
 
 protected:
     virtual void initialization()=0;
@@ -22,6 +25,8 @@ protected:
     INT count;
     Math math;
     Data*data;
+    json duomenys;
+    Writer *writer;
     BBoundaries *bounds;
     REAL poringumas;
     double * boundaries;

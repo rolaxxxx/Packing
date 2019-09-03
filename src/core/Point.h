@@ -9,14 +9,17 @@ struct Point
     REAL y;
     REAL z;
     REAL R;
+    int koordinacinis_num;
     int ID;
     void PrintStructure()
             {
                     std::cout << " daleles koordinates " << std::endl;
+
                      std::cout << "x: " << x <<  std::endl;
                       std::cout << "y: " << y << std::endl;
                        std::cout << "z: " << z  << std::endl;
                         std::cout << "R: " << R << std::endl;
+                         std::cout << "koordinacinis numeris : " << koordinacinis_num << std::endl;
             }
 };
 

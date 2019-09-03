@@ -111,6 +111,7 @@ using boost::compute::lambda::_1;
 
 typedef double REAL;
 typedef int INT;
+
 typedef boost::unordered_map<int, std::vector<INT>> unordered_map;
 
 

@@ -11,6 +11,7 @@ PointsArrayType Math::getSpheresTouchingThreeOtherSpheres(PointType p1,PointType
     INT spind;
     PointsArrayType empty;
     Point empty1;
+
     empty1.x=0;
     empty1.y=0;
     empty1.z=0;

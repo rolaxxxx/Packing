@@ -4,13 +4,14 @@ AAlgorithm::AAlgorithm()
 {
 
 }
-void AAlgorithm::init(Data *data, ARandom *random, ASearch *search, json duomenys, BBoundaries *bounds, INT count)
+void AAlgorithm::init(Data *data, ARandom *random, ASearch *search, json duomenys, BBoundaries *bounds, INT count, Writer writer)
 {
 
     this->data=data;
     this->random=random;
     this->search=search;
     this->bounds=bounds;
+    this->duomenys=duomenys;
     this->count=count;
     this->boundaries=bounds->getBounds();
     this->initialization();
@@ -19,6 +20,11 @@ void AAlgorithm::init(Data *data, ARandom *random, ASearch *search, json duomeny
 REAL AAlgorithm::getPoringumas() const
 {
     return poringumas;
+}
+
+void AAlgorithm::setPoringumas(const REAL &value)
+{
+    poringumas = value;
 }
 
 
