@@ -19,13 +19,16 @@ void RandomUniform::initialization(json duomenys)
 {
     //cout << duomenys["DISTRIBUTION"]["COUNT"] << endl;
     int index=duomenys["DISTRIBUTION"]["COUNT"];
+
     for(int k=0;k<index;k++)
     {
             intervals.push_back(duomenys["DISTRIBUTION"]["RADIUS"][k]);
+
     }
-    for(int k=0;k<index-1;k++)
+    for(int k=0;k<index;k++)
     {
             probs.push_back(duomenys["DISTRIBUTION"]["PROBABILITY"][k]);
+//
     }
 
 }

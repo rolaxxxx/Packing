@@ -21,6 +21,25 @@ int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
     // Test if pq is inside the edges bc, ca and ab. Done by testing
     // that the signed tetrahedral volumes, computed using scalar triple
     // products, are all positive
+    Point ab = b - a;
+   Point ac = c - a;
+    Point qp = p - q;
+    // Compute triangle normal. Can be precalculated or cached if
+    // intersecting multiple segments against the same triangle
+    Point n = cross_prod(ab, ac);
+    // Compute denominator d. If d <= 0, segment is parallel to or points
+    // away from triangle, so exit early
+    float d = dot_prod(qp, n);
+    if (d <= 0.0f) return 0;
+
+
+   Point ap = p - a;
+    t = dot_prod(ap, n);
+   // cout << "t reiksme -------- " << t << endl;
+    //if (t < 0.0f) return 0;
+   if (t > d) return 0;
+
+
     Point m=cross_prod(pq, pc);
     u=dot_prod(pb, m);
     if(u<0.0f)return 0;
@@ -34,6 +53,12 @@ int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
     if(!SameSign(u, v))return 0;
     w=tripleScalarProd(pq, pb,pa);
     if(!SameSign(u,w))return 0;
+
+   Point e = cross_prod(qp, ap);
+    v = dot_prod(ac, e);
+    if (v < 0.0f || v > d) return 0;
+    w = -dot_prod(ab, e);
+    if (w < 0.0f || v + w > d) return 0;
     // Compute the barycentric coordinates (u, v, w) determining the
     // intersection point r, r = u*a + v*b + w*c
 
@@ -41,7 +66,13 @@ int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
     u *= denom;
     v *= denom;
     w *= denom;
+     //cout << " ribu reiksmes " << bounds[0] << " " << bounds[1] << " " << bounds[2] << " " << bounds[3] << " " << bounds[4] << " " << bounds[5] << endl;
+   Point inter;
+   inter=u*a+v*b+w*c;
+  // inter.PrintStructure();
+     if(inter.x<=bounds[1]&&inter.x>=bounds[0]&&inter.y<=bounds[3]&&inter.y>=bounds[2]&&inter.y<=bounds[5]&&inter.y>=bounds[4])
     return 1;
+    else return 0;
 
 }
 bool Mesh::check(Point newSphere){
@@ -52,9 +83,9 @@ bool Mesh::check(Point newSphere){
         // naudoti paprastus masyvus
         int susikirtimu_skaicius;
         Point q,a;
-        q.x=bounds[1]+1;
-        q.y=bounds[3]+1;
-        q.z=bounds[5]+1;
+        q.x=bounds[1]+(bounds[1]/2);
+        q.y=bounds[3]+(bounds[3]/2);
+        q.z=bounds[5]+(bounds[5]/2);
         //cout << " ribu reiksmes " << bounds[0] << " " << bounds[1] << " " << bounds[2] << " " << bounds[3] << " " << bounds[4] << " " << bounds[5] << endl;
        // newSphere.PrintStructure();
         //std::cout << "tikrinamas taskas " << endl;
@@ -68,6 +99,10 @@ bool Mesh::check(Point newSphere){
                 count++;
             }
         }
+       // cout << "daleles patikra baigta -------" << endl;
+        //cout << "newSphere taskas ir susikirtimai " << count << " ";
+      // newSphere.PrintStructure();
+        //cout <<"----------" <<  endl;
         //timer.StopTimer();
         //rez+=timer.ElapsedTime("sec");
         //cout << rez<< " boundaries check laikas  " << endl;

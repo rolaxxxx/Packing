@@ -13,6 +13,10 @@ ARandom* RandomFactory::create(std::string type)
     {
         return new RandomUniform();
     }
+    else if(type=="Discrete")
+    {
+        return new RandomUniform();
+    }
     std::cerr<<"Klaida tokio modulio nera!!!\n";
     exit(1000);
 }

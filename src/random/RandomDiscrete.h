@@ -3,10 +3,10 @@
 #include "ARandom.h"
 #include "core/Constants.h"
 
-class RandomUniform:public ARandom
+class RandomDiscrete:public ARandom
 {
 public:
-    RandomUniform();
+    RandomDiscrete();
     REAL getNextValue();
     boost::minstd_rand0 gen;
 protected:

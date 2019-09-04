@@ -3,7 +3,10 @@
 #include "ARandom.h"
 
 
-
+enum class RandomType
+{
+    Uniform, Discrete
+};
 class RandomFactory
 {
 public:

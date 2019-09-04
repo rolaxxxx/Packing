@@ -149,9 +149,12 @@ void Writer::write(Data*data, ASearch *search ,json duomenys, REAL poringumas)
        mapper->SetScalarRange(radius->GetRange());
        mapper->ColorByArrayComponent("RADIUS",0);
        mapper->SetScalarModeToUsePointFieldData();
+
+
+
        vtkSmartPointer<vtkCubeSource> cubeSource =
              vtkSmartPointer<vtkCubeSource>::New();
-           cubeSource.Get()->SetBounds(-0.025, 0.025,-0.025, 0.025, -0.025, 0.025);
+           cubeSource.Get()->SetBounds(-0.125, 0.125, -0.125, 0.125, -0.125, 0.125);
            //cubeSource.GetProperty()->SetOpacity(.4);
            // Visualize
            mapper->SetInputConnection(glyph3D->GetOutputPort());

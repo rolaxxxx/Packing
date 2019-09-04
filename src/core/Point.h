@@ -9,6 +9,7 @@ struct Point
     REAL y;
     REAL z;
     REAL R;
+    bool bandyta_deti_maz=false;
     int koordinacinis_num;
     int ID;
     void PrintStructure()

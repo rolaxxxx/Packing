@@ -1,11 +1,11 @@
-#include "RandomUniform.h"
+#include "RandomDiscrete.h"
 
-RandomUniform::RandomUniform()
+RandomDiscrete::RandomDiscrete()
 {
 
 }
 
-REAL RandomUniform::getNextValue()
+REAL RandomDiscrete::getNextValue()
 {
     /*
         unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
@@ -16,17 +16,19 @@ REAL RandomUniform::getNextValue()
        boost::random::discrete_distribution<> dist(probs);
        return intervals[dist(gen)];
 }
-void RandomUniform::initialization(json duomenys)
+void RandomDiscrete::initialization(json duomenys)
 {
     //cout << duomenys["DISTRIBUTION"]["COUNT"] << endl;
     int index=duomenys["DISTRIBUTION"]["COUNT"];
     for(int k=0;k<index;k++)
     {
             intervals.push_back(duomenys["DISTRIBUTION"]["RADIUS"][k]);
+             cout << duomenys["DISTRIBUTION"]["RADIUS"][k] <<  "radius " << endl;
     }
-    for(int k=0;k<index-1;k++)
+    for(int k=0;k<index;k++)
     {
             probs.push_back(duomenys["DISTRIBUTION"]["PROBABILITY"][k]);
+             cout << duomenys["DISTRIBUTION"]["PROBABILITY"][k] <<  "probability " << endl;
     }
 
 }

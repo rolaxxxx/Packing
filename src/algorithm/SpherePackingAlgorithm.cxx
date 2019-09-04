@@ -21,7 +21,7 @@ void SpherePackingAlgorithm::pack()
     //double  kubo_turis=((fabs(search->getBmax().x))-(fabs(search->getBmin().x)))*((fabs(search->getBmax().y))-(fabs(search->getBmin().y)))*((fabs(search->getBmax().z))-(fabs(search->getBmin().z)));
     double figuros_turis=(boundaries[1]-boundaries[0])*(boundaries[3]-boundaries[2])*(boundaries[5]-boundaries[4]);
     //cout << "boundaries reiksme ------  " <<
-
+double new_R=random->getNextValue();
     do{
 
         //std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
@@ -39,7 +39,7 @@ void SpherePackingAlgorithm::pack()
         pasirinkta_dalele=data->getPoint(rand_particle_index);
 
 //vector - > particle index -> ID -> cell elements//
-        double new_R=random->getNextValue();
+
         //c//out << new_R << endl;
         //cout << neighbours.size() << " pries " << endl;
         for(int t=0;t<neighbours.size();t++){
@@ -83,11 +83,11 @@ void SpherePackingAlgorithm::pack()
                 {
                     //std::cout<<"nagrinejame "<<z<<"\n";
 
-
+       // cout << boundaries[0] << " " <<  boundaries[1] << " " <<  boundaries[2] << " " <<  boundaries[3] << " " <<  boundaries[4] << " " <<  boundaries[5] << " " << endl;
                      //time.StartTimer();
 
-                if(newSphere[z].x+newSphere[z].R<boundaries[1]&& newSphere[z].x-newSphere[z].R>boundaries[0]&& newSphere[z].y+newSphere[z].R<boundaries[3]&& newSphere[z].y+newSphere[z].R>boundaries[2]&& newSphere[z].z+newSphere[z].R<boundaries[5]&& newSphere[z].z-newSphere[z].R>boundaries[4])
-                {
+                //if(newSphere[z].x+newSphere[z].R<boundaries[3]&& newSphere[z].x-newSphere[z].R>boundaries[2]&& newSphere[z].y+newSphere[z].R<boundaries[1]&& newSphere[z].y+newSphere[z].R>boundaries[0]&& newSphere[z].z+newSphere[z].R<boundaries[5]&& newSphere[z].z-newSphere[z].R>boundaries[4])
+               // {
                     if(!search->intersect(newSphere[z], neighbours))
                     {
                         //  std::cout<<"dedame\n";
@@ -96,6 +96,8 @@ void SpherePackingAlgorithm::pack()
                            // Neideti_taskai.pop_back();
                             //newSphere[z].PrintStructure();
                             search->addPoint(newSphere[z]);
+                            //newSphere[z].PrintStructure();
+                            //cout << "idetas taskas " << endl;
                             if(isvedimo_kintamasis==0){
                             writer->write(data, search, duomenys, poringumas);
                             isvedimo_kintamasis=10000;
@@ -106,11 +108,12 @@ void SpherePackingAlgorithm::pack()
                             //cout << F.size() << "daleliu kiekis" << endl;
                             i++;
                             isvedimo_kintamasis--;
+                            new_R=random->getNextValue();
                         }
                        // time.StopTimer();
                        // rez_time+=time.ElapsedTime("sec");
                     }
-                }
+               // }
               }
 /* parasyta neidetu tasku funkcija /// letina programa
                 for(int k=0;k<Neideti_taskai.size();k++){
@@ -151,11 +154,11 @@ void SpherePackingAlgorithm::pack()
             remove(F.begin(),F.end(), rand_particle_index);
             F.pop_back();
            }
-        //cout << F.size() << endl;
+       // cout << F.size() << " f dydis " <<  endl;
 
         std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
         std::cout <<"poringumas "<< daleliu_turis/figuros_turis << endl;
-        //std::cout <<"koordinacinis numeris "<< koord << endl;
+       //std::cout <<"koordinacinis numeris "<< koord << endl;
 
 
 }

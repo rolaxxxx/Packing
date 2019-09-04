@@ -13,6 +13,10 @@ public:
 
     std::vector<REAL> getProbs() const;
 
+    REAL getMinValue() const;
+
+    REAL getMaxValue() const;
+
 protected:
     virtual void initialization(json duomenys)=0;
     INT count;
