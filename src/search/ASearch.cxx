@@ -13,10 +13,11 @@ void ASearch::init(Data*data, json duomenys)
     this->RMax=duomenys["DISTRIBUTION"]["RMAX"];
     //cout << this->RMax << " " << bmax.x << " " << bmax.y << " " << bmax.z << endl;
     this->CELL_SIZE=2*RMax;
-    this->Nx=ceil((this->bmax.x-this->bmin.x)/this->CELL_SIZE); // + 1 buvo prie visu uzdetas jeigu neveiks reikia pakeisti
-    this->Ny=ceil((this->bmax.y-this->bmin.y)/this->CELL_SIZE);
-    this->Nz=ceil((this->bmax.z-this->bmin.z)/this->CELL_SIZE);
-    //cout << Nx << " " << Ny << " " << Nz << " rybu reiksmes " << endl;
+
+    this->Nx=ceil((this->bmax.x-this->bmin.x)/this->CELL_SIZE)+1; // + 1 buvo prie visu uzdetas jeigu neveiks reikia pakeisti
+    this->Ny=ceil((this->bmax.y-this->bmin.y)/this->CELL_SIZE)+1;
+    this->Nz=ceil((this->bmax.z-this->bmin.z)/this->CELL_SIZE)+1;
+   // cout << Nx << " " << Ny << " " << Nz << " rybu reiksmes " << endl;
 
     this->initialization();
 }

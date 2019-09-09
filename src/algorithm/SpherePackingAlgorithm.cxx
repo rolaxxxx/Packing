@@ -83,24 +83,25 @@ double new_R=random->getNextValue();
                 {
                     //std::cout<<"nagrinejame "<<z<<"\n";
 
-       // cout << boundaries[0] << " " <<  boundaries[1] << " " <<  boundaries[2] << " " <<  boundaries[3] << " " <<  boundaries[4] << " " <<  boundaries[5] << " " << endl;
+        //cout << boundaries[0] << " " <<  boundaries[1] << " " <<  boundaries[2] << " " <<  boundaries[3] << " " <<  boundaries[4] << " " <<  boundaries[5] << " " << endl;
                      //time.StartTimer();
 
-                //if(newSphere[z].x+newSphere[z].R<boundaries[3]&& newSphere[z].x-newSphere[z].R>boundaries[2]&& newSphere[z].y+newSphere[z].R<boundaries[1]&& newSphere[z].y+newSphere[z].R>boundaries[0]&& newSphere[z].z+newSphere[z].R<boundaries[5]&& newSphere[z].z-newSphere[z].R>boundaries[4])
-               // {
+
                     if(!search->intersect(newSphere[z], neighbours))
                     {
-                        //  std::cout<<"dedame\n";
+                          //std::cout<<"dedame\n";
                       //  time.StartTimer();
+                          //newSphere[z].PrintStructure();
                         if(bounds->check(newSphere[z]) ){
                            // Neideti_taskai.pop_back();
                             //newSphere[z].PrintStructure();
                             search->addPoint(newSphere[z]);
-                            //newSphere[z].PrintStructure();
+                           // newSphere[z].PrintStructure();
                             //cout << "idetas taskas " << endl;
                             if(isvedimo_kintamasis==0){
                             writer->write(data, search, duomenys, poringumas);
                             isvedimo_kintamasis=10000;
+
                             }
                             F.push_back(data->getNumberOfPoints()-1);
                             daleliu_turis+=(4.0/3.0)*PI*pow(newSphere[z].R,3);
@@ -113,7 +114,7 @@ double new_R=random->getNextValue();
                        // time.StopTimer();
                        // rez_time+=time.ElapsedTime("sec");
                     }
-               // }
+
               }
 /* parasyta neidetu tasku funkcija /// letina programa
                 for(int k=0;k<Neideti_taskai.size();k++){

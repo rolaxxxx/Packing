@@ -1,0 +1,34 @@
+{
+	"BOUNDARIES":
+		{
+		"TYPE":"Mesh"
+		},
+	"DISTRIBUTION":
+	{			
+		"COUNT":1,
+		"TYPE":"Uniform",
+		"RADIUS":[0.003],
+		"PROBABILITY":[100],
+		"RMIN":0.003,
+		"RMAX":0.003		
+	},
+	"SEARCH":
+	{
+		"TYPE":"Uniform"
+	},
+	"WRITER":{
+		"FILENAME":"output.vtk"
+	},
+	"INPUT":{
+		"TYPE":"STANDART",
+		"filename":"input.vtk"
+	},
+	"MESH":{
+        "FILENAME":"cylinder_mesh.vtk"
+	},
+	"ALGORITHM":{
+		"TYPE":"SpherePackingAlgorithm"
+	}
+}
+
+ 

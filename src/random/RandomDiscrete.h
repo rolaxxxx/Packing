@@ -1,5 +1,5 @@
-#ifndef RANDOMUNIFORM_H
-#define RANDOMUNIFORM_H
+#ifndef RANDOMDISCRETE_H
+#define RANDOMDISCRETE_H
 #include "ARandom.h"
 #include "core/Constants.h"
 
@@ -13,4 +13,4 @@ protected:
     void initialization(json duomenys);
 };
 
-#endif // RANDOMUNIFORM_H
+#endif // RANDOMDISCRETE_H

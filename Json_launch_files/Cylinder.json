@@ -1,0 +1,37 @@
+{
+	"BOUNDARIES":
+		{
+		"TYPE":"Cylinder",
+		"BMIN":[0,0,0],
+		"BMAX":[0,0,0.22],
+		"LENGTHSQ":0.22,
+		"RADIUSSQ":0.15
+		},
+	"DISTRIBUTION":
+	{			
+		"COUNT":1,
+		"TYPE":"Uniform",
+		"RADIUS":[0.0005, 0.0007, 0.0009, 0.0012],
+		"PROBABILITY":[27,36, 30, 7],
+		"RMIN":0.0005,
+		"RMAX":0.0012		
+	},
+	"SEARCH":
+	{
+		"TYPE":"Uniform",
+		"BMIN":[-0.15,-0.15,-0.22],
+		"BMAX":[0.15,0.15,0.22]
+	},
+	"WRITER":{
+		"FILENAME":"output.vtk"
+	},
+	"INPUT":{
+		"TYPE":"STANDART",
+		"filename":"input.vtk"
+	},
+	"ALGORITHM":{
+		"TYPE":"SpherePackingAlgorithm"
+	}
+}
+
+ 

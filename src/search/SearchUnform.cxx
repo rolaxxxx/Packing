@@ -30,7 +30,7 @@ if(calc_id<0){
 }
         //cout << calc_id << " " << " neigiama reiksme " << endl;
     //cout << SUFORMUOTAS_GRIDAS.size() << " " << calc_id <<  endl;
-
+   //cout << calc_id << " pirmos daleles koordinates " << Nx*Ny*Nz  << " grido ribos  " << endl;
     std::vector<INT>temp=SUFORMUOTAS_GRIDAS[calc_id];
    // cout << calculateID(p) << endl;
 
