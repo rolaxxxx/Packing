@@ -7,19 +7,10 @@ ARandom::ARandom()
 
 void ARandom::init(json duomenys)
 {
+     min=duomenys["DISTRIBUTION"]["RMIN"];
+     max=duomenys["DISTRIBUTION"]["RMAX"];
 
-    this->count=duomenys["DISTRIBUTION"]["COUNT"];
-    this->minValue=duomenys["DISTRIBUTION"]["RMIN"];
-    this->maxValue=duomenys["DISTRIBUTION"]["RMAX"];
     this->initialization(duomenys);
 }
 
-REAL ARandom::getMinValue() const
-{
-    return minValue;
-}
 
-REAL ARandom::getMaxValue() const
-{
-    return maxValue;
-}

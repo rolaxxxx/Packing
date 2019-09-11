@@ -1,7 +1,7 @@
 #ifndef ARANDOM_H
 #define ARANDOM_H
 #include "core/Constants.h"
-#include "core/Data.h"
+
 
 class ARandom
 {
@@ -19,14 +19,13 @@ public:
 
 protected:
     virtual void initialization(json duomenys)=0;
-    INT count;
-    Data* data;
-    REAL minValue;
-    REAL maxValue;
-    REAL delta_R;
     std::vector<REAL>probs;
     std::vector<REAL>intervals;
+    REAL min, max;
     json duomenys;
+
+
+
 };
 
 #endif // ARANDOM_H

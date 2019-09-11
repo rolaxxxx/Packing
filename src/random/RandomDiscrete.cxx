@@ -6,14 +6,8 @@ RandomDiscrete::RandomDiscrete(){
 
 REAL RandomDiscrete::getNextValue()
 {
-    /*
-        unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-       static std::uniform_real_distribution<REAL> unif(minValue, maxValue);
-	   std::default_random_engine re(seed);
-       REAL a_random_double = unif(re);
-     */
-       boost::random::discrete_distribution<> dist(probs);
-       //cout << "================ reiksme " << intervals[dist(gen)] << endl;
+
+    boost::random::discrete_distribution<> dist(probs);
        return intervals[dist(gen)];
 }
 void RandomDiscrete::initialization(json duomenys)
@@ -30,5 +24,6 @@ void RandomDiscrete::initialization(json duomenys)
             probs.push_back(duomenys["DISTRIBUTION"]["PROBABILITY"][k]);
             // cout << duomenys["DISTRIBUTION"]["PROBABILITY"][k] <<  "probability " << endl;
     }
+
 
 }

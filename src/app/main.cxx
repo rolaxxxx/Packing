@@ -47,8 +47,8 @@ int main(int argc, char** argv)
       half_bounds.x=(boundaries[1]+boundaries[0])/2;
       half_bounds.y=(boundaries[3]+boundaries[2])/2;
       half_bounds.z=(boundaries[5]+boundaries[4])/2;
-      cout << " bounds struktura " << endl;
-              half_bounds.PrintStructure();
+    //  cout << " bounds struktura " << endl;
+             // half_bounds.PrintStructure();
         //cout << "boundaries " << boundaries[0] << " " << boundaries[1] << " " << " " << boundaries[2]<< " " << boundaries[3]<< " " << boundaries[4] << " " << boundaries[5] << endl;
       P1.x=half_bounds.x;
       P1.y=half_bounds.y;
@@ -64,12 +64,6 @@ int main(int argc, char** argv)
       P3.y=(2.0*RMIN*sqrt(3.0)/2.0)+half_bounds.y;
       P3.z=half_bounds.z;
       P3.R=RMIN;
-// REAL tempo=0;
-     // tempo+=(4.0/3.0)*PI*pow(P1.R,3);
-     // tempo+=(4.0/3.0)*PI*pow(P2.R,3);
-     // tempo+=(4.0/3.0)*PI*pow(P3.R,3);
-      //algorithm->setPoringumas(tempo);
-    //cout << duomenys["DISTRIBUTION"]["TYPE"] << endl;
 
      random->init(duomenys);
       search->init(data, duomenys);

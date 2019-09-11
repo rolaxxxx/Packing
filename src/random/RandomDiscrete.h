@@ -8,7 +8,8 @@ class RandomDiscrete:public ARandom
 public:
     RandomDiscrete();
     REAL getNextValue();
-    boost::minstd_rand0 gen;
+    boost::random::mt19937 gen;
+
 protected:
     void initialization(json duomenys);
 };

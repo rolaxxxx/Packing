@@ -8,7 +8,13 @@ class RandomUniform:public ARandom
 public:
     RandomUniform();
     REAL getNextValue();
-    boost::minstd_rand0 gen;
+
+
+  unsigned seed= std::chrono::system_clock::now().time_since_epoch().count();
+
+
+
+
 protected:
     void initialization(json duomenys);
 };
