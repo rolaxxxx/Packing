@@ -9,7 +9,7 @@ public:
     RandomUniform();
     REAL getNextValue();
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-
+	boost::minstd_rand0 gen;
 
 
 

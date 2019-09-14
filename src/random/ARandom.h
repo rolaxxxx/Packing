@@ -20,6 +20,8 @@ public:
 protected:
     virtual void initialization(json duomenys)=0;
     json duomenys;
+	    std::vector<REAL>probs;
+    std::vector<REAL>intervals;
 };
 
 #endif // ARANDOM_H
