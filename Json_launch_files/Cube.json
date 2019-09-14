@@ -16,9 +16,7 @@
 	},
 	"SEARCH":
 	{
-		"TYPE":"Uniform",
-		"BMIN":[0,0,0],
-		"BMAX":[0.025,0.005,0.001]
+		"TYPE":"Uniform"
 	},
 	"WRITER":{
 		"FILENAME":"output.vtk"

@@ -12,6 +12,8 @@ public:
 
 protected:
     void initialization(json duomenys);
+    std::vector<REAL>probs;
+    std::vector<REAL>intervals;
 };
 
 #endif // RANDOMDISCRETE_H

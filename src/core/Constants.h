@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <unordered_map>
 using std::cout;
+using std::cerr;
 using std::endl;
 using json = nlohmann::json;
 #include <list>
@@ -76,6 +77,7 @@ using json = nlohmann::json;
 #include <vtkPointData.h>
 #include <vtkDataArray.h>
 #include <vtkCubeSource.h>
+#include "Check_json.h"
 #include <boost/unordered_map.hpp>
 #include <boost/random/discrete_distribution.hpp>
 #include <boost/random/uniform_int.hpp>

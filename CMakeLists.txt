@@ -76,9 +76,9 @@ include_directories(${PROJECT_SOURCE_DIR}/src)
 
 ADD_LIBRARY( libPacking STATIC ${LIB_SOURCES} ${LIB_HEADERS} )
 add_executable(Packing src/app/main.cxx)
-target_link_libraries(Packing  ${VTK_LIBRARIES} -lpthread -lboost_log -lstdc++fs  libPacking)
+target_link_libraries(Packing  ${VTK_LIBRARIES}   libPacking)
 
 add_executable(MathTests src/app/MathTests.cxx)
-target_link_libraries(MathTests  ${VTK_LIBRARIES}  -lpthread -lboost_log -lstdc++fs  libPacking)
+target_link_libraries(MathTests  ${VTK_LIBRARIES}    libPacking)
 
 

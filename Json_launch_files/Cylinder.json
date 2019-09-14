@@ -2,8 +2,8 @@
 	"BOUNDARIES":
 		{
 		"TYPE":"Cylinder",
-		"BMIN":[0,0,0],
-		"BMAX":[0,0,0.22],
+		"CENTERMIN":[0,0,0],
+		"CENTERMAX":[0,0,0.22],
 		"LENGTHSQ":0.22,
 		"RADIUSSQ":0.15
 		},
@@ -11,16 +11,16 @@
 	{			
 		"COUNT":1,
 		"TYPE":"Uniform",
-		"RADIUS":[0.0005, 0.0007, 0.0009, 0.0012],
-		"PROBABILITY":[27,36, 30, 7],
-		"RMIN":0.0005,
-		"RMAX":0.0012		
+		"RADIUS":[0.005],
+		"PROBABILITY":[100],
+		"RMIN":0.005,
+		"RMAX":0.005		
 	},
 	"SEARCH":
 	{
 		"TYPE":"Uniform",
-		"BMIN":[-0.15,-0.15,-0.22],
-		"BMAX":[0.15,0.15,0.22]
+		"BMIN":[-0.15,-0.15,-0.11],
+		"BMAX":[0.15,0.15,0.11]
 	},
 	"WRITER":{
 		"FILENAME":"output.vtk"

@@ -18,8 +18,8 @@ void SpherePackingAlgorithm::pack()
     int isvedimo_kintamasis=10000;
     double daleliu_turis=0;
 
-    //double  kubo_turis=((fabs(search->getBmax().x))-(fabs(search->getBmin().x)))*((fabs(search->getBmax().y))-(fabs(search->getBmin().y)))*((fabs(search->getBmax().z))-(fabs(search->getBmin().z)));
-    double figuros_turis=(boundaries[1]-boundaries[0])*(boundaries[3]-boundaries[2])*(boundaries[5]-boundaries[4]);
+    double  figuros_turis=((fabs(search->getBmax().x))-(fabs(search->getBmin().x)))*((fabs(search->getBmax().y))-(fabs(search->getBmin().y)))*((fabs(search->getBmax().z))-(fabs(search->getBmin().z)));
+   // double figuros_turis=PI*pow(bounds->getRadius(),2)*bounds->getHight();
     //cout << "boundaries reiksme ------  " <<
 double new_R=random->getNextValue();
 

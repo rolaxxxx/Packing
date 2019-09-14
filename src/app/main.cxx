@@ -5,12 +5,14 @@
 #include "core/Data.h"
 #include "IO/Reader.h"
 #include "core/time.h"
+#include "core/Check_json.h"
 #include "IO/Writer.h"
 using namespace std;
 int main(int argc, char** argv)
 {
    // Timer taim;
   //  taim.StartTimer();
+    //Check_json check_file;
     Reader reader;
       Writer writer;
  // double rez_time;
@@ -23,8 +25,8 @@ int main(int argc, char** argv)
       // galime ir rankomis sudeti pradinius taskus, naudojant Data klases objekta
       srand(time(NULL));
       ///koks failo formatas turi buti paduotas i funkcija dabar paduodamas string formatas
-      auto duomenys=json::parse(data->getDuomenys());
-
+      json duomenys=json::parse(data->getDuomenys());
+        //check_file.Validation(duomenys); 
       RandomFactory randomFactory;
       SearchFactory searchFactory;
       AlgorithmFactory algorithmFactory;

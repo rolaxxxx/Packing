@@ -7,13 +7,6 @@ CylinderShape::CylinderShape()
 bool CylinderShape::check(Point newSphere){
     //cout << "min ir max tikrinimo vietoje " << endl;
     //fabs(vector_len(p1)-vector_len(p2));
-    if( newSphere.x+newSphere.R<max.x
-                 &&newSphere.y+newSphere.R<max.y
-                 &&newSphere.z+newSphere.R<max.z
-                 &&newSphere.x-newSphere.R>min.x
-                 &&newSphere.y-newSphere.R>min.y
-                 &&newSphere.z-newSphere.R>min.z
-                   ){
 
 
         if(dot_prod(( newSphere-min),(max-min))>=0&&dot_prod((newSphere-max),(max-min))<=0
@@ -21,7 +14,7 @@ bool CylinderShape::check(Point newSphere){
             return true;
         else return false;
 
-      }
+
 }
 void CylinderShape::initialization(json duomenys)
 {
@@ -41,4 +34,8 @@ void CylinderShape::initialization(json duomenys)
           max.x=duomenys["BOUNDARIES"]["BMAX"][0];
            max.y=duomenys["BOUNDARIES"]["BMAX"][1];
             max.z=duomenys["BOUNDARIES"]["BMAX"][2];
+            radius=duomenys["BOUNDARIES"]["RADIUSSQ"];
+            height=duomenys["BOUNDARIES"]["LENGTHSQ"];
+
+
 }
