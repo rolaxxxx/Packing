@@ -75,7 +75,7 @@ void Writer::write(Data*data, ASearch *search ,json duomenys, REAL poringumas)
 // galima naudoti smart pointer nereikes delete funkcijos
           //vtkSmartPointer<vtkDataSetWriter> dsw = vtkSmartPointer<vtkDataSetWriter>::New();
               vtkDataSetWriter *dsw = vtkDataSetWriter::New(); // reikia pakeisti i smart pointer // ant cylindro luzta
-                dsw->SetFileName("rezultatai.vtk");
+                dsw->SetFileName("Cylinder_rez.vtk");
                 dsw->SetFileTypeToBinary();
                 dsw->SetInputData(polydata);
 

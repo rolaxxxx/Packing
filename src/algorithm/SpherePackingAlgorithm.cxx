@@ -15,16 +15,13 @@ void SpherePackingAlgorithm::pack()
     int i=0;
     PointType pasirinkta_dalele;
     double rez_time;
-    int isvedimo_kintamasis=10000;
+
     double daleliu_turis=0;
 
-    double  figuros_turis=((fabs(search->getBmax().x))-(fabs(search->getBmin().x)))*((fabs(search->getBmax().y))-(fabs(search->getBmin().y)))*((fabs(search->getBmax().z))-(fabs(search->getBmin().z)));
-   // double figuros_turis=PI*pow(bounds->getRadius(),2)*bounds->getHight();
-    //cout << "boundaries reiksme ------  " <<
+    //double  kubo_turis=((fabs(search->getBmax().x))-(fabs(search->getBmin().x)))*((fabs(search->getBmax().y))-(fabs(search->getBmin().y)))*((fabs(search->getBmax().z))-(fabs(search->getBmin().z)));
+    double figuros_turis=PI*fabs(bounds->getRadius())*fabs(bounds->getRadius())*fabs(bounds->getHight());
 double new_R=random->getNextValue();
-
-
-do{
+    do{
 
         //std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
          //   cout <<"poringumas "<< daleliu_turis/kubo_turis << endl;
@@ -35,7 +32,7 @@ do{
 
 
         std::uniform_int_distribution<> dis(0, F.size()-1);
-              INT rand_particle_index_f_index=dis(gen);
+                INT rand_particle_index_f_index=dis(gen);
                 INT rand_particle_index = F[rand_particle_index_f_index];
         vector<INT>neighbours=search->getGridNeigbours(rand_particle_index);
         pasirinkta_dalele=data->getPoint(rand_particle_index);
@@ -49,14 +46,11 @@ do{
             if(vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]))>pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R)
                 neighbours.erase(neighbours.begin()+t);
         }
-        //cout << neighbours.size() << endl;
-         pasirinkta_dalele.koordinacinis_num=neighbours.size()-1;
         //cout << neighbours.size() << " po" << endl;
       // cout << "____" << endl;
 
         temp = rand_particle_index;
         int check=i;
-
 
 
         for (INT j = 0; j < neighbours.size()-1; j++){
@@ -73,48 +67,33 @@ do{
 
                 //time.ElapsedTime("sec");
 
+
+                // cout << newSphere.size() << endl;
                 for(int z=0;z<newSphere.size();z++)
                 {
                     //std::cout<<"nagrinejame "<<z<<"\n";
-
-        //cout << boundaries[0] << " " <<  boundaries[1] << " " <<  boundaries[2] << " " <<  boundaries[3] << " " <<  boundaries[4] << " " <<  boundaries[5] << " " << endl;
+                    //time.StartTimer();
+                    //auto begin = std::chrono::high_resolution_clock::now();
                      //time.StartTimer();
-
-
                     if(!search->intersect(newSphere[z], neighbours))
                     {
-                         // std::cout<<"dedame\n";
-                      //  time.StartTimer();
-                         // newSphere[z].PrintStructure();
-                        if(bounds->check(newSphere[z]) ){
-                           // Neideti_taskai.pop_back();
+                        //  std::cout<<"dedame\n";
+
+                        if(bounds->check(newSphere[z])){
+
                             //newSphere[z].PrintStructure();
                             search->addPoint(newSphere[z]);
-                           //newSphere[z].PrintStructure();
-                            //cout << "idetas taskas =============" << endl;
-                            if(isvedimo_kintamasis==0){
-                            writer->write(data, search, duomenys, poringumas);
-                            isvedimo_kintamasis=10000;
-
-                            }
                             F.push_back(data->getNumberOfPoints()-1);
+
                             daleliu_turis+=(4.0/3.0)*PI*pow(newSphere[z].R,3);
                             //cout << j << " "   << newSphere[z].R << " " << daleliu_turis << " ismatavimai " << endl;
                             //cout << F.size() << "daleliu kiekis" << endl;
                             i++;
-                            isvedimo_kintamasis--;
-                            new_R=random->getNextValue();
+                             new_R=random->getNextValue();
                         }
-                       // time.StopTimer();
-                       // rez_time+=time.ElapsedTime("sec");
                     }
-
-              }
-
-
-
-                }
-
+                   // time.StopTimer();
+                   // rez_time+=time.ElapsedTime("sec");
                    // auto end = std::chrono::high_resolution_clock::now();
                   // duration<double> time_span = duration_cast<duration<double>>(end - begin);
                   // time=time_span.count();
@@ -123,8 +102,9 @@ do{
 
                 }
 
+            }
 
-
+        }
                            // time.StopTimer();
         if(check==i)
            {
@@ -133,19 +113,15 @@ do{
             remove(F.begin(),F.end(), rand_particle_index);
             F.pop_back();
            }
-       // cout << F.size() << " f dydis " <<  endl;
+        //cout << F.size() << endl;
 
         std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
         std::cout <<"poringumas "<< daleliu_turis/figuros_turis << endl;
-       //std::cout <<"koordinacinis numeris "<< koord << endl;
-
-
-}
-
+        }
     while(F.size());
 
    // cout << time.CumulativeTime("sec") << endl;
-   //cout << programos_laikas << " " << " intersect funkcijos laikas " << endl;
+   //cout << rez_time << endl;
     poringumas=daleliu_turis/figuros_turis;
     std::cout<<"packing done\n";
 }

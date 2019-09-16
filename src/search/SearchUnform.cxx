@@ -25,12 +25,8 @@ void SearchUnform::addPoint(PointType p)
     INT calc_id=calculateID(p);
    // cout << "suskaiciuotas taskas  ir tasko id " << calc_id <<  endl;
     //p.PrintStructure();
-if(calc_id<0){
-    p.PrintStructure();
-}
-        //cout << calc_id << " " << " neigiama reiksme " << endl;
+
     //cout << SUFORMUOTAS_GRIDAS.size() << " " << calc_id <<  endl;
-   //cout << calc_id << " pirmos daleles koordinates " << Nx*Ny*Nz  << " grido ribos  " << endl;
     std::vector<INT>temp=SUFORMUOTAS_GRIDAS[calc_id];
    // cout << calculateID(p) << endl;
 
@@ -41,7 +37,6 @@ if(calc_id<0){
     p.ID=id;
     data->insertNextPoint(p);
     //p.PrintStructure();
-
 }
 
 
@@ -139,10 +134,11 @@ bool SearchUnform::intersect(PointType p, vector<INT>neighbours)
 {
 
 
-   // time.StartTimer();
+    //time.StartTimer();
     // cout << neighbours.size() << " kaimynu kiekis " << endl;
    // std::vector<INT> potencialus_kaimynai=;
     std::vector<INT> potencialus_kaimynai=GetPotentialNeighbours(p);
+  // time.StopTimer();
 
     //cout << "iteracijos laikas " << time.ElapsedTime("sec") << endl;
     //cout << "visas laikas  " << time.CumulativeTime("sec") <<endl;
@@ -155,10 +151,7 @@ bool SearchUnform::intersect(PointType p, vector<INT>neighbours)
         double L2=vector_len(p-target)-p.R-target.R;
         if(L2<-EPSILON) return true;
     }
-     //time.StopTimer();
-   // rez+=time.ElapsedTime("sec");
-   // cout << rez << " praeitas laikas " << endl;
-
     return false;
-}
 
+
+}

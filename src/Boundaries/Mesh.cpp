@@ -10,10 +10,27 @@ bool Mesh::SameSign(int x, int y)
 {
     return (x >= 0) ^ (y < 0);
 }
+int Mesh::PointInTriangle(Point p, Point a, Point b, Point c)
+{
+
+
+/*
+                float pab = cross2D(p – a, b – a);
+                float pbc = cross2D(p – b, c – b);
+
+                // If P left of one of AB and BC and right of the other, not inside triangle
+                if (!SameSign(pab, pbc)) return 0;
+                float pca = cross2D(p – c, a – c);
+                // If P left of one of AB and CA and right of the other, not inside triangle
+                if (!SameSign(pab, pca)) return 0;
+                // P left or right of all edges, so must be in (or on) the triangle
+                return 1;
+                */
+}
 int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
                                     {
     float u, v, w, t;
-
+    Point r;
     Point pq = q - p;
     Point pa = a - p;
     Point pb = b - p;
@@ -21,58 +38,27 @@ int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
     // Test if pq is inside the edges bc, ca and ab. Done by testing
     // that the signed tetrahedral volumes, computed using scalar triple
     // products, are all positive
-    Point ab = b - a;
-   Point ac = c - a;
-    Point qp = p - q;
-    // Compute triangle normal. Can be precalculated or cached if
-    // intersecting multiple segments against the same triangle
-    Point n = cross_prod(ab, ac);
-    // Compute denominator d. If d <= 0, segment is parallel to or points
-    // away from triangle, so exit early
-    float d = dot_prod(qp, n);
-    if (d <= 0.0f) return 0;
-
-
-   Point ap = p - a;
-    t = dot_prod(ap, n);
-   // cout << "t reiksme -------- " << t << endl;
-    //if (t < 0.0f) return 0;
-   if (t > d) return 0;
-
-
-    Point m=cross_prod(pq, pc);
-    u=dot_prod(pb, m);
-    if(u<0.0f)return 0;
-    v=-dot_prod(pa, m);
-    if(v<0.0f)return 0;
-    w=tripleScalarProd(pq, pb, pa);
-    if(w<0.0f)return 0;
-
-    u=dot_prod(pb,m);
-    u=-dot_prod(pa, m);
-    if(!SameSign(u, v))return 0;
-    w=tripleScalarProd(pq, pb,pa);
-    if(!SameSign(u,w))return 0;
-
-   Point e = cross_prod(qp, ap);
-    v = dot_prod(ac, e);
-    if (v < 0.0f || v > d) return 0;
-    w = -dot_prod(ab, e);
-    if (w < 0.0f || v + w > d) return 0;
+    u = tripleScalarProd(pq, pc, pb);
+    if (u < 0.0f) return 0;
+    v = tripleScalarProd(pq, pa, pc);
+    if (v < 0.0f) return 0;
+    w = tripleScalarProd(pq, pb, pa);
+    if (w < 0.0f) return 0;
     // Compute the barycentric coordinates (u, v, w) determining the
     // intersection point r, r = u*a + v*b + w*c
-
     float denom = 1.0f / (u + v + w);
     u *= denom;
     v *= denom;
     w *= denom;
-     //cout << " ribu reiksmes " << bounds[0] << " " << bounds[1] << " " << bounds[2] << " " << bounds[3] << " " << bounds[4] << " " << bounds[5] << endl;
-   Point inter;
-   inter=u*a+v*b+w*c;
-  // inter.PrintStructure();
-     if(inter.x<=bounds[1]&&inter.x>=bounds[0]&&inter.y<=bounds[3]&&inter.y>=bounds[2]&&inter.y<=bounds[5]&&inter.y>=bounds[4])
-    return 1;
+    // w = 1.0f - u - v;
+    r=u*a + v*b + w*c;
+
+    // w = 1.0f - u - v;
+    if(PointInTriangle(r, a, b, c))
+        return 1;
     else return 0;
+
+
 
 }
 bool Mesh::check(Point newSphere){
@@ -96,11 +82,16 @@ bool Mesh::check(Point newSphere){
            // cout << j <<"-------------- j reiksme " << " ---- ---- i reiksme >>> " << i <<  endl;
             if(newSphere.x+newSphere.R<bounds[1]&& newSphere.x-newSphere.R>bounds[0]&& newSphere.y+newSphere.R<bounds[3]&& newSphere.y+newSphere.R>bounds[2]&& newSphere.z+newSphere.R<bounds[5]&& newSphere.z-newSphere.R>bounds[4]){
 
-           if(IntersectLineTriangle(newSphere, q, taskai[j], taskai[j+1], taskai[j+2])&& newSphere.x<bounds[1]&& newSphere.x>bounds[0]&& newSphere.y<bounds[3]&& newSphere.y>bounds[2]&& newSphere.z<bounds[5]&& newSphere.z>bounds[4]){
+                //cout << "trikampis paziureti jo x y z reiksmes =====" << endl;
+                //taskai[j].PrintStructure();
+
+                if(IntersectLineTriangle(newSphere, q, taskai[j], taskai[j+1], taskai[j+2])&& newSphere.x<bounds[1]&& newSphere.x>bounds[0]&& newSphere.y<bounds[3]&& newSphere.y>bounds[2]&& newSphere.z<bounds[5]&& newSphere.z>bounds[4]){
                 count++;
             }
             }
+
         }
+
        // cout << "daleles patikra baigta -------" << endl;
         //cout << "newSphere taskas ir susikirtimai " << count << " ";
       // newSphere.PrintStructure();
@@ -116,7 +107,12 @@ bool Mesh::check(Point newSphere){
         }
         */
         //cout << count << " susikirtimu skaicius naujam suskaiciuotam taskui " << endl;
+        //cout << "daleles reiksme ======" << endl;
         //newSphere.PrintStructure();
+        //cout << "daleles reiksme ===== " << endl;
+        //cout << "susikirtimu reiksme ===== " << count << " =========" <<  endl;
+
+
         if(count%2!=0)
             return 1;
         else return 0;
