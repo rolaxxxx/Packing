@@ -3,7 +3,6 @@
 
 #include "BBoundaries.h"
 #include "core/Constants.h"
-#include "core/Point.h"
 
 class Mesh: public BBoundaries{
 
