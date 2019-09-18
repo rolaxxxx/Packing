@@ -62,6 +62,9 @@ int Mesh::PointInTriangle(Point p, Point a, Point b, Point c)
 int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
                                     {
     float u, v, w, t;
+	
+	
+	
 	Point r;
     Point ab = b - a;
 			Point ac = c - a;
@@ -87,6 +90,9 @@ int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
 			if (t < 0.0f) return 0;
 			if (t > d) return 0; // For segment; exclude this code line for a ray test
 			// Compute barycentric coordinate components and test if within bounds
+			if(t<0&& t>1)
+				return 0;
+			
 			Point e = cross_prod(qp, ap);
 			v = dot_prod(ac, e);
 			if (v < 0.0f || v > d) return 0;
@@ -108,6 +114,7 @@ int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
 			return 1;
 			
 			else return 0;
+			
 
 
 
@@ -141,9 +148,12 @@ bool Mesh::check(Point newSphere){
                if(IntersectLineTriangle(newSphere, q, taskai[j+2], taskai[j+1], taskai[j])){
                 count++;
             }
+			    if(IntersectLineTriangle(newSphere, q, taskai[j], taskai[j+1], taskai[j+2])){
+                count++;
             }
 
         }
+		}
 
        // cout << "daleles patikra baigta -------" << endl;
         //cout << "newSphere taskas ir susikirtimai " << count << " ";
