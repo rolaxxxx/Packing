@@ -24,7 +24,7 @@
 		
 	},
 	"WRITER":{
-		"FILENAME":"output.vtk"
+		"FILENAME":"Cylinder_rez.vtk"
 	},
 	"INPUT":{
 		"TYPE":"STANDART",

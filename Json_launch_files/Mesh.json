@@ -17,7 +17,7 @@
 		"TYPE":"Uniform"
 	},
 	"WRITER":{
-		"FILENAME":"output.vtk"
+		"FILENAME":"Mesh_rez.vtk"
 	},
 	"INPUT":{
 		"TYPE":"STANDART",
