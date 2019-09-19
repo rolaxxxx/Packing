@@ -10,13 +10,13 @@ bool Mesh::SameSign(int x, int y)
 {
     return (x >= 0) ^ (y < 0);
 }
-inline float TriArea2D(float x1, float y1, float x2, float y2, float x3, float y3)
+inline float Mesh::TriArea2D(float x1, float y1, float x2, float y2, float x3, float y3)
 {
 return (x1-x2)*(y2-y3) - (x2-x3)*(y1-y2);
 }
 // Compute barycentric coordinates (u, v, w) for
 // point p with respect to triangle (a, b, c)
-void Barycentric(Point a, Point b, Point c, Point p, float &u, float &v, float &w)
+void Mesh::Barycentric(Point a, Point b, Point c, Point p, float &u, float &v, float &w)
 {
 // Unnormalized triangle normal
 				Point m = cross_prod(b - a, c - a);
@@ -110,11 +110,16 @@ int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
 				
 				
 			r = u*a + v*b + w*c;
-			if(PointInTriangle(r,  a, b, c))
+			if(!PointInTriangle(r,  a, b, c))
+			return 0;
+		
+		
+			
+			REAL ilgis_tsk;
+			ilgis_tsk=vec_distance(r, p);
+			if(ilgis_tsk<p.R)
+				return 0;
 			return 1;
-			
-			else return 0;
-			
 
 
 
@@ -130,6 +135,14 @@ bool Mesh::check(Point newSphere){
         q.x=bounds[1]+(bounds[1]/2);
         q.y=bounds[3]+(bounds[3]/2);
         q.z=bounds[5]+(bounds[5]/2);
+		Point temp_padavimas1;
+		Point temp_padavimas2;
+		temp_padavimas1=newSphere;
+		temp_padavimas2=newSphere;
+		temp_padavimas1.x=temp_padavimas1.x-temp_padavimas1.R;
+		temp_padavimas1.y=temp_padavimas1.y-temp_padavimas1.R;
+		temp_padavimas1.z=temp_padavimas1.z-temp_padavimas1.R;
+		
 		//q.PrintStructure();
         //cout << " ribu reiksmes " << bounds[0] << " " << bounds[1] << " " << bounds[2] << " " << bounds[3] << " " << bounds[4] << " " << bounds[5] << endl;
        // newSphere.PrintStructure();
@@ -146,13 +159,20 @@ bool Mesh::check(Point newSphere){
 				
 				
                if(IntersectLineTriangle(newSphere, q, taskai[j+2], taskai[j+1], taskai[j])){
-                count++;
-            }
-			    if(IntersectLineTriangle(newSphere, q, taskai[j], taskai[j+1], taskai[j+2])){
-                count++;
-            }
+						
+						
+						count++;
+					}
+				
+			    else if(IntersectLineTriangle(newSphere, q, taskai[j], taskai[j+1], taskai[j+2])){
+                
+						count++;
+					}
+				
+				
+			    
 
-        }
+				}
 		}
 
        // cout << "daleles patikra baigta -------" << endl;

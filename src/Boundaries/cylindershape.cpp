@@ -7,11 +7,20 @@ CylinderShape::CylinderShape()
 bool CylinderShape::check(Point newSphere){
     //cout << "min ir max tikrinimo vietoje " << endl;
     //fabs(vector_len(p1)-vector_len(p2));
-
-
-        if(dot_prod(( newSphere-min),(max-min))>=0&&dot_prod((newSphere-max),(max-min))<=0
-                &&  (((vector_len(cross_prod((newSphere-min),(max-min))))/(vector_len(max-min)))<=radius))
-            return true;
+		Point temp1;
+		Point temp2;
+		temp1=newSphere;
+		temp2=newSphere;
+		temp1=temp1-newSphere.R;
+		temp2=temp2+newSphere.R;
+		
+        if(dot_prod(( temp1-min),(max-min))>=0&&dot_prod((temp1-max),(max-min))<=0
+                &&  (((vector_len(cross_prod((temp1-min),(max-min))))/(vector_len(max-min)))<=radius))
+					{
+						 if(dot_prod(( temp2-min),(max-min))>=0&&dot_prod((temp2-max),(max-min))<=0
+								&&  (((vector_len(cross_prod((temp2-min),(max-min))))/(vector_len(max-min)))<=radius))
+									return true;
+					}
         else return false;
 
 

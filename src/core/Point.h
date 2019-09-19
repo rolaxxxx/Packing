@@ -39,11 +39,14 @@ typedef std::set<PointType> PointsSetType;
     Point operator * (REAL A, Point B);
     Point operator * (Point A, Point B);
     Point operator / (Point A,  REAL B );
+	Point operator - (Point A, REAL B);
+	Point operator + (Point A, REAL B);
     Point operator - (Point A,  Point B );
     bool operator != (PointType A, PointType B);
     REAL dot_prod(Point vec_a, Point vec_b);
     Point cross_prod(Point vec_a, Point vec_b);
     REAL vector_len(Point vec);
+	REAL vec_distance(Point a, Point c);
     Point cross2D(Point vec_a, Point vec_b);
     REAL tripleScalarProd(Point vec_a, Point vec_b, Point vec_c);
 

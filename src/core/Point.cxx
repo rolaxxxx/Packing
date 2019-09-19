@@ -19,6 +19,20 @@ Point operator + (Point A, Point B)
     A.R+=B.R;
     return A;
 }
+Point operator - (Point A, REAL B)
+{
+    A.x-=B;
+    A.y-=B;
+    A.z-=B;
+    return A;
+}
+Point operator + (Point A, REAL B)
+{
+    A.x+=B;
+    A.y+=B;
+    A.z+=B;
+    return A;
+}
 Point operator * (REAL A, Point B)
 {
     B.x*=A;
@@ -85,5 +99,11 @@ REAL tripleScalarProd(Point vec_a, Point vec_b, Point vec_c){
 
 REAL vector_len(Point vec){
     return std::sqrt(vec.x*vec.x + vec.y*vec.y+vec.z*vec.z);
+}
+REAL vec_distance(Point a, Point c)
+{
+	REAL d;
+	d = pow(pow((c.x - a.x),2) + pow((c.y - a.y),2) + pow((c.z- a.y),2),0.5);
+	return d;
 }
 
