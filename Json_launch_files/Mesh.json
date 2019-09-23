@@ -1,7 +1,9 @@
 {
 	"BOUNDARIES":
 		{
-		"TYPE":"Mesh"
+		"TYPE":"Mesh",
+		"FILENAME":"cylinder_mesh.vtk",
+		"MESH_TYPE":"Simple"
 		},
 	"DISTRIBUTION":
 	{			
@@ -22,9 +24,6 @@
 	"INPUT":{
 		"TYPE":"STANDART",
 		"filename":"input.vtk"
-	},
-	"MESH":{
-        "FILENAME":"cylinder_mesh.vtk"
 	},
 	"ALGORITHM":{
 		"TYPE":"SpherePackingAlgorithm"
