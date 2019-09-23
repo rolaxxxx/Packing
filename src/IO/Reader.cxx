@@ -13,3 +13,24 @@ void Reader::read(Data * data,std::string filename)
          configData=str;
          data->setDuomenys(configData);
 }
+void Reader::readVTK(ASearch * search, std::string filename){
+
+
+    vtkSmartPointer<vtkDataSetReader> reader=vtkSmartPointer<vtkDataSetReader>::New();
+            reader->SetFileName(filename.c_str());
+            reader->Update();
+
+        double p[4];
+        Point insert;
+        for(int i=0;i<reader->GetOutput()->GetNumberOfPoints();i++){
+            reader->GetOutput()->GetPoint(i,p);
+
+            insert.x=p[0];
+            insert.y=p[1];
+            insert.z=p[2];
+            p[3]=reader->GetOutput()->GetPointData()->GetArray("RADIUS")->GetTuple1(0);
+            insert.R=p[3];
+            search->addPoint(insert);
+
+        }
+}

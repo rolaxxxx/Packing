@@ -11,8 +11,8 @@ bool CylinderShape::check(Point newSphere){
 		Point temp2;
 		temp1=newSphere;
 		temp2=newSphere;
-		temp1=temp1-newSphere.R;
-		temp2=temp2+newSphere.R;
+        temp1=temp1-newSphere.R;
+        temp2=temp2+newSphere.R;
 		
         if(dot_prod(( temp1-min),(max-min))>=0&&dot_prod((temp1-max),(max-min))<=0
                 &&  (((vector_len(cross_prod((temp1-min),(max-min))))/(vector_len(max-min)))<=radius))

@@ -13,6 +13,7 @@ void SpherePackingAlgorithm::pack()
     // for(int i=0;i<25000;i++){ senas for ciklas
     Timer time;
     int i=0;
+    Point empty_check;
     PointType pasirinkta_dalele;
     double rez_time;
 
@@ -46,8 +47,13 @@ double new_R=random->getNextValue();
             if(vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]))>pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R)
                 neighbours.erase(neighbours.begin()+t);
         }
+
+
+
+
         //cout << neighbours.size() << " po" << endl;
       // cout << "____" << endl;
+        pasirinkta_dalele.koordinacinis_num=neighbours.size();
 
         temp = rand_particle_index;
         int check=i;
@@ -57,7 +63,11 @@ double new_R=random->getNextValue();
             for (INT l = j+1; l < neighbours.size(); l++) {
 
                 //std::cout<<"generuojame sfera is "<<neighbours[j]<<" "<<neighbours[l]<<" "<<rand_particle_index<<"\n";
-
+               // cout << "======= " << endl;
+               // data->getPoint(neighbours[j]).PrintStructure();
+               // data->getPoint(neighbours[l]).PrintStructure();
+               // data->getPoint(rand_particle_index).PrintStructure();
+               // cout << "============ par " << endl;
                 PointsArrayType newSphere=
                         this->math.getSpheresTouchingThreeOtherSpheres(
                             data->getPoint(neighbours[j]),
@@ -81,7 +91,7 @@ double new_R=random->getNextValue();
 
                         if(bounds->check(newSphere[z])){
 
-                            //newSphere[z].PrintStructure();
+                            newSphere[z].PrintStructure();
                             search->addPoint(newSphere[z]);
                             F.push_back(data->getNumberOfPoints()-1);
 
@@ -130,6 +140,7 @@ void SpherePackingAlgorithm::initialization()
 {
     for(int i=0;i<data->getNumberOfPoints();i++){
         F.push_back(i);
+        //cout << F[i] << endl;
     }
     std::cout<<"Performing initialization\n";
 }

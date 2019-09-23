@@ -11,7 +11,7 @@ void BBoundaries::init(ASearch *search, json duomenys)
     this->search=search;
     this->duomenys=duomenys;
     this->bounds=new double[6];
-    this->initialization(duomenys);
+    this->initialization(this->duomenys);
 }
 
 double BBoundaries::getHight() const

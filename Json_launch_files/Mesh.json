@@ -3,7 +3,8 @@
 		{
 		"TYPE":"Mesh",
 		"FILENAME":"cylinder_mesh.vtk",
-		"MESH_TYPE":"Simple"
+		"MESH_INPUT":"MESH_FILE",
+		"MESH_INPUT_FILE":"Cube_rez.vtk"
 		},
 	"DISTRIBUTION":
 	{			
@@ -23,7 +24,7 @@
 	},
 	"INPUT":{
 		"TYPE":"STANDART",
-		"filename":"input.vtk"
+		"filename":"Pradinis.vtk"
 	},
 	"ALGORITHM":{
 		"TYPE":"SpherePackingAlgorithm"

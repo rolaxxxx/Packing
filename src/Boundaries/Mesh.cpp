@@ -212,7 +212,7 @@ bool Mesh::check(Point newSphere){
 
 void Mesh::initialization(json duomenys){
 
-    std::string filename=duomenys["MESH"]["FILENAME"];
+    std::string filename=duomenys["BOUNDARIES"]["FILENAME"];
     vtkDataSetReader* reader=vtkDataSetReader::New();
             reader->SetFileName(filename.c_str());
             reader->Update();

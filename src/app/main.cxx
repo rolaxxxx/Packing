@@ -5,7 +5,7 @@
 #include "core/Data.h"
 #include "IO/Reader.h"
 #include "core/time.h"
-#include "core/Check_json.h"
+//#include "core/Check_json.h"
 #include "IO/Writer.h"
 using namespace std;
 int main(int argc, char** argv)
@@ -70,16 +70,24 @@ int main(int argc, char** argv)
      random->init(duomenys);
       search->init(data, duomenys);
 
-     search->addPoint(P1);
-     search->addPoint(P2);
-     search->addPoint(P3);
+      if(duomenys["BOUNDARIES"]["MESH_INPUT"]=="MESH_FILE"){  //MESH_FILE OR THREE SPHERES HANDLED BY ELSE
+     std::string filename=duomenys["BOUNDARIES"]["MESH_INPUT_FILE"];
+     reader.readVTK(search, filename);
+}
+      else {
+          search->addPoint(P1);
+          search->addPoint(P2);
+          search->addPoint(P3);
+      }
 
      algorithm->init(data,random,search, duomenys, bounds, 10, writer);
-
+//cout << data->getNumberOfPoints() << endl;
       /// atliekame tikraji pakinima
       algorithm->pack();
+      //cout << data->getNumberOfPoints() << endl;
      writer.write(data, search, duomenys, algorithm->getPoringumas());// irasome rezultata
   // taim.StopTimer();
+     cout << "Program finished " << endl;
   //  rez_time+=taim.ElapsedTime("sec");
    // cout << rez_time << "laikas visai programai ------------ " << endl;
      return 0;
