@@ -39,7 +39,7 @@ double new_R=random->getNextValue();
         pasirinkta_dalele=data->getPoint(rand_particle_index);
 
 //vector - > particle index -> ID -> cell elements//
-
+      //  pasirinkta_dalele.PrintStructure();
         //c//out << new_R << endl;
         //cout << neighbours.size() << " pries " << endl;
         for(int t=0;t<neighbours.size();t++){
@@ -52,12 +52,13 @@ double new_R=random->getNextValue();
 
 
         //cout << neighbours.size() << " po" << endl;
-      // cout << "____" << endl;
+        //cout << F.size() << " f dydis " << endl;
+        //cout << "____" << endl;
         pasirinkta_dalele.koordinacinis_num=neighbours.size();
 
         temp = rand_particle_index;
         int check=i;
-
+        //cout << neighbours.size() << endl;
 
         for (INT j = 0; j < neighbours.size()-1; j++){
             for (INT l = j+1; l < neighbours.size(); l++) {
@@ -85,16 +86,14 @@ double new_R=random->getNextValue();
                     //time.StartTimer();
                     //auto begin = std::chrono::high_resolution_clock::now();
                      //time.StartTimer();
-                    if(newSphere[z].x>0||newSphere[z].y>0||newSphere[z].z>0){
-
-
+                    if(newSphere[z].x!=0||newSphere[z].y!=0||newSphere[z].z!=0){
                         if(!search->intersect(newSphere[z], neighbours))
                     {
-                        //  std::cout<<"dedame\n";
+                         // std::cout<<"dedame\n";
 
                         if(bounds->check(newSphere[z])){
 
-                            newSphere[z].PrintStructure();
+                            //newSphere[z].PrintStructure();
                             search->addPoint(newSphere[z]);
                             F.push_back(data->getNumberOfPoints()-1);
 

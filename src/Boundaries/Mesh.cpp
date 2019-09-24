@@ -172,8 +172,8 @@ bool Mesh::check(Point newSphere){
 				
 			    
 
-				}
-		}
+                }
+        }
 
        // cout << "daleles patikra baigta -------" << endl;
         //cout << "newSphere taskas ir susikirtimai " << count << " ";
