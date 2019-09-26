@@ -27,7 +27,9 @@
 		},
     
     
-    Pakuojant su pradine stadija reikia rinktis panasius sphere radius abejuose pakavimuose. Pvz 0.003(radius min) ir 5e-05(radius min) kaip distribution minimumai
-    jau bus netinkami nes search funkcija paims per dideli kieki aplinkui esanciu sferu ir programa is esmes uzstrigs ir normaliai nebepakuos
+    Pakuojant su pradine stadija reikia rinktis panasius sphere radius abejuose pakavimuose.
+    Pvz 0.003(radius min) ir 5e-05(radius min) kaip distribution minimumai jau bus netinkami 
+    nes search funkcija paims per dideli kieki aplinkui esanciu sferu ir programa is esmes 
+    uzstrigs ir normaliai nebepakuos
     
     
