@@ -86,7 +86,7 @@ double new_R=random->getNextValue();
                     //time.StartTimer();
                     //auto begin = std::chrono::high_resolution_clock::now();
                      //time.StartTimer();
-                    if(newSphere[z].R!=0){
+                    if(newSphere[z].x!=0||newSphere[z].y!=0||newSphere[z].z!=0){
                         if(!search->intersect(newSphere[z], neighbours))
                     {
                          // std::cout<<"dedame\n";
