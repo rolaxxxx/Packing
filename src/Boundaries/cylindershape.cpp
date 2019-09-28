@@ -46,6 +46,7 @@ void CylinderShape::initialization(json duomenys)
             max.z=duomenys["BOUNDARIES"]["CYLINDER_MIDDLE_MAX"][2];
             radius=duomenys["BOUNDARIES"]["RADIUSSQ"];
             height=duomenys["BOUNDARIES"]["LENGTHSQ"];
+			// vector distance to change for height 
 
 
 }

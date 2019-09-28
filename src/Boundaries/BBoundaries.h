@@ -21,14 +21,14 @@ protected:
      virtual void initialization(json duomenys)=0;
     ASearch *search;
     json duomenys;
-    REAL radius;
-    REAL height;
+
     Point center;
     Point min;
     Point max;
-    std::vector<Point> taskai;
+    
     int tria_kiekis;
     double rez=0;
+	REAL turis;
 
 
     double * bounds;

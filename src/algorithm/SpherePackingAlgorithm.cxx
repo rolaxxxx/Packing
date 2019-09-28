@@ -20,7 +20,7 @@ void SpherePackingAlgorithm::pack()
     double daleliu_turis=0;
 
     //double  kubo_turis=((fabs(search->getBmax().x))-(fabs(search->getBmin().x)))*((fabs(search->getBmax().y))-(fabs(search->getBmin().y)))*((fabs(search->getBmax().z))-(fabs(search->getBmin().z)));
-    double figuros_turis=PI*fabs(bounds->getRadius())*fabs(bounds->getRadius())*fabs(bounds->getHight());
+    //double figuros_turis=PI*fabs(bounds->getRadius())*fabs(bounds->getRadius())*fabs(bounds->getHight());
 double new_R=random->getNextValue();
     do{
 
@@ -44,7 +44,7 @@ double new_R=random->getNextValue();
         //cout << neighbours.size() << " pries " << endl;
         for(int t=0;t<neighbours.size();t++){
             //cout << vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]) )<< " " << pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R << endl;
-            if(vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]))>pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R)
+            if(vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]))>pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R) // galima pakeisti i tam tikros daleles pasirinktos dviguba R 
                 neighbours.erase(neighbours.begin()+t);
         }
 

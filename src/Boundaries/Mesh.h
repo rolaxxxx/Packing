@@ -16,7 +16,7 @@ public:
 	inline float TriArea2D(float x1, float y1, float x2, float y2, float x3, float y3);
 protected:
     void initialization(json duomenys);
-
+	std::vector<Point> taskai;
 };
 
 #endif

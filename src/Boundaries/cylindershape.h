@@ -9,6 +9,8 @@ public:
     bool check(Point newSphere);
 protected:
     void initialization(json duomenys);
+	    REAL radius;
+    REAL height;
 };
 
 #endif // CYLINDERSHAPE_H
