@@ -9,22 +9,16 @@
  kitos mesh.json dalys nekinta
  
  
-    "BOUNDARIES":
-		{
-		"TYPE":"Mesh",
-		"FILENAME":"cylinder_mesh.vtk",
-		"MESH_INPUT":"MESH_FILE",
-		"MESH_INPUT_FILE":"Mesh_rez.vtk"
-		},
+    "INPUT":{
+        "TYPE":"STANDART",
+		"filename":"Pradinis.vtk"
+	},
     
     
     
-    "BOUNDARIES":
-		{
-		"TYPE":"Mesh",
-		"FILENAME":"cylinder_mesh.vtk",
-		
-		},
+    "INPUT":{
+		"filename":"Pradinis.vtk"
+	},
     
     
 Pakuojant su pradine stadija reikia rinktis panasius sphere radius abejuose pakavimuose.
