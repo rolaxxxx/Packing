@@ -42,8 +42,7 @@ void CubeShape::initialization(json duomenys)
        max.y=duomenys["BOUNDARIES"]["BMAX"][1];
         max.z=duomenys["BOUNDARIES"]["BMAX"][2];
 		
-	//double  kubo_turis=((fabs(search->getBmax().x))-(fabs(search->getBmin().x)))*
-	//((fabs(search->getBmax().y))-(fabs(search->getBmin().y)))*((fabs(search->getBmax().z))-(fabs(search->getBmin().z)));
-	turis=(bounds[1]-bounds[0])*(bounds[3]-bounds[2])*(bounds[5]-bounds[4]);
+
+    turis=fabs(bounds[1]-bounds[0])*fabs(bounds[3]-bounds[2])*fabs(bounds[5]-bounds[4]);
     //uspildai
 }

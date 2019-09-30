@@ -10,20 +10,20 @@ bool Mesh::SameSign(int x, int y)
 {
     return (x >= 0) ^ (y < 0);
 }
-inline float Mesh::TriArea2D(float x1, float y1, float x2, float y2, float x3, float y3)
+inline REAL Mesh::TriArea2D(REAL x1, REAL y1, REAL x2, REAL y2, REAL x3, REAL y3)
 {
 return (x1-x2)*(y2-y3) - (x2-x3)*(y1-y2);
 }
 // Compute barycentric coordinates (u, v, w) for
 // point p with respect to triangle (a, b, c)
-void Mesh::Barycentric(Point a, Point b, Point c, Point p, float &u, float &v, float &w)
+void Mesh::Barycentric(Point a, Point b, Point c, Point p, REAL &u, REAL &v, REAL &w)
 {
 // Unnormalized triangle normal
 				Point m = cross_prod(b - a, c - a);
 				// Nominators and one-over-denominator for u and v ratios
-				float nu, nv, ood;
+                REAL nu, nv, ood;
 				// Absolute components for determining projection plane
-				float x = abs(m.x), y = abs(m.y), z = abs(m.z);
+                REAL x = abs(m.x), y = abs(m.y), z = abs(m.z);
 				// Compute areas in plane of largest projection
 				if (x >= y && x >= z) {
 				// x is largest, project to the yz plane
@@ -52,7 +52,7 @@ int Mesh::PointInTriangle(Point p, Point a, Point b, Point c)
 {
 								// Translate point and triangle so that point lies at origin
 
-			float u, v, w;
+            REAL u, v, w;
 			Barycentric(a, b, c, p, u, v, w);
 			return v >= 0.0f && w >= 0.0f && (v + w) <= 1.0f;
 
@@ -61,7 +61,7 @@ int Mesh::PointInTriangle(Point p, Point a, Point b, Point c)
 }
 int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
                                     {
-    float u, v, w, t;
+    REAL u, v, w, t;
 	
 	
 	
@@ -78,7 +78,7 @@ int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
 			Point n = cross_prod(ab, ac);
 			// Compute denominator d. If d <= 0, segment is parallel to or points
 			// away from triangle, so exit early
-			float d = dot_prod(qp, n);
+            REAL d = dot_prod(qp, n);
 			if (d <= 0.0f) return 0;
 			// Compute intersection t value of pq with plane of triangle. A ray
 			// intersects iff 0 <= t. Segment intersects iff 0 <= t <= 1. Delay
@@ -100,7 +100,7 @@ int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
 			if (w < 0.0f || v + w > d) return 0;
 			// Segment/ray intersects triangle. Perform delayed division and
 			// compute the last barycentric coordinate component
-			float ood = 1.0f / d;
+            REAL ood = 1.0f / d;
 			t *= ood;
 			v *= ood;
 			w *= ood;
@@ -126,8 +126,6 @@ int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
 }
 bool Mesh::check(Point newSphere){
 
-        float u, v, w;
-        float t;
         int count=0;
         // naudoti paprastus masyvus
         int susikirtimu_skaicius;

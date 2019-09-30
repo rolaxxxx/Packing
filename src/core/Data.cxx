@@ -8,6 +8,7 @@ Data::Data()
 void Data::insertNextPoint(PointType p)
 {
     data.push_back(p);
+    particle_turis+=(4.0/3.0)*PI*pow(p.R,3);
 }
 PointType Data::getPoint(INT i)
 {
@@ -26,6 +27,11 @@ std::string Data::getDuomenys() const
 void Data::setDuomenys(const std::string &value)
 {
     duomenys = value;
+}
+
+REAL Data::getParticle_turis() const
+{
+    return particle_turis;
 }
 
 

@@ -9,13 +9,6 @@ public:
     ARandom();
     virtual REAL getNextValue()=0;
     void init(json duomenys);
-    std::vector<REAL> getIntervals() const;
-
-    std::vector<REAL> getProbs() const;
-
-    REAL getMinValue() const;
-
-    REAL getMaxValue() const;
 
 protected:
     virtual void initialization(json duomenys)=0;

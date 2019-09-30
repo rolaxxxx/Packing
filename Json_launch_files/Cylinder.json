@@ -4,7 +4,6 @@
 		"TYPE":"Cylinder",
 		"CYLINDER_MIDDLE_MIN":[0,0,0],
 		"CYLINDER_MIDDLE_MAX":[0,0,0.22],
-		"LENGTHSQ":0.22,
 		"BOUNDS_MIN":[-0.15,-0.15,-0.22],
 		"BOUNDS_MAX":[0.15,0.15,0.22] , 		
 		"RADIUSSQ":0.15
@@ -12,7 +11,7 @@
 	"DISTRIBUTION":
 	{			
 		"COUNT":1,
-		"TYPE":"Uniform",
+		"TYPE":"Discrete",
 		"RADIUS":[0.005],
 		"PROBABILITY":[100],
 		"RMIN":0.005,
@@ -24,11 +23,11 @@
 		
 	},
 	"WRITER":{
-		"FILENAME":"Cylinder_rez.vtk"
+		"FILENAME":"output_cylinder_"
 	},
 	"INPUT":{
 		"TYPE":"STANDART",
-		"filename":"input.vtk"
+		"filename":"Pradinis.vtk"
 	},
 	"ALGORITHM":{
 		"TYPE":"SpherePackingAlgorithm"

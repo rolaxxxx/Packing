@@ -19,9 +19,12 @@ public:
 
     PointsArrayType getData() const;
 
+    REAL getParticle_turis() const;
+
 private:
     PointsArrayType data; /// tik daleles kuriuose ieskomi kaimynai
     std::string duomenys;
+    REAL particle_turis;
 
 
 

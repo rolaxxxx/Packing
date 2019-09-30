@@ -26,6 +26,7 @@ Point operator - (Point A, REAL B)
     A.z-=B;
     return A;
 }
+
 Point operator + (Point A, REAL B)
 {
     A.x+=B;

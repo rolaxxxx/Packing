@@ -13,23 +13,21 @@ void SpherePackingAlgorithm::pack()
     // for(int i=0;i<25000;i++){ senas for ciklas
     Timer time;
     int i=0;
-    Point empty_check;
+
     PointType pasirinkta_dalele;
-    double rez_time;
 
-    double daleliu_turis=0;
 
-    //double  kubo_turis=((fabs(search->getBmax().x))-(fabs(search->getBmin().x)))*((fabs(search->getBmax().y))-(fabs(search->getBmin().y)))*((fabs(search->getBmax().z))-(fabs(search->getBmin().z)));
-    //double figuros_turis=PI*fabs(bounds->getRadius())*fabs(bounds->getRadius())*fabs(bounds->getHight());
+    double isvedimas=10000;
+
+
 double new_R=random->getNextValue();
     do{
 
-        //std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
-         //   cout <<"poringumas "<< daleliu_turis/kubo_turis << endl;
-        //cout << data->getNumberOfPoints() << endl;
-        //cout <<"figuros ismatavimai " <<  bounds->getRadius() << " " << bounds->getHight() << endl;
-        //tikrinimas=false;
         int dydis=F.size();
+        if(isvedimas==0){
+            writer->write(data, search, duomenys, data->getParticle_turis()/bounds->getTuris());
+            isvedimas=10000;
+        }
 
 
         std::uniform_int_distribution<> dis(0, F.size()-1);
@@ -38,22 +36,12 @@ double new_R=random->getNextValue();
         vector<INT>neighbours=search->getGridNeigbours(rand_particle_index);
         pasirinkta_dalele=data->getPoint(rand_particle_index);
 
-//vector - > particle index -> ID -> cell elements//
-      //  pasirinkta_dalele.PrintStructure();
-        //c//out << new_R << endl;
-        //cout << neighbours.size() << " pries " << endl;
         for(int t=0;t<neighbours.size();t++){
             //cout << vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]) )<< " " << pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R << endl;
             if(vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]))>pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R) // galima pakeisti i tam tikros daleles pasirinktos dviguba R 
                 neighbours.erase(neighbours.begin()+t);
         }
 
-
-
-
-        //cout << neighbours.size() << " po" << endl;
-        //cout << F.size() << " f dydis " << endl;
-        //cout << "____" << endl;
         pasirinkta_dalele.koordinacinis_num=neighbours.size();
 
         temp = rand_particle_index;
@@ -63,12 +51,6 @@ double new_R=random->getNextValue();
         for (INT j = 0; j < neighbours.size()-1; j++){
             for (INT l = j+1; l < neighbours.size(); l++) {
 
-                //std::cout<<"generuojame sfera is "<<neighbours[j]<<" "<<neighbours[l]<<" "<<rand_particle_index<<"\n";
-               // cout << "======= " << endl;
-               // data->getPoint(neighbours[j]).PrintStructure();
-               // data->getPoint(neighbours[l]).PrintStructure();
-               // data->getPoint(rand_particle_index).PrintStructure();
-               // cout << "============ par " << endl;
                 PointsArrayType newSphere=
                         this->math.getSpheresTouchingThreeOtherSpheres(
                             data->getPoint(neighbours[j]),
@@ -97,11 +79,12 @@ double new_R=random->getNextValue();
                             search->addPoint(newSphere[z]);
                             F.push_back(data->getNumberOfPoints()-1);
 
-                            daleliu_turis+=(4.0/3.0)*PI*pow(newSphere[z].R,3);
+
                             //cout << j << " "   << newSphere[z].R << " " << daleliu_turis << " ismatavimai " << endl;
                             //cout << F.size() << "daleliu kiekis" << endl;
                             i++;
                              new_R=random->getNextValue();
+                             isvedimas--;
                         }
                     }
                 }
@@ -121,21 +104,18 @@ double new_R=random->getNextValue();
                            // time.StopTimer();
         if(check==i)
            {
-            //F[rand_particle_index]=-1;
-            //F.erase(std::remove(F.begin(), F.end(), rand_particle_index), F.end());
+
             remove(F.begin(),F.end(), rand_particle_index);
             F.pop_back();
            }
         //cout << F.size() << endl;
 
         std::cout<<"viso daleliu "<<data->getNumberOfPoints()<<"\n";
-        std::cout <<"poringumas "<< daleliu_turis/figuros_turis << endl;
+        std::cout <<"poringumas "<< data->getParticle_turis()/bounds->getTuris() << endl;
         }
     while(F.size());
 
-   // cout << time.CumulativeTime("sec") << endl;
-   //cout << rez_time << endl;
-    poringumas=daleliu_turis/figuros_turis;
+
     std::cout<<"packing done\n";
 }
 

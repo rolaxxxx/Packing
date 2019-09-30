@@ -11,6 +11,8 @@ protected:
     void initialization(json duomenys);
 	    REAL radius;
     REAL height;
+    double getRadius() const;
+    double getHight() const;
 };
 
 #endif // CYLINDERSHAPE_H

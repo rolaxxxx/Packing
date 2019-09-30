@@ -52,32 +52,36 @@ int main(int argc, char** argv)
     //  cout << " bounds struktura " << endl;
              // half_bounds.PrintStructure();
         //cout << "boundaries " << boundaries[0] << " " << boundaries[1] << " " << " " << boundaries[2]<< " " << boundaries[3]<< " " << boundaries[4] << " " << boundaries[5] << endl;
-      P1.x=half_bounds.x;
-      P1.y=half_bounds.y;
-      P1.z=half_bounds.z;
-      P1.R=RMIN;
 
-      P2.x=(half_bounds.x)+2*RMIN;
-      P2.y=half_bounds.y;
-      P2.z=half_bounds.z;
-      P2.R=RMIN;
-
-      P3.x=half_bounds.x+RMIN;
-      P3.y=(2.0*RMIN*sqrt(3.0)/2.0)+half_bounds.y;
-      P3.z=half_bounds.z;
-      P3.R=RMIN;
 
      random->init(duomenys);
       search->init(data, duomenys);
 
-      if(duomenys["BOUNDARIES"]["MESH_INPUT"]=="MESH_FILE"){  //MESH_FILE OR THREE SPHERES HANDLED BY ELSE
-     std::string filename=duomenys["BOUNDARIES"]["MESH_INPUT_FILE"];
-     reader.readVTK(search, filename);
-}
-      else {
+      if(duomenys["INPUT"]["TYPE"]=="STANDART"){  //MESH_FILE OR THREE SPHERES HANDLED BY ELSE
+          P1.x=half_bounds.x;
+          P1.y=half_bounds.y;
+          P1.z=half_bounds.z;
+          P1.R=RMIN;
+
+          P2.x=(half_bounds.x)+2*RMIN;
+          P2.y=half_bounds.y;
+          P2.z=half_bounds.z;
+          P2.R=RMIN;
+
+          P3.x=half_bounds.x+RMIN;
+          P3.y=(2.0*RMIN*sqrt(3.0)/2.0)+half_bounds.y;
+          P3.z=half_bounds.z;
+          P3.R=RMIN;
+
+
           search->addPoint(P1);
           search->addPoint(P2);
           search->addPoint(P3);
+}
+      else {
+
+          std::string filename=duomenys["INPUT"]["filename"];
+          reader.readVTK(search, filename);
       }
 
      algorithm->init(data,random,search, duomenys, bounds, 10, writer);

@@ -14,18 +14,17 @@ void BBoundaries::init(ASearch *search, json duomenys)
     this->initialization(this->duomenys);
 }
 
-double BBoundaries::getHight() const
-{
-    return height;
-}
+
 
 double *BBoundaries::getBounds() const
 {
     return bounds;
 }
-double BBoundaries::getRadius() const
+
+REAL BBoundaries::getTuris() const
 {
-    return radius;
+    return turis;
 }
+
 
 
