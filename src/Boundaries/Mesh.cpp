@@ -29,7 +29,7 @@ void Mesh::Barycentric(Point a, Point b, Point c, Point p, REAL &u, REAL &v, REA
 				// x is largest, project to the yz plane
 				nu = TriArea2D(p.y, p.z, b.y, b.z, c.y, c.z); // Area of PBC in yz plane
 				nv = TriArea2D(p.y, p.z, c.y, c.z, a.y, a.z); // Area of PCA in yz plane
-				ood = 1.0f / m.x; // 1/(2*area of ABC in yz plane)
+                ood = 1.0 / m.x; // 1/(2*area of ABC in yz plane)
 
 				
 
@@ -37,16 +37,16 @@ void Mesh::Barycentric(Point a, Point b, Point c, Point p, REAL &u, REAL &v, REA
 				// y is largest, project to the xz plane
 				nu = TriArea2D(p.x, p.z, b.x, b.z, c.x, c.z);
 				nv = TriArea2D(p.x, p.z, c.x, c.z, a.x, a.z);
-				ood = 1.0f / -m.y;
+                ood = 1.0 / -m.y;
 				} else {
 				// z is largest, project to the xy plane
 				nu = TriArea2D(p.x, p.y, b.x, b.y, c.x, c.y);
 				nv = TriArea2D(p.x, p.y, c.x, c.y, a.x, a.y);
-				ood = 1.0f / m.z;
+                ood = 1.0 / m.z;
 				}
 				u = nu * ood;
 				v = nv * ood;
-				w = 1.0f - u - v;
+                w = 1.0 - u - v;
 }
 int Mesh::PointInTriangle(Point p, Point a, Point b, Point c)
 {
@@ -54,7 +54,7 @@ int Mesh::PointInTriangle(Point p, Point a, Point b, Point c)
 
             REAL u, v, w;
 			Barycentric(a, b, c, p, u, v, w);
-			return v >= 0.0f && w >= 0.0f && (v + w) <= 1.0f;
+            return v >= 0.0 && w >= 0.0 && (v + w) <= 1.0;
 
 				
 
@@ -79,7 +79,7 @@ int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
 			// Compute denominator d. If d <= 0, segment is parallel to or points
 			// away from triangle, so exit early
             REAL d = dot_prod(qp, n);
-			if (d <= 0.0f) return 0;
+            if (d <= 0.0) return 0;
 			// Compute intersection t value of pq with plane of triangle. A ray
 			// intersects iff 0 <= t. Segment intersects iff 0 <= t <= 1. Delay
 			// dividing by d until intersection has been found to pierce triangle
@@ -87,7 +87,7 @@ int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
 			Point ap = p - a;
 			t = dot_prod(ap, n);
 			
-			if (t < 0.0f) return 0;
+            if (t < 0.0) return 0;
 			if (t > d) return 0; // For segment; exclude this code line for a ray test
 			// Compute barycentric coordinate components and test if within bounds
 			if(t<0&& t>1)
@@ -95,26 +95,20 @@ int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
 			
 			Point e = cross_prod(qp, ap);
 			v = dot_prod(ac, e);
-			if (v < 0.0f || v > d) return 0;
+            if (v < 0.0 || v > d) return 0;
 			w = -dot_prod(ab, e);
-			if (w < 0.0f || v + w > d) return 0;
+            if (w < 0.0 || v + w > d) return 0;
 			// Segment/ray intersects triangle. Perform delayed division and
 			// compute the last barycentric coordinate component
-            REAL ood = 1.0f / d;
+            REAL ood = 1.0 / d;
 			t *= ood;
 			v *= ood;
 			w *= ood;
-			u = 1.0f - v - w;
-			
-			
-				
-				
+            u = 1.0 - v - w;
 			r = u*a + v*b + w*c;
 			if(!PointInTriangle(r,  a, b, c))
 			return 0;
-		
-		
-			
+
 			REAL ilgis_tsk;
 			ilgis_tsk=vec_distance(r, p);
 			if(ilgis_tsk<p.R)
