@@ -9,10 +9,12 @@ bool CylinderShape::check(Point newSphere){
     //fabs(vector_len(p1)-vector_len(p2));
 		Point temp1;
 		Point temp2;
+        REAL RMAX_tmp;
+        RMAX_tmp=duomenys["DISTRIBUTION"]["RMAX"];
 		temp1=newSphere;
 		temp2=newSphere;
-        temp1=temp1-newSphere.R;
-        temp2=temp2+newSphere.R;
+        temp1=temp1-RMAX_tmp;
+        temp2=temp2+RMAX_tmp;
 		
         if(dot_prod(( temp1-min),(max-min))>=0&&dot_prod((temp1-max),(max-min))<=0
                 &&  (((vector_len(cross_prod((temp1-min),(max-min))))/(vector_len(max-min)))<=radius))
