@@ -59,13 +59,10 @@ int Mesh::PointInTriangle(Point p, Point a, Point b, Point c)
 				
 
 }
-int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
-                                    {
+int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c){
+
     REAL u, v, w, t;
-	
-	
-	
-	Point r;
+    Point r;
     Point ab = b - a;
 			Point ac = c - a;
 			Point qp = p - q;
@@ -109,32 +106,22 @@ int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c)
 			if(!PointInTriangle(r,  a, b, c))
 			return 0;
 
-			REAL ilgis_tsk;
-			ilgis_tsk=vec_distance(r, p);
-			if(ilgis_tsk<p.R)
-				return 0;
-			return 1;
+            REAL ilgis_tsk;
+            ilgis_tsk=vec_distance(r, p);
+            if(ilgis_tsk<p.R)
+               return 0;
 
-
-
+            return 1;
 }
 bool Mesh::check(Point newSphere){
 
         int count=0;
         // naudoti paprastus masyvus
         int susikirtimu_skaicius;
-        Point q,a;
+        Point q,a, q1;
         q.x=bounds[1]+(bounds[1]/2);
         q.y=bounds[3]+(bounds[3]/2);
         q.z=bounds[5]+(bounds[5]/2);
-		Point temp_padavimas1;
-		Point temp_padavimas2;
-		temp_padavimas1=newSphere;
-		temp_padavimas2=newSphere;
-		temp_padavimas1.x=temp_padavimas1.x-temp_padavimas1.R;
-		temp_padavimas1.y=temp_padavimas1.y-temp_padavimas1.R;
-		temp_padavimas1.z=temp_padavimas1.z-temp_padavimas1.R;
-		
 		//q.PrintStructure();
         //cout << " ribu reiksmes " << bounds[0] << " " << bounds[1] << " " << bounds[2] << " " << bounds[3] << " " << bounds[4] << " " << bounds[5] << endl;
        // newSphere.PrintStructure();
@@ -143,23 +130,34 @@ bool Mesh::check(Point newSphere){
        //double rezultatai;
       // timer.StartTimer();
         for(int i=0, j=0;i<tria_kiekis;i++, j+=3){
+
            // cout << j <<"-------------- j reiksme " << " ---- ---- i reiksme >>> " << i <<  endl;
             if(newSphere.x+newSphere.R<bounds[1]&& newSphere.x-newSphere.R>bounds[0]&& newSphere.y+newSphere.R<bounds[3]&& newSphere.y-newSphere.R>bounds[2]&& newSphere.z+newSphere.R<bounds[5]&& newSphere.z-newSphere.R>bounds[4]){
 
-               
+
                 //taskai[j].PrintStructure();
+
+
+
+
+
+
+                    if(IntersectLineTriangle(newSphere, q, taskai[j+2], taskai[j+1], taskai[j])){
+
+                        count++;
+
+                     }
 				
-				
-               if(IntersectLineTriangle(newSphere, q, taskai[j+2], taskai[j+1], taskai[j])){
-						
-						
-						count++;
-					}
-				
-			    else if(IntersectLineTriangle(newSphere, q, taskai[j], taskai[j+1], taskai[j+2])){
-                
-						count++;
-					}
+                else if(IntersectLineTriangle(newSphere, q, taskai[j], taskai[j+1], taskai[j+2])){
+
+                   count++;
+
+               }
+
+
+
+
+
 				
 				
 			    
