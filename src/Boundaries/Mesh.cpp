@@ -16,6 +16,50 @@ return (x1-x2)*(y2-y3) - (x2-x3)*(y1-y2);
 }
 // Compute barycentric coordinates (u, v, w) for
 // point p with respect to triangle (a, b, c)
+Point Mesh::ClosestPtPointTriangle(Point p, Point a, Point b, Point c)
+{
+    // Check if P in vertex region outside A
+                Point ab = b - a;
+                Point ac = c - a;
+                Point ap = p - a;
+                float d1 = dot_prod(ab, ap);
+                float d2 = dot_prod(ac, ap);
+                if (d1 <= 0.0f && d2 <= 0.0f) return a; // barycentric coordinates (1,0,0)
+                // Check if P in vertex region outside B
+                Point bp = p - b;
+                float d3 = dot_prod(ab, bp);
+                float d4 = dot_prod(ac, bp);
+                if (d3 >= 0.0f && d4 <= d3) return b; // barycentric coordinates (0,1,0)
+                // Check if P in edge region of AB, if so return projection of P onto AB
+                float vc = d1*d4 - d3*d2;
+                if (vc <= 0.0f && d1 >= 0.0f && d3 <= 0.0f) {
+                float v = d1 / (d1 - d3);
+                return a + v * ab; // barycentric coordinates (1-v,v,0)
+                }
+                // Check if P in vertex region outside C
+                Point cp = p - c;
+                float d5 = dot_prod(ab, cp);
+                float d6 = dot_prod(ac, cp);
+                if (d6 >= 0.0f && d5 <= d6) return c; // barycentric coordinates (0,0,1)142
+
+                // Check if P in edge region of AC, if so return projection of P onto AC
+                float vb = d5*d2 - d1*d6;
+                if (vb <= 0.0f && d2 >= 0.0f && d6 <= 0.0f) {
+                float w = d2 / (d2 - d6);
+                return a + w * ac; // barycentric coordinates (1-w,0,w)
+                }
+                // Check if P in edge region of BC, if so return projection of P onto BC
+                float va = d3*d6 - d5*d4;
+                if (va <= 0.0f && (d4 - d3) >= 0.0f && (d5 - d6) >= 0.0f) {
+                float w = (d4 - d3) / ((d4 - d3) + (d5 - d6));
+                return b + w * (c - b); // barycentric coordinates (0,1-w,w)
+                }
+                // P inside face region. Compute Q through its barycentric coordinates (u,v,w)
+                float denom = 1.0f / (va + vb + vc);
+                float v = vb * denom;
+                float w = vc * denom;
+                return a + ab * v + ac * w; // = u*a + v*b + w*c, u = va * denom = 1.0f - v - w
+}
 void Mesh::Barycentric(Point a, Point b, Point c, Point p, REAL &u, REAL &v, REAL &w)
 {
 // Unnormalized triangle normal
@@ -97,19 +141,16 @@ int Mesh::IntersectLineTriangle(Point p, Point q, Point a, Point b, Point c){
             if (w < 0.0 || v + w > d) return 0;
 			// Segment/ray intersects triangle. Perform delayed division and
 			// compute the last barycentric coordinate component
-            REAL ood = 1.0 / d;
-			t *= ood;
-			v *= ood;
-			w *= ood;
-            u = 1.0 - v - w;
-			r = u*a + v*b + w*c;
-			if(!PointInTriangle(r,  a, b, c))
-			return 0;
+           // REAL ood = 1.0 / d;
+            //t *= ood;
+            //v *= ood;
+            //w *= ood;
+           // u = 1.0 - v - w;
+            //r = u*a + v*b + w*c;
+            //if(!PointInTriangle(r,  a, b, c))
+            //return 0;
 
-            REAL ilgis_tsk;
-            ilgis_tsk=vec_distance(r, p);
-            if(ilgis_tsk<p.R)
-               return 0;
+
 
             return 1;
 }
@@ -129,20 +170,32 @@ bool Mesh::check(Point newSphere){
       // Timer timer;
        //double rezultatai;
       // timer.StartTimer();
+        REAL ilgis;
+
+        for(int i=0, j=0;i<tria_kiekis;i++, j+=3){
+            //cout << ilgis << " " << newSphere.R << "___________ " <<  endl;
+            ilgis=vec_distance(newSphere, ClosestPtPointTriangle(newSphere, taskai[j], taskai[j+1], taskai[j+2]));
+            //cout << ilgis << " " << newSphere.R << "___________ ======" <<  endl;
+        //cout << ilgis <<  endl;
+            if(ilgis<duomenys["DISTRIBUTION"]["RMAX"]){
+                 //cout << ilgis << " " << newSphere.R << " ___________ " <<  endl;
+                return 0;
+            }
+            ilgis=vec_distance(newSphere, ClosestPtPointTriangle(newSphere, taskai[j+2], taskai[j+1], taskai[j]));
+       // cout << ilgis <<  endl;
+            if(ilgis<duomenys["DISTRIBUTION"]["RMAX"])
+                return 0;
+
+
+        }
+
+
         for(int i=0, j=0;i<tria_kiekis;i++, j+=3){
 
            // cout << j <<"-------------- j reiksme " << " ---- ---- i reiksme >>> " << i <<  endl;
             if(newSphere.x+newSphere.R<bounds[1]&& newSphere.x-newSphere.R>bounds[0]&& newSphere.y+newSphere.R<bounds[3]&& newSphere.y-newSphere.R>bounds[2]&& newSphere.z+newSphere.R<bounds[5]&& newSphere.z-newSphere.R>bounds[4]){
-
-
-                //taskai[j].PrintStructure();
-
-
-
-
-
-
                     if(IntersectLineTriangle(newSphere, q, taskai[j+2], taskai[j+1], taskai[j])){
+
 
                         count++;
 
