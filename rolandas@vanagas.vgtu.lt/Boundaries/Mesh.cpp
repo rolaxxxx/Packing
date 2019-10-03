@@ -177,10 +177,14 @@ bool Mesh::check(Point newSphere){
             ilgis=vec_distance(newSphere, ClosestPtPointTriangle(newSphere, taskai[j], taskai[j+1], taskai[j+2]));
             //cout << ilgis << " " << newSphere.R << "___________ ======" <<  endl;
         //cout << ilgis <<  endl;
-            
-            
+            if(ilgis<duomenys["DISTRIBUTION"]["RMAX"]){
+                 //cout << ilgis << " " << newSphere.R << " ___________ " <<  endl;
+                return 0;
+            }
             ilgis=vec_distance(newSphere, ClosestPtPointTriangle(newSphere, taskai[j+2], taskai[j+1], taskai[j]));
-       
+       // cout << ilgis <<  endl;
+            if(ilgis<duomenys["DISTRIBUTION"]["RMAX"])
+                return 0;
 
 
         }
