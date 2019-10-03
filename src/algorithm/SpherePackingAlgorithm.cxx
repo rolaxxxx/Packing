@@ -38,7 +38,7 @@ double new_R=random->getNextValue();
 
         for(int t=0;t<neighbours.size();t++){
             //cout << vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]) )<< " " << pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R << endl;
-            if(vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]))>pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*new_R) // galima pakeisti i tam tikros daleles pasirinktos dviguba R 
+            if(vector_len(pasirinkta_dalele-data->getPoint(neighbours[t]))>pasirinkta_dalele.R+data->getPoint(neighbours[t]).R+2*pasirinkta_dalele.R) // galima pakeisti i tam tikros daleles pasirinktos dviguba R 
                 neighbours.erase(neighbours.begin()+t);
         }
 
