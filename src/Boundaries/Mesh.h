@@ -18,6 +18,7 @@ public:
 protected:
     void initialization(json duomenys);
 	std::vector<Point> taskai;
+	int tria_kiekis;
 };
 
 #endif
