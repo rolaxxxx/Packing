@@ -2,16 +2,12 @@
 #define ALGORITHMFACTORY_H
 #include "algorithm/AAlgorithm.h"
 
-enum class AlgorithmType
-{
-    SpherePackingAlgorithm
-};
+enum class AlgorithmType { SpherePackingAlgorithm };
 
-class AlgorithmFactory
-{
+class AlgorithmFactory {
 public:
-    AlgorithmFactory();
-    AAlgorithm* create(std::string type);
+  AlgorithmFactory();
+  AAlgorithm *create(std::string type);
 };
 
 #endif // ALGORITHMFACTORY_H

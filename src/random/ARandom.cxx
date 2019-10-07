@@ -1,15 +1,5 @@
 #include "ARandom.h"
 
-ARandom::ARandom()
-{
+ARandom::ARandom() {}
 
-}
-
-void ARandom::init(json duomenys)
-{
-
-
-    this->initialization(duomenys);
-}
-
-
+void ARandom::init(json duomenys) { this->initialization(duomenys); }

@@ -2,12 +2,10 @@
 #define SEARCHFACTORY_H
 #include "search/ASearch.h"
 
-
-class SearchFactory
-{
+class SearchFactory {
 public:
-    SearchFactory();
-    ASearch* create(std::string type);
+  SearchFactory();
+  ASearch *create(std::string type);
 };
 
 #endif // SEARCHFACTORY_H

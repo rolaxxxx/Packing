@@ -3,12 +3,13 @@
 #include "core/Constants.h"
 #include "core/Point.h"
 
-class Math
-{
+class Math {
 public:
-    Math();
-    PointsArrayType getSpheresTouchingThreeOtherSpheres(PointType p1,PointType p2,PointType p3,REAL r);
-    REAL getDistanceBetweenTwoSpheres(PointType p1,PointType p2);
+  Math();
+  PointsArrayType getSpheresTouchingThreeOtherSpheres(PointType p1,
+                                                      PointType p2,
+                                                      PointType p3, REAL r);
+  REAL getDistanceBetweenTwoSpheres(PointType p1, PointType p2);
 };
 
 #endif // MATH_H

@@ -1,30 +1,14 @@
 #include "BBoundaries.h"
 
+BBoundaries::BBoundaries() {}
 
-BBoundaries::BBoundaries()
-{
-
+void BBoundaries::init(ASearch *search, json duomenys) {
+  this->search = search;
+  this->duomenys = duomenys;
+  this->bounds = new double[6];
+  this->initialization(this->duomenys);
 }
 
-void BBoundaries::init(ASearch *search, json duomenys)
-{
-    this->search=search;
-    this->duomenys=duomenys;
-    this->bounds=new double[6];
-    this->initialization(this->duomenys);
-}
+double *BBoundaries::getBounds() const { return bounds; }
 
-
-
-double *BBoundaries::getBounds() const
-{
-    return bounds;
-}
-
-REAL BBoundaries::getTuris() const
-{
-    return turis;
-}
-
-
-
+REAL BBoundaries::getTuris() const { return turis; }
