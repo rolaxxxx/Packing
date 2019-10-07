@@ -7,7 +7,6 @@ void SpherePackingAlgorithm::pack() {
   std::random_device
       rd; // Will be used to obtain a seed for the random number engine
   std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
-  // for(int i=0;i<25000;i++){ senas for ciklas
   Timer time;
   int i = 0;
 
@@ -35,7 +34,6 @@ void SpherePackingAlgorithm::pack() {
       if (vector_len(pasirinkta_dalele - data->getPoint(neighbours[t])) >
           pasirinkta_dalele.R + data->getPoint(neighbours[t]).R +
               2 * pasirinkta_dalele.R) // galima pakeisti i tam tikros daleles
-                                       // pasirinktos dviguba R
         neighbours.erase(neighbours.begin() + t);
     }
 
@@ -43,7 +41,6 @@ void SpherePackingAlgorithm::pack() {
 
     temp = rand_particle_index;
     int check = i;
-    // cout << neighbours.size() << endl;
 
     for (INT j = 0; j < neighbours.size() - 1; j++) {
       for (INT l = j + 1; l < neighbours.size(); l++) {
@@ -57,11 +54,8 @@ void SpherePackingAlgorithm::pack() {
 
           if (newSphere[z].R != 0) {
             if (!search->intersect(newSphere[z], neighbours)) {
-              // std::cout<<"dedame\n";
 
               if (bounds->check(newSphere[z])) {
-
-                // newSphere[z].PrintStructure();
                 search->addPoint(newSphere[z]);
                 F.push_back(data->getNumberOfPoints() - 1);
                 i++;
@@ -73,13 +67,12 @@ void SpherePackingAlgorithm::pack() {
         }
       }
     }
-    // time.StopTimer();
+
     if (check == i) {
 
       remove(F.begin(), F.end(), rand_particle_index);
       F.pop_back();
     }
-    // cout << F.size() << endl;
 
     std::cout << "viso daleliu " << data->getNumberOfPoints() << "\n";
     std::cout << "poringumas " << data->getParticle_turis() / bounds->getTuris()
@@ -92,7 +85,6 @@ void SpherePackingAlgorithm::pack() {
 void SpherePackingAlgorithm::initialization() {
   for (int i = 0; i < data->getNumberOfPoints(); i++) {
     F.push_back(i);
-    // cout << F[i] << endl;
   }
   std::cout << "Performing initialization\n";
 }

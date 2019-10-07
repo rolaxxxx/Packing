@@ -19,12 +19,9 @@ protected:
   void initialization();
 
 private:
-  // unordered_map mp;
-  // std::unordered_map<INT, std::vector<INT>>SUFORMUOTAS_GRIDAS;
-  // std::vector<pair<INT, vector> SUFORMUOTAS_GRIDAS
   std::vector<std::vector<INT>> SUFORMUOTAS_GRIDAS;
   std::vector<INT> GetPotentialNeighbours(Point p);
-  // std::vector<std::vector<INT>> SUFORMUOTAS_GRIDAS;
+
   Timer time;
 };
 

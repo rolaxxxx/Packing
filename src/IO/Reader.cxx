@@ -28,7 +28,7 @@ void Reader::readVTK(ASearch *search, std::string filename) {
 
     insert.R =
         reader->GetOutput()->GetPointData()->GetArray("RADIUS")->GetTuple1(i);
-    // insert.PrintStructure();
+
     search->addPoint(insert);
   }
 }

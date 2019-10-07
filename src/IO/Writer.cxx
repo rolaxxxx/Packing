@@ -25,10 +25,6 @@ void Writer::write(Data *data, ASearch *search, json duomenys,
 
     radius->SetTuple1(i, tempDalele.R);
 
-    // cout << distance(intervals.begin(), find(intervals.begin(),
-    // intervals.end(), tempDalele.R)) <<  endl;
-    // cout<< tempDalele.x << " " << tempDalele.y << " " << tempDalele.z << " "
-    // << tempDalele.R << endl;
     cells->InsertNextCell(1);
     cells->InsertCellPoint(i);
   }
@@ -37,15 +33,6 @@ void Writer::write(Data *data, ASearch *search, json duomenys,
   polydata->SetPoints(points);
   polydata->GetPointData()->SetScalars(radius);
   polydata->SetVerts(cells);
-  // polydata->GetPointData()->SetScalars(particle_probabilities);
-
-  /*vtkSmartPointer<vtkDoubleArray> procentai = vtkDoubleArray::New();
-      procentai->SetName("PARTICLE_TYPE");
-procentai->SetNumberOfComponents(1);
-      for(int i=0;i<probabilities.size();i++){
-          procentai->InsertNextTuple1(probabilities[i]);
-      }
-*/
   vtkDoubleArray *por = vtkDoubleArray::New();
 
   por->SetName("PORINGUMAS");
@@ -54,11 +41,6 @@ procentai->SetNumberOfComponents(1);
 
   polydata->GetFieldData()->AddArray(por);
 
-  // VTK_DOUBLE poring=poringumas;
-
-  // galima naudoti smart pointer nereikes delete funkcijos
-  // vtkSmartPointer<vtkDataSetWriter> dsw =
-  // vtkSmartPointer<vtkDataSetWriter>::New();
   std::string filename = duomenys["WRITER"]["FILENAME"];
   filename += "_";
   filename += std::to_string(data->getNumberOfPoints());
