@@ -12,7 +12,7 @@ ARandom* RandomFactory::create(std::string type)
 {
     if(type=="Uniform")
     {
-        std::cout << "uniform distribution issimtas " << std::endl;
+        return new RandomUniform();
     }
     else if(type=="Discrete")
     {

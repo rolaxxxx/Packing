@@ -18,6 +18,7 @@ public:
 protected:
     void initialization(json duomenys);
      REAL min, max;
+	 
 };
 
 #endif // RANDOMUNIFORM_H

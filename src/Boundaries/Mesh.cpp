@@ -22,42 +22,42 @@ Point Mesh::ClosestPtPointTriangle(Point p, Point a, Point b, Point c)
                 Point ab = b - a;
                 Point ac = c - a;
                 Point ap = p - a;
-                float d1 = dot_prod(ab, ap);
-                float d2 = dot_prod(ac, ap);
-                if (d1 <= 0.0f && d2 <= 0.0f) return a; // barycentric coordinates (1,0,0)
+                REAL d1 = dot_prod(ab, ap);
+                REAL d2 = dot_prod(ac, ap);
+                if (d1 <= 0.0 && d2 <= 0.0) return a; // barycentric coordinates (1,0,0)
                 // Check if P in vertex region outside B
                 Point bp = p - b;
-                float d3 = dot_prod(ab, bp);
-                float d4 = dot_prod(ac, bp);
-                if (d3 >= 0.0f && d4 <= d3) return b; // barycentric coordinates (0,1,0)
+                REAL d3 = dot_prod(ab, bp);
+                REAL d4 = dot_prod(ac, bp);
+                if (d3 >= 0.0 && d4 <= d3) return b; // barycentric coordinates (0,1,0)
                 // Check if P in edge region of AB, if so return projection of P onto AB
-                float vc = d1*d4 - d3*d2;
-                if (vc <= 0.0f && d1 >= 0.0f && d3 <= 0.0f) {
-                float v = d1 / (d1 - d3);
+                REAL vc = d1*d4 - d3*d2;
+                if (vc <= 0.0 && d1 >= 0.0 && d3 <= 0.0) {
+                REAL v = d1 / (d1 - d3);
                 return a + v * ab; // barycentric coordinates (1-v,v,0)
                 }
                 // Check if P in vertex region outside C
                 Point cp = p - c;
-                float d5 = dot_prod(ab, cp);
-                float d6 = dot_prod(ac, cp);
-                if (d6 >= 0.0f && d5 <= d6) return c; // barycentric coordinates (0,0,1)142
+                REAL d5 = dot_prod(ab, cp);
+                REAL d6 = dot_prod(ac, cp);
+                if (d6 >= 0.0 && d5 <= d6) return c; // barycentric coordinates (0,0,1)142
 
                 // Check if P in edge region of AC, if so return projection of P onto AC
-                float vb = d5*d2 - d1*d6;
-                if (vb <= 0.0f && d2 >= 0.0f && d6 <= 0.0f) {
-                float w = d2 / (d2 - d6);
+                REAL vb = d5*d2 - d1*d6;
+                if (vb <= 0.0 && d2 >= 0.0 && d6 <= 0.0) {
+                REAL w = d2 / (d2 - d6);
                 return a + w * ac; // barycentric coordinates (1-w,0,w)
                 }
                 // Check if P in edge region of BC, if so return projection of P onto BC
-                float va = d3*d6 - d5*d4;
-                if (va <= 0.0f && (d4 - d3) >= 0.0f && (d5 - d6) >= 0.0f) {
-                float w = (d4 - d3) / ((d4 - d3) + (d5 - d6));
+                REAL va = d3*d6 - d5*d4;
+                if (va <= 0.0 && (d4 - d3) >= 0.0 && (d5 - d6) >= 0.0) {
+                REAL w = (d4 - d3) / ((d4 - d3) + (d5 - d6));
                 return b + w * (c - b); // barycentric coordinates (0,1-w,w)
                 }
                 // P inside face region. Compute Q through its barycentric coordinates (u,v,w)
-                float denom = 1.0f / (va + vb + vc);
-                float v = vb * denom;
-                float w = vc * denom;
+                REAL denom = 1.0 / (va + vb + vc);
+                REAL v = vb * denom;
+                REAL w = vc * denom;
                 return a + ab * v + ac * w; // = u*a + v*b + w*c, u = va * denom = 1.0f - v - w
 }
 void Mesh::Barycentric(Point a, Point b, Point c, Point p, REAL &u, REAL &v, REAL &w)
@@ -177,14 +177,10 @@ bool Mesh::check(Point newSphere){
             ilgis=vec_distance(newSphere, ClosestPtPointTriangle(newSphere, taskai[j], taskai[j+1], taskai[j+2]));
             //cout << ilgis << " " << newSphere.R << "___________ ======" <<  endl;
         //cout << ilgis <<  endl;
-            if(ilgis<duomenys["DISTRIBUTION"]["RMAX"]){
-                 //cout << ilgis << " " << newSphere.R << " ___________ " <<  endl;
-                return 0;
-            }
+            
+            
             ilgis=vec_distance(newSphere, ClosestPtPointTriangle(newSphere, taskai[j+2], taskai[j+1], taskai[j]));
-       // cout << ilgis <<  endl;
-            if(ilgis<duomenys["DISTRIBUTION"]["RMAX"])
-                return 0;
+       
 
 
         }

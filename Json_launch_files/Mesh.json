@@ -18,7 +18,7 @@
 		"TYPE":"Uniform"
 	},
 	"WRITER":{
-		"FILENAME":"output_mesh_"
+		"FILENAME":"FINAL"
 	},
 	"INPUT":{
         "TYPE":"STANDART",

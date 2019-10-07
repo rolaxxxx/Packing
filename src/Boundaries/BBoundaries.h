@@ -23,12 +23,7 @@ protected:
     ASearch *search;
     json duomenys;
 
-    Point center;
-    Point min;
-    Point max;
     
-    int tria_kiekis;
-    double rez=0;
 	REAL turis;
 
 

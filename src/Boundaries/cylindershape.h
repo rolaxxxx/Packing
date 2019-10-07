@@ -13,6 +13,8 @@ protected:
     REAL height;
     double getRadius() const;
     double getHight() const;
+	Point min;
+	Point max;
 };
 
 #endif // CYLINDERSHAPE_H

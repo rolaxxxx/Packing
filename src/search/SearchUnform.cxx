@@ -25,7 +25,7 @@ void SearchUnform::addPoint(PointType p)
     INT calc_id=calculateID(p);
    // cout << "suskaiciuotas taskas  ir tasko id " << calc_id <<  endl;
     //p.PrintStructure();
-
+if(calc_id>=0){
     //cout << SUFORMUOTAS_GRIDAS.size() << " " << calc_id <<  endl;
     std::vector<INT>temp=SUFORMUOTAS_GRIDAS[calc_id];
    // cout << calculateID(p) << endl;
@@ -37,6 +37,7 @@ void SearchUnform::addPoint(PointType p)
     p.ID=id;
     data->insertNextPoint(p);
     //p.PrintStructure();
+}
 }
 
 

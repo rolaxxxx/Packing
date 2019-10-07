@@ -10,6 +10,8 @@ public:
     bool check(Point newSphere);
 protected:
     void initialization(json duomenys);
+	Point min;
+	Point max;
 };
 
 #endif
