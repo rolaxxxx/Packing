@@ -19,6 +19,7 @@
 	},
 	"WRITER":{
         "TEMP_REZULTS_SWITCH":"true",
+        "AMOUNT_PARTICLES":3000,
 		"FILENAME":"output_mesh_"
 	},
 	"INPUT":{
