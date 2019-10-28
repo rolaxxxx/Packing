@@ -28,6 +28,8 @@ protected:
   Writer *writer;
   BBoundaries *bounds;
   REAL poringumas;
+  std::string rez_switch;
+  INT amount_particles;
   double *boundaries;
 };
 

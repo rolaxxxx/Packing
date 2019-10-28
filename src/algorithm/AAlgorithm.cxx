@@ -11,6 +11,8 @@ void AAlgorithm::init(Data *data, ARandom *random, ASearch *search,
   this->bounds = bounds;
   this->duomenys = duomenys;
   this->count = count;
+  this->rez_switch = duomenys["WRITER"]["TEMP_REZULTS_SWITCH"];
+  this->amount_particles = duomenys["WRITER"]["AMOUNT_PARTICLES"];
   this->boundaries = bounds->getBounds();
 
   this->initialization();
