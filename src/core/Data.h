@@ -20,10 +20,14 @@ public:
 
   REAL getParticle_turis() const;
 
+  bool getPack_done() const;
+  void setPack_done(bool value);
+
 private:
   PointsArrayType data; /// tik daleles kuriuose ieskomi kaimynai
   std::string duomenys;
   REAL particle_turis;
+  bool pack_done=false;
 };
 
 #endif // DATA_H

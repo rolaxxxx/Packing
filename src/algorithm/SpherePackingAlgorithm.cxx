@@ -80,6 +80,7 @@
       } while (F.size());
 
       std::cout << "packing done\n";
+      data->setPack_done(true);
     }
 
     void SpherePackingAlgorithm::initialization() {

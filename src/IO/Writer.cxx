@@ -41,10 +41,18 @@ void Writer::write(Data *data, ASearch *search, json duomenys,
 
   polydata->GetFieldData()->AddArray(por);
 
+
+
   std::string filename = duomenys["WRITER"]["FILENAME"];
+  if(!data->getPack_done()){
+
   filename += "_";
   filename += std::to_string(data->getNumberOfPoints());
   filename += +".vtk";
+  }
+
+
+
   vtkDataSetWriter *dsw =
       vtkDataSetWriter::New(); // reikia pakeisti i smart pointer // ant
                                // cylindro luzta
