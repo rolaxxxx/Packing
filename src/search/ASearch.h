@@ -11,6 +11,7 @@ public:
   virtual std::vector<INT> getGridNeigbours(INT id) = 0;
 
   virtual bool intersect(PointType id, std::vector<INT> neighbours) = 0;
+  virtual bool check_sphere_touch(PointType s1, PointType s2, PointType s3, PointType calculated_point) = 0;
 
   virtual void addPoint(PointType p) = 0;
   Point getBmax() const;

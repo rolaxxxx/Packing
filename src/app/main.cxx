@@ -84,8 +84,11 @@ int main(int argc, char **argv) {
     std::string filename = duomenys["INPUT"]["filename"];
     reader.readVTK(search, filename);
   }
-
-  algorithm->init(data, random, search, duomenys, bounds, 10, writer);
+  //std::string temp1;
+  //INT temp2;
+  std::string temp1=duomenys["WRITER"]["TEMP_REZULTS_SWITCH"];
+  INT temp2=duomenys["WRITER"]["AMOUNT_PARTICLES"];
+  algorithm->init(data, random, search, duomenys, bounds, 10, writer,  temp1, temp2);
   // cout << data->getNumberOfPoints() << endl;
   /// atliekame tikraji pakinima
   algorithm->pack();

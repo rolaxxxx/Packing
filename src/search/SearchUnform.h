@@ -7,7 +7,7 @@ public:
   SearchUnform();
   std::vector<INT> getNeighboursID(INT id);
   bool intersect(PointType p, std::vector<INT> neighbours);
-
+  bool check_sphere_touch(PointType s1, PointType s2, PointType s3, PointType calculated_point);
   std::vector<INT> getGridNeigbours(INT id);
   void addPoint(PointType p);
 
