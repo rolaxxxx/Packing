@@ -4,8 +4,7 @@ AAlgorithm::AAlgorithm() {}
 void AAlgorithm::init(Data *data, ARandom *random, ASearch *search,
                       json duomenys, BBoundaries *bounds, INT count,
                       Writer writer, std::string temp_rezults_switchas, INT particle_amount) {
-	std::string temp1;
-	INT temp2;
+	
   this->data = data;
   this->random = random;
   this->search = search;
