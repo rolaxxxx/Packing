@@ -103,5 +103,8 @@ bool SearchUnform::intersect(PointType p, vector<INT> neighbours) {
   return false;
 }
 bool SearchUnform::check_sphere_touch(PointType s1, PointType s2, PointType s3, PointType calculated_point){
-	
+	if(s1.R-calculated_point.R<EPSILON&&s2.R-calculated_point.R<EPSILON&&s3.R-calculated_point.R<EPSILON){
+		return true;
+	}
+	else return false;
 }

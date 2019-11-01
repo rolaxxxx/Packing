@@ -53,6 +53,7 @@
             for (int z = 0; z < newSphere.size(); z++) {
 
               if (newSphere[z].R != 0) {
+				  if(search->check_sphere_touch(data->getPoint(neighbours[j]), data->getPoint(neighbours[l]), data->getPoint(rand_particle_index), newSphere[z])){
                 if (!search->intersect(newSphere[z], neighbours)) {
 
                   if (bounds->check(newSphere[z])) {
@@ -63,6 +64,7 @@
                     isvedimas--;
                   }
                 }
+				  }
               }
             }
           }
@@ -89,3 +91,4 @@
       }
       std::cout << "Performing initialization\n";
     }
+
