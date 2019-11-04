@@ -233,4 +233,10 @@ void Mesh::initialization(json duomenys) {
       taskai.push_back(temp);
     }
   }
+  vtkMassProperties *mass = vtkMassProperties::New();
+  mass->SetInputData(reader->GetOutput());
+  mass->Update();
+  std::cout << "Volume = " << mass->GetVolume() << "\n";
+
+  turis = mass->GetVolume();
 }

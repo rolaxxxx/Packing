@@ -16,6 +16,7 @@ using json = nlohmann::json;
 #include "core/time.h"
 #include <algorithm>
 #include <chrono>
+#include <vtkMassProperties.h>
 #include <cmath>
 #include <ctime>
 #include <iomanip>
