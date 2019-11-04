@@ -40,6 +40,7 @@ protected:
   PointType prad2;
   PointType prad3;
   REAL RMax;
+  REAL RMin;
   REAL CELL_SIZE;
   double rez = 0;
 };

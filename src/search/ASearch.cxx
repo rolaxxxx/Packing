@@ -5,6 +5,7 @@ void ASearch::init(Data *data, json duomenys) {
   this->data = data;
 
   this->RMax = duomenys["DISTRIBUTION"]["RMAX"];
+  this->RMin = duomenys["DISTRIBUTION"]["RMIN"];
 
   this->CELL_SIZE = 2 * RMax;
 
