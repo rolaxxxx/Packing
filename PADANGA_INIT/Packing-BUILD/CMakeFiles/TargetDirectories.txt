@@ -1,5 +1,0 @@
-/home/STORAGE/ruslan/RATAS/PACKING/PADANGA_INIT/Packing-BUILD/CMakeFiles/rebuild_cache.dir
-/home/STORAGE/ruslan/RATAS/PACKING/PADANGA_INIT/Packing-BUILD/CMakeFiles/edit_cache.dir
-/home/STORAGE/ruslan/RATAS/PACKING/PADANGA_INIT/Packing-BUILD/CMakeFiles/MathTests.dir
-/home/STORAGE/ruslan/RATAS/PACKING/PADANGA_INIT/Packing-BUILD/CMakeFiles/Packing.dir
-/home/STORAGE/ruslan/RATAS/PACKING/PADANGA_INIT/Packing-BUILD/CMakeFiles/libPacking.dir
