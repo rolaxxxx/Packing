@@ -11,6 +11,7 @@ public:
 protected:
   virtual void initialization(json duomenys) = 0;
   json duomenys;
+  REAL rmin, rmax;
 };
 
 #endif // ARANDOM_H

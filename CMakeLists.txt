@@ -15,7 +15,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 set(CMAKE_CXX_FLAGS_RELEASE "-DNDEBUG -Wall -O3")
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
@@ -32,6 +32,8 @@ set(LIB_SOURCES
     src/search/ASearch.cxx
     src/search/SearchUnform.cxx
     src/search/SearchFactory.cxx
+
+
 
 
     src/algorithm/AAlgorithm.cxx
@@ -61,6 +63,9 @@ set(LIB_HEADERS
     src/core/Math.h
     src/core/time.h
     src/core/json_reader.h
+
+
+
 
     src/search/ASearch.h
     src/search/SearchUnform.h

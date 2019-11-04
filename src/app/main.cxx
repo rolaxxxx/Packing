@@ -24,7 +24,8 @@ int main(int argc, char **argv) {
   // galime ir rankomis sudeti pradinius taskus, naudojant Data klases objekta
   srand(time(NULL));
   /// koks failo formatas turi buti paduotas i funkcija dabar paduodamas string
-  /// formatas
+
+
   json duomenys = json::parse(data->getDuomenys());
   // check_file.Validation(duomenys);
   RandomFactory randomFactory;
@@ -46,6 +47,7 @@ int main(int argc, char **argv) {
   double *boundaries;
   boundaries = bounds->getBounds();
   Point half_bounds;
+  duomenys["DISTRIBUTION"]["RADIUS"].size();
 
   half_bounds.x = (boundaries[1] + boundaries[0]) / 2;
   half_bounds.y = (boundaries[3] + boundaries[2]) / 2;
