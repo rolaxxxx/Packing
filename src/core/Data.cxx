@@ -20,6 +20,14 @@ auto Json_cheker(auto a, json duomenys){
     else cout << a << "was not declared " << endl;
 }
 */
+json Data::Json_cheker(json duomenys, json val){
+	auto it_two = duomenys.find(val);
+	if(it_two!=duomenys.end()){
+		return val;
+	}
+	else std::cout << "neideta " << val << " reiksme" << std::endl;
+	
+}
 void Data::setDuomenys(const std::string &value) { duomenys = value; }
 
 REAL Data::getParticle_turis() const { return particle_turis; }

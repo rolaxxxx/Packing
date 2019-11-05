@@ -83,7 +83,7 @@ int main(int argc, char **argv) {
     search->addPoint(P3);
   } else {
 
-    std::string filename = duomenys["INPUT"]["filename"];
+    std::string filename = data->Json_cheker(duomenys, duomenys["INPUT"]["filename"]);
     reader.readVTK(search, filename);
   }
   //std::string temp1;
