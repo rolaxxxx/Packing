@@ -12,7 +12,7 @@ public:
   void insertNextPoint(INT idx, INT particle);
   INT getNumberOfPoints();
   void insertNextPoint_v(PointType p);
-json Json_cheker(json duomenys, json val);
+bool Json_cheker(json duomenys, std::string file);
   std::string getDuomenys() const;
   void setDuomenys(const std::string &value);
 

@@ -27,6 +27,7 @@ int main(int argc, char **argv) {
 
 
   json duomenys = json::parse(data->getDuomenys());
+  data->Json_cheker(duomenys, data->getDuomenys());
   // check_file.Validation(duomenys);
   RandomFactory randomFactory;
   SearchFactory searchFactory;
@@ -47,7 +48,7 @@ int main(int argc, char **argv) {
   double *boundaries;
   boundaries = bounds->getBounds();
   Point half_bounds;
-  duomenys["DISTRIBUTION"]["RADIUS"].size();
+  
 
   half_bounds.x = (boundaries[1] + boundaries[0]) / 2;
   half_bounds.y = (boundaries[3] + boundaries[2]) / 2;
@@ -83,14 +84,17 @@ int main(int argc, char **argv) {
     search->addPoint(P3);
   } else {
 
-    std::string filename = data->Json_cheker(duomenys, duomenys["INPUT"]["filename"]);
+    std::string filename = duomenys["INPUT"]["filename"];
     reader.readVTK(search, filename);
   }
   //std::string temp1;
   //INT temp2;
+  
   std::string temp1=duomenys["WRITER"]["TEMP_REZULTS_SWITCH"];
   INT temp2=duomenys["WRITER"]["AMOUNT_PARTICLES"];
+  
   algorithm->init(data, random, search, duomenys, bounds, 10, writer,  temp1, temp2);
+  
   // cout << data->getNumberOfPoints() << endl;
   /// atliekame tikraji pakinima
   algorithm->pack();
