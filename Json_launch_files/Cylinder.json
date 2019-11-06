@@ -23,7 +23,9 @@
 		
 	},
 	"WRITER":{
-		"FILENAME":"FINAL"
+        "TEMP_REZULTS_SWITCH":"true",
+        "AMOUNT_PARTICLES":3000,
+		"FILENAME":"output_cylinder_"
 	},
 	"INPUT":{
 		"TYPE":"STANDART",

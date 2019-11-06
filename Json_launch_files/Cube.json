@@ -19,7 +19,9 @@
 		"TYPE":"Uniform"
 	},
 	"WRITER":{
-		"FILENAME":"FINAL"
+        "TEMP_REZULTS_SWITCH":"true",
+        "AMOUNT_PARTICLES":3000,
+		"FILENAME":"output_cube_"
 	},
 	"INPUT":{
 		"TYPE":"STANDART",
