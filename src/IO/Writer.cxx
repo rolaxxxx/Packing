@@ -48,14 +48,15 @@ void Writer::write(Data *data, ASearch *search, json duomenys,
 
   filename += "_";
   filename += std::to_string(data->getNumberOfPoints());
-  filename += +".vtk";
+  
   }
 
 
 
   vtkDataSetWriter *dsw =
-      vtkDataSetWriter::New(); // reikia pakeisti i smart pointer // ant
-                               // cylindro luzta
+      vtkDataSetWriter::New(); 
+							   
+							    filename += +".vtk";
   dsw->SetFileName(filename.c_str());
   dsw->SetFileTypeToBinary();
   dsw->SetInputData(polydata);
