@@ -19,9 +19,7 @@
 	},
 	"SEARCH":
 	{
-		"TYPE":"Uniform",
-		"RAND_GEN_EVERY_ITERATION":"false",
-		"F_INDEX_RAND":"false"
+		"TYPE":"Uniform"
 		
 	},
 	"WRITER":{
@@ -34,7 +32,9 @@
 		"filename":"Pradinis.vtk"
 	},
 	"ALGORITHM":{
-		"TYPE":"SpherePackingAlgorithm"
+		"TYPE":"SpherePackingAlgorithm",
+		"RAND_GEN_EVERY_ITERATION":"false",
+		"F_INDEX_RAND":"false"
 	}
 }
 

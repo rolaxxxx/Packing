@@ -92,8 +92,8 @@ int main(int argc, char **argv) {
   
   std::string temp1=duomenys["WRITER"]["TEMP_REZULTS_SWITCH"];
   INT temp2=duomenys["WRITER"]["AMOUNT_PARTICLES"];
-  std::string temp3=duomenys["SEARCH"]["RAND_GEN_EVERY_ITERATION"];
-  std::string temp4=duomenys["SEARCH"]["F_INDEX_RAND"];
+  std::string temp3=duomenys["ALGORITHM"]["RAND_GEN_EVERY_ITERATION"];
+  std::string temp4=duomenys["ALGORITHM"]["F_INDEX_RAND"];
   
   algorithm->init(data, random, search, duomenys, bounds, 10, writer,  temp1, temp2, temp3, temp4);
   
