@@ -9,7 +9,7 @@
       std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
       Timer time;
       int i = 0;
-
+       int F_index=0;
       PointType pasirinkta_dalele;
 
       double isvedimas = amount_particles;
@@ -26,11 +26,16 @@
                         data->getParticle_turis() / bounds->getTuris());
           isvedimas = amount_particles;
         }
-
-
+INT rand_particle_index;
+        if(F_iterative=="true"){
         std::uniform_int_distribution<> dis(0, F.size() - 1);
         INT rand_particle_index_f_index = dis(gen);
-        INT rand_particle_index = F[rand_particle_index_f_index];
+        rand_particle_index = F[rand_particle_index_f_index];
+        }
+        else {
+            rand_particle_index = F[0];
+
+        }
 
 
         vector<INT> neighbours = search->getGridNeigbours(rand_particle_index);

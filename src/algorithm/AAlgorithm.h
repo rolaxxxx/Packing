@@ -12,7 +12,7 @@ public:
   AAlgorithm();
   void init(Data *data, ARandom *random, ASearch *search, json duomenys,
             BBoundaries *bounds, INT count, Writer writer,  std::string temp_rezults_switchas,
-            INT particle_amount,std::string rand_generator_switchas );
+            INT particle_amount,std::string rand_generator_switchas,  std::string F_array_switchas);
   virtual void pack() = 0;
   REAL getPoringumas() const;
 
@@ -31,6 +31,7 @@ protected:
   REAL poringumas;
   std::string rez_switch;
   std::string rand_gen_every_iteration;
+    std::string F_iterative;
   INT amount_particles;
   double *boundaries;
   

@@ -20,7 +20,8 @@
 	"SEARCH":
 	{
 		"TYPE":"Uniform",
-		"RAND_GEN_EVERY_ITERATION":"false"
+		"RAND_GEN_EVERY_ITERATION":"false",
+		"F_INDEX_RAND":"false"
 		
 	},
 	"WRITER":{
