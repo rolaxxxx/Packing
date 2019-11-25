@@ -92,8 +92,9 @@ int main(int argc, char **argv) {
   
   std::string temp1=duomenys["WRITER"]["TEMP_REZULTS_SWITCH"];
   INT temp2=duomenys["WRITER"]["AMOUNT_PARTICLES"];
+  std::string temp3=duomenys["SEARCH"]["RAND_GEN_EVERY_ITERATION"];
   
-  algorithm->init(data, random, search, duomenys, bounds, 10, writer,  temp1, temp2);
+  algorithm->init(data, random, search, duomenys, bounds, 10, writer,  temp1, temp2, temp3);
   
   // cout << data->getNumberOfPoints() << endl;
   /// atliekame tikraji pakinima

@@ -15,7 +15,10 @@
       double isvedimas = amount_particles;
 
       double new_R = random->getNextValue();
-      do {
+      do {   
+          if(rand_gen_every_iteration=="true"){
+                 new_R = random->getNextValue();
+          }
 
         int dydis = F.size();
         if (isvedimas < 0&& rez_switch=="true") {
@@ -24,9 +27,12 @@
           isvedimas = amount_particles;
         }
 
+
         std::uniform_int_distribution<> dis(0, F.size() - 1);
         INT rand_particle_index_f_index = dis(gen);
         INT rand_particle_index = F[rand_particle_index_f_index];
+
+
         vector<INT> neighbours = search->getGridNeigbours(rand_particle_index);
         pasirinkta_dalele = data->getPoint(rand_particle_index);
 
@@ -60,7 +66,9 @@
                     search->addPoint(newSphere[z]);
                     F.push_back(data->getNumberOfPoints() - 1);
                     i++;
+                    if(rand_gen_every_iteration=="false"){
                     new_R = random->getNextValue();
+                    }
                     isvedimas--;
                   }
                 }
