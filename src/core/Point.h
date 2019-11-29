@@ -8,6 +8,8 @@ struct Point {
   REAL y;
   REAL z;
   REAL R;
+  bool rmin_check=false;
+  bool rmax_check=false;
   bool bandyta_deti_maz = false;
   int koordinacinis_num;
   int ID;

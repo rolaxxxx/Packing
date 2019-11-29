@@ -10,6 +10,9 @@
       Timer time;
       int i = 0;
        int F_index=0;
+	   double Rmin=duomenys["DISTRIBUTION"]["RMIN"];
+	   Point temporary_assign;
+	   double Rmax=duomenys["DISTRIBUTION"]["RMAX"];
       PointType pasirinkta_dalele;
 
       double isvedimas = amount_particles;
@@ -17,7 +20,7 @@
       double new_R = random->getNextValue();
       do {   
           if(rand_gen_every_iteration=="true"){
-                 new_R = random->getNextValue();
+               //  new_R = random->getNextValue();
           }
 
         int dydis = F.size();
@@ -64,29 +67,76 @@ INT rand_particle_index;
             for (int z = 0; z < newSphere.size(); z++) {
 
               if (newSphere[z].R != 0) {
+				  
+				  
 				  if(search->check_sphere_touch(data->getPoint(neighbours[j]), data->getPoint(neighbours[l]), data->getPoint(rand_particle_index), newSphere[z])){
-                if (!search->intersect(newSphere[z], neighbours)) {
+                
+				
+				if (!search->intersect(newSphere[z], neighbours)) {
 
                   if (bounds->check(newSphere[z])) {
                     search->addPoint(newSphere[z]);
                     F.push_back(data->getNumberOfPoints() - 1);
                     i++;
                     if(rand_gen_every_iteration=="false"){
-                    new_R = random->getNextValue();
+                    //new_R = random->getNextValue();
                     }
                     isvedimas--;
                   }
                 }
+				
+				
 				  }
+				  
+				  
+				  
               }
             }
           }
         }
-
+		//std::cout << data->getPoint(rand_particle_index).rmax_check << endl;
         if (check == i) {
+				if(data->getPoint(rand_particle_index).rmin_check==true){
+					if(new_R==Rmin){
+					temporary_assign=data->getPoint(rand_particle_index);
+					temporary_assign.rmin_check=true;
+					data->getPoint(rand_particle_index)=temporary_assign;
+					}
+					new_R = random->getNextValue();	
+					
+				}
+					else if(data->getPoint(rand_particle_index).rmax_check==true){
+						if(new_R==Rmax){
+						temporary_assign=data->getPoint(rand_particle_index);
+						temporary_assign.rmax_check=true;
+						data->getPoint(rand_particle_index)=temporary_assign;
+						}
+						new_R = random->getNextValue();
 
-          remove(F.begin(), F.end(), rand_particle_index);
-          F.pop_back();
+						
+					}
+					
+					else 
+					{
+						remove(F.begin(), F.end(), rand_particle_index);
+						F.pop_back();
+						
+						temporary_assign=data->getPoint(rand_particle_index);
+						temporary_assign.rmin_check=false;
+						data->getPoint(rand_particle_index)=temporary_assign;
+						
+						
+						temporary_assign=data->getPoint(rand_particle_index);
+						temporary_assign.rmax_check=false;
+						data->getPoint(rand_particle_index)=temporary_assign;
+						
+						
+						
+						
+						
+						new_R = random->getNextValue();
+					}
+		  
         }
 
         std::cout << "viso daleliu " << data->getNumberOfPoints() << "\n";
